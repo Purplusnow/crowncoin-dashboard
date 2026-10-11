@@ -10,14 +10,17 @@ GA4 → BigQuery → GitHub Actions(Python) → `docs/data/*.json` → GitHub Pa
 
 ---
 
-## 지금 상태 — 아직 데이터가 없다 (출시 전)
+## 지금 상태 — 파이프라인은 뚫렸고, 데이터가 아직 없다 (출시 전)
 
-**비어 있는 게 정상이다.** 수집이 돌려면 다음 두 가지가 먼저다.
+2026-10-11 실제 데이터셋에 붙여 **양쪽 수집기 완주 확인**. 다만 `events_20261010`
+한 장 11행(릴리스 빌드 시험 흔적)뿐이라 지표는 전부 0 이다. **비어 있는 게 정상이다.**
 
-| | 필요한 것 | 주체 |
+| | 필요한 것 | 상태 |
 |---|---|---|
-| ① | 앱이 Play 에 올라가 **실제 유저 이벤트**가 BigQuery 에 쌓인다 | 🧑 |
-| ② | GitHub Secret **`GCP_SA_KEY`** 등록 (서비스계정 JSON 전문) | 🧑 |
+| ① | 서비스계정 + 키 | ✅ 완료 (Data Viewer + Job User) |
+| ② | 로컬 수집 검증 | ✅ `ingame.py`·`realtime.py` 완주 |
+| ③ | GitHub Secret **`GCP_SA_KEY`** 등록 | ⬜ 리포를 올린 뒤 `gh secret set GCP_SA_KEY < ~/dev/keystore/crowncoin-bq.json` |
+| ④ | 앱이 Play 에 올라가 **실제 유저 이벤트**가 쌓인다 | ⬜ 🧑 |
 
 ②가 **스위치 역할을 겸한다** — 시크릿이 없으면 모든 워크플로가 `if: env.GCP_SA_KEY != ''`
 에서 걸려 **초록색으로 아무것도 안 하고** 끝난다. 그래서 스케줄을 미리 켜 둬도 안전하고,
@@ -32,7 +35,7 @@ GA4 → BigQuery → GitHub Actions(Python) → `docs/data/*.json` → GitHub Pa
 | GCP 프로젝트 | `crownandcoin` |
 | BigQuery 데이터셋 | `analytics_558372672` |
 | 리전 | `asia-northeast3` ★클라이언트에 **명시**해야 한다. 안 맞으면 잡이 실패한다 |
-| 서비스계정 키(로컬) | `~/dev/keystore/crowncoin-bq.json` ⬜ 미발급 |
+| 서비스계정 키(로컬) | `~/dev/keystore/crowncoin-bq.json` ✅ 발급·검증 완료 (`crowncoin-bq@crownandcoin.iam.gserviceaccount.com`) |
 
 ## 수집기
 
@@ -97,6 +100,11 @@ Pages 가 200 을 줘도 화면이 그려지는 건 아니다. 스크립트 하�
 ## 함정
 
 - **스캔 비용을 자기보고하게 한다.** 각 수집기가 `total_bytes_billed` 를 누적해 `scan_mb` 로 싣는다.
+  ★`ingame.py` 는 원작에도 이게 **빠져 있었다**(realtime/users/anomaly 만 있었다). 매일 도는
+  주 수집기라 제일 필요한 자리여서 여기 넣었다. 넣자마자 바로 알려 준 사실 —
+  **데이터 11행인데 스캔 170MB** 다. BigQuery 가 쿼리당 **10MB 를 최소 과금**하는데 쿼리가
+  17개라 그렇다. 즉 **데이터가 0이어도 하루 2회 × 170MB = 340MB** 가 바닥값으로 나간다
+  (월 ~10GB, 무료 1TB의 1%). 쿼리 개수를 늘릴 땐 이 바닥값도 같이 는다는 걸 기억할 것.
 - `events_*` 와일드카드는 **`events_intraday_*` 도 같이 잡는다.** 날짜를 비교하는 자리에서
   `_TABLE_SUFFIX` 를 그냥 쓰면 `intraday_20261010` 이라 비교가 전부 어긋나고, 막지 않으면
   그 날짜가 **두 번** 세어진다.

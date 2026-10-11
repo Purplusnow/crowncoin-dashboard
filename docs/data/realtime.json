@@ -1,0 +1,138 @@
+{
+ "updated": "2026-10-11 15:54 KST",
+ "stage_labels": [
+  {
+   "key": "new_game",
+   "label": "새게임",
+   "kind": "spine"
+  },
+  {
+   "key": "intro_done",
+   "label": "인트로",
+   "kind": "spine"
+  },
+  {
+   "key": "dev_concept",
+   "label": "기획",
+   "kind": "spine"
+  },
+  {
+   "key": "dev_design",
+   "label": "디자인",
+   "kind": "spine"
+  },
+  {
+   "key": "dev_prototype",
+   "label": "프로토",
+   "kind": "spine"
+  },
+  {
+   "key": "dev_alpha",
+   "label": "알파",
+   "kind": "spine"
+  },
+  {
+   "key": "dev_beta",
+   "label": "베타",
+   "kind": "spine"
+  },
+  {
+   "key": "dev_launch",
+   "label": "출시",
+   "kind": "spine"
+  },
+  {
+   "key": "first_ops",
+   "label": "첫운영",
+   "kind": "spine"
+  },
+  {
+   "key": "property_1",
+   "label": "부동산1",
+   "kind": "spine"
+  },
+  {
+   "key": "property_2",
+   "label": "부동산2",
+   "kind": "spine"
+  },
+  {
+   "key": "property_3",
+   "label": "부동산3",
+   "kind": "spine"
+  },
+  {
+   "key": "property_4",
+   "label": "부동산4",
+   "kind": "spine"
+  },
+  {
+   "key": "property_5",
+   "label": "부동산5",
+   "kind": "spine"
+  },
+  {
+   "key": "game_sale",
+   "label": "은퇴",
+   "kind": "spine"
+  },
+  {
+   "key": "first_donate",
+   "label": "첫후원",
+   "kind": "spine"
+  },
+  {
+   "key": "class2",
+   "label": "신분2",
+   "kind": "spine"
+  },
+  {
+   "key": "class3",
+   "label": "신분3",
+   "kind": "spine"
+  },
+  {
+   "key": "class4",
+   "label": "신분4",
+   "kind": "spine"
+  },
+  {
+   "key": "class5",
+   "label": "신분5",
+   "kind": "spine"
+  },
+  {
+   "key": "class6",
+   "label": "신분6",
+   "kind": "spine"
+  },
+  {
+   "key": "class7",
+   "label": "신분7",
+   "kind": "spine"
+  },
+  {
+   "key": "first_rebirth",
+   "label": "첫환생",
+   "kind": "spine"
+  },
+  {
+   "key": "first_manager",
+   "label": "첫매니저",
+   "kind": "side"
+  },
+  {
+   "key": "first_finance",
+   "label": "첫금융",
+   "kind": "side"
+  },
+  {
+   "key": "first_ad",
+   "label": "첫광고",
+   "kind": "side"
+  }
+ ],
+ "tables": [],
+ "scan_mb": 0.0,
+ "scan_note": "이번 실행 스캔 0.0MB. 매시간(24회/일)이면 월 0.00GB — 무료 구간은 월 1,024GB."
+}

@@ -43,8 +43,19 @@ WINDOW_DAYS = 45
 client = bigquery.Client(project=PROJECT, location=LOCATION)
 
 
+#: 이 회차에 과금된 스캔 바이트 누계. ★사양 §12.3 — 스캔 비용은 **자기보고**하게 한다.
+#: 쿼리가 늘거나 윈도우가 넓어지면 요금이 조용히 오르는데, 숫자를 안 실으면 청구서를
+#: 받기 전까지 아무도 모른다. realtime/users/anomaly 는 이미 싣고 있었고 **매일 도는
+#: ingame 만 빠져 있었다**(원작도 같다) — 제일 필요한 자리였다.
+_billed = 0
+
+
 def q(sql: str) -> list[dict]:
-    return [dict(r) for r in client.query(sql).result()]
+    global _billed
+    job = client.query(sql)
+    rows = [dict(r) for r in job.result()]
+    _billed += job.total_bytes_billed or 0
+    return rows
 
 
 def suffix_daily(cond: str) -> str:
@@ -547,9 +558,10 @@ def main() -> None:
         "viewers": int(x["viewers"]), "dau": int(x["dau"]),
     } for x in adr]
 
+    out["scan_mb"] = round(_billed / 1048576, 2)
     with open(OUT, "w", encoding="utf-8") as f:
         json.dump(out, f, ensure_ascii=False, indent=2)
-    print(f"wrote {OUT}: retired={r['retired']} rebirth={r['rebirthed']} "
+    print(f"스캔 {out['scan_mb']}MB · wrote {OUT}: retired={r['retired']} rebirth={r['rebirthed']} "
           f"reach1={out['kpi'].get('reach1')}% "
           f"pacing={len(out['pacing'])} versions={len(out['by_version'])} "
           f"onb_versions={len(out['onb_versions'])} reach_versions={len(out['reach_versions']['versions'])} "
