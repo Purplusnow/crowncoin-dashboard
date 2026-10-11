@@ -74,6 +74,18 @@ python3 tools/realtime.py      # → docs/data/realtime.json
 python3 -m http.server -d docs 8080
 ```
 
+## 검사
+
+```bash
+python3 -m http.server -d docs 8099 &
+node tools/pagetest.js      # 모든 탭을 **눌러 보고** JS 예외·빈 뷰를 잡는다
+```
+
+Pages 가 200 을 줘도 화면이 그려지는 건 아니다. 스크립트 하나가 터지면 흰 화면이 뜨는데
+배포는 "성공"으로 남는다. 실제로 이 검사가 첫 구축 때 버그를 잡았다 — 매출 뷰를 빼면서
+`userrow.js` 도 같이 뺐는데 `realtime.js` 가 `window.UserRow` 를 쓰고 있어 **실시간 탭이
+통째로 죽어** 있었다. 파일 목록만 봐서는 안 보이고 탭을 눌러 봐야 보인다.
+
 ## 운영 규약 (사양 §12.5)
 
 - 모든 산출물에 `updated` + `scan_mb` 를 싣고 화면에 표시한다.
