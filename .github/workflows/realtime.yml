@@ -97,10 +97,6 @@ jobs:
       # 인앱매출은 Play Console 이 주문 목록 API 를 안 줘서 손으로 넣고 있었다.
       # 게임이 GA4 표준 purchase(value·currency)를 쏘므로 그쪽으로 받는다 — 같은 자격증명으로
       # 이미 돌고 있는 이 잡에 얹는 게 제일 싸다. 손으로 넣은 날은 건드리지 않는다.
-      - name: 인앱매출 수집
-        if: env.GCP_SA_KEY != '' && steps.guard.outputs.skip != 'true'
-        run: python3 tools/iap.py
-
       - name: 커밋
         if: env.GCP_SA_KEY != '' && steps.guard.outputs.skip != 'true'
         run: |

@@ -3,6 +3,7 @@
 최종 업데이트: 2026-10-11
 
 GA4 → BigQuery → GitHub Actions(Python) → `docs/data/*.json` → GitHub Pages + 바닐라 JS.
+공개 리포 · Pages 는 `main` 의 `/docs` 에서 서빙한다 → https://purplusnow.github.io/crowncoin-dashboard/
 빌드 없음, 프레임워크 없음, 런타임 의존성은 `google-cloud-bigquery` 하나.
 
 설계 근거는 게임 레포의 [`docs/INTEGRATION_SPEC.md` §12](../crown-and-coin/docs/INTEGRATION_SPEC.md) 이고,
@@ -19,7 +20,7 @@ GA4 → BigQuery → GitHub Actions(Python) → `docs/data/*.json` → GitHub Pa
 |---|---|---|
 | ① | 서비스계정 + 키 | ✅ 완료 (Data Viewer + Job User) |
 | ② | 로컬 수집 검증 | ✅ `ingame.py`·`realtime.py` 완주 |
-| ③ | GitHub Secret **`GCP_SA_KEY`** 등록 | ⬜ 리포를 올린 뒤 `gh secret set GCP_SA_KEY < ~/dev/keystore/crowncoin-bq.json` |
+| ③ | GitHub Secret **`GCP_SA_KEY`** 등록 | ✅ 완료 |
 | ④ | 앱이 Play 에 올라가 **실제 유저 이벤트**가 쌓인다 | ⬜ 🧑 |
 
 ②가 **스위치 역할을 겸한다** — 시크릿이 없으면 모든 워크플로가 `if: env.GCP_SA_KEY != ''`
@@ -44,6 +45,10 @@ GA4 → BigQuery → GitHub Actions(Python) → `docs/data/*.json` → GitHub Pa
 | `tools/ingame.py` | 일별만 | `docs/data/ingame.json` | 하루 2회 (18:00 / 22:00 KST) |
 | `tools/realtime.py` | 스트리밍만 | `docs/data/realtime.json` | 매시 4회 (:08 :23 :38 :53) |
 | `tools/probe.py` | — | stdout | 수동 진단 |
+
+★`realtime.yml` 에서 `iap.py`(인앱매출) 스텝을 뺐다 — 원작 워크플로를 그대로 가져왔는데
+그 스크립트를 이 리포에 안 가져왔다. 두면 매시간 "그런 파일 없음"으로 빨갛게 죽는다.
+출시 후 매출이 생기면 `iap.py` 와 함께 되살린다.
 
 `ingame` 을 **하루 2회** 돌리는 건 GA4 일별 테이블의 landing 시각이 날마다 흔들리기 때문이다.
 값이 같으면 커밋하지 않으므로 두 번 돌아도 부담이 없다.
