@@ -1,0 +1,73 @@
+# 인게임 분석 수집 — BigQuery(GA4 export) → docs/data/ingame.json
+#
+# GA4 일별 export가 다음날 landing되므로 하루 1회면 충분(스트리밍 유료 안 씀).
+# 인증: 서비스계정 키(GitHub Secret GCP_SA_KEY). BigQuery Data Viewer + Job User 권한만.
+#
+# 시각 근거(실측): 10/01 12:27 KST 에 전날(9/30) 테이블이 아직 없었고,
+# 09/30 17:43 KST 에는 전날(9/29) 테이블이 있었다. 즉 오후 중후반에 들어오며 날마다 흔들린다.
+# 구글은 "속성 시간대 기준 하루 종료 후 24시간 이내" 외에 더 좁은 보장을 하지 않는다.
+# 그래서 오후·밤 두 번 돌린다 — 값이 같으면 커밋하지 않으므로 두 번 돌아도 부담이 없다.
+name: ingame
+
+on:
+  schedule:
+    - cron: '0 9 * * *'           # 18:00 KST — 보통 이때면 전날치가 들어와 있다
+    - cron: '0 13 * * *'          # 22:00 KST — 늦게 들어오는 날을 당일 안에 잡는 보강
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ingame
+  cancel-in-progress: false
+
+jobs:
+  ingame:
+    runs-on: ubuntu-latest
+    env:
+      GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
+      BQ_PROJECT: crownandcoin
+      BQ_DATASET: analytics_558372672
+      BQ_LOCATION: asia-northeast3
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: 의존성
+        if: env.GCP_SA_KEY != ''
+        run: pip install --quiet google-cloud-bigquery
+
+      - name: 서비스계정 키 파일화
+        if: env.GCP_SA_KEY != ''
+        run: |
+          printf '%s' "$GCP_SA_KEY" > "$RUNNER_TEMP/sa.json"
+          echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/sa.json" >> "$GITHUB_ENV"
+
+      - name: 인게임 데이터 수집
+        if: env.GCP_SA_KEY != ''
+        run: python3 tools/ingame.py
+
+      - name: 커밋
+        if: env.GCP_SA_KEY != ''
+        run: |
+          if git diff --quiet -- docs/data/ingame.json; then
+            echo "변경 없음 — 커밋 생략"
+            exit 0
+          fi
+          git config user.name  "crowncoin-bot"
+          git config user.email "34591718+Purplusnow@users.noreply.github.com"
+          git add docs/data/ingame.json
+          git commit -m "인게임 수집: $(date -u -d '+9 hours' '+%Y-%m-%d %H:%M') KST"
+          # 다른 수집 잡이나 사람 커밋이 사이에 끼면 푸시가 밀린다(! [rejected] fetch first).
+          # 재시도가 없으면 수집은 성공해 놓고 그 회차 데이터를 통째로 버리게 된다 —
+          # 10/02 00:34 스케줄 실행이 그렇게 날아갔다. 리베이스하고 몇 번 다시 민다.
+          for i in 1 2 3 4 5; do
+            git push && break
+            echo "푸시 밀림 — 리베이스 후 재시도 $i"
+            git pull --rebase --autostash origin main || exit 1
+            sleep $((i * 3))
+          done

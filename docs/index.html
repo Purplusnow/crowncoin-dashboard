@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CROWN BOARD — 왕관과 금화 인게임 지표</title>
+<meta name="description" content="왕관과 금화 인게임 지표 — 리텐션·퍼널·페이싱.">
+<meta name="color-scheme" content="light">
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="style.css?v=6bc0c3cb">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👑</text></svg>">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-name">CROWN BOARD</span>
+    <span class="brand-sub" id="brand-sub">왕관과 금화 — 인게임 × 실시간</span>
+  </div>
+  <span class="updated" id="updated"></span>
+</header>
+
+<nav class="viewnav">
+  <button class="vtab is-on" data-view="ingame" type="button">인게임</button>
+  <button class="vtab" data-view="realtime" type="button">실시간</button>
+</nav>
+
+<div class="risk" id="risk" hidden></div>
+
+<div class="demo-banner" id="demo-banner" hidden>
+  데모 데이터입니다 — 실제 기록이 아닙니다. <a href="./">실제 데이터 보기</a>
+</div>
+
+
+<main class="wrap" id="view-ingame">
+  <section class="tiles" id="ig-kpi"></section>
+
+  <section class="card">
+    <div class="card-head"><h2>코호트 리텐션 (설치일 × Day n)</h2>
+      <p class="card-sub">설치일별 코호트가 D1~D14에 얼마나 복귀하나 · 히트맵(빨강=높음) · 세로로 요일/코호트 편차, 가로로 감쇠 확인</p></div>
+    <div id="ig-retention-cohort"></div>
+  </section>
+
+  <section class="card">
+    <div class="card-head"><h2>새게임 → 은퇴 → 첫환생 퍼널</h2>
+      <p class="card-sub" id="ig-funnel-sub">은퇴한 유저가 어디서 막히나 · 미환생 원인 3분할</p></div>
+    <div id="ig-funnel"></div>
+  </section>
+
+  <section class="card">
+    <div class="card-head"><h2>버전 비교</h2>
+      <p class="card-sub">첫 등장 버전 코호트별 은퇴·환생 전환 · <b>수정 효과 검증용</b></p></div>
+    <div class="table-scroll"><table class="vtable" id="ig-versions"></table></div>
+    <p class="chart-note">⚠️ 최신 버전은 코호트가 어려서(나이 작음) 환생 전환율이 낮게 보이는 게 정상 — <b>같은 나이대끼리</b> 비교할 것. 스텝별 도달은 아래 "온보딩·도달" 카드에서 버전 선택.</p>
+  </section>
+
+  <section class="card">
+    <div class="card-head"><h2>온보딩 · 도달 (버전 선택)</h2>
+      <p class="card-sub">전체 기간 · 첫 등장 버전 코호트 · 체크한 버전만 표시(기본 전체)</p></div>
+    <div id="ig-vsel" class="vsel"></div>
+    <div id="ig-vmode" class="vmode"></div>
+    <div class="vsub">단계 × 버전 (셀 = 도달 유저 · 색 = 도달률 · 좌우 스크롤)</div>
+    <div class="table-scroll"><table class="vftable" id="ig-onbv-table"></table></div>
+    <p class="chart-note">신분2~7은 <b>v819부터 계측</b> — 이전 버전 코호트는 <code>—</code>(계측 부재로 과소집계 방지).</p>
+    <div class="vsub">추월% 도달 생존 × 버전 (셀 = 그 % 이상 도달한 유저 · 위→아래 숫자는 줄기만 함)</div>
+    <div id="ig-vmode-reach" class="vmode"></div>
+    <div class="table-scroll"><table class="vftable" id="ig-reachv"></table></div>
+  </section>
+
+  <section class="card">
+    <div class="card-head"><h2>진행 페이싱 — 구간당 시간</h2>
+      <p class="card-sub">추월 1%p당 걸린 시간(시간/%, 캘린더) · 봉우리=벽 · 표본 N≥30 구간만(생존자편향 제거)</p></div>
+    <div id="ig-pacing"></div>
+  </section>
+
+  <section class="card">
+    <div class="card-head"><h2>진행 분포 히트맵 (날짜 × 추월%)</h2>
+      <p class="card-sub">가로=날짜 · 세로=그날 도달한 추월% · 셀 진하기=그 지점 유저 밀도 · 무리가 날짜따라 위로 오르는지로 진행 개선 확인</p></div>
+    <div id="ig-progress-heatmap"></div>
+  </section>
+
+  <section class="card" id="ig-gate-card" hidden>
+    <div class="card-head"><h2>🚪 2부 개방 현황</h2>
+      <p class="card-sub">진입자가 적을 때 <b>관문이 빡센 건지</b> <b>아직 업데이트를 안 받은 건지</b>는 전혀 다른 문제인데
+        진입자 수만 봐서는 안 갈립니다. 자격자 → 새 빌드 보유 → 실제 진입 순으로 봅니다.</p>
+      <p class="card-sub" id="ig-gate-sub"></p></div>
+    <section class="tiles" id="ig-gate-tiles"></section>
+    <div class="chart" id="ig-gate-funnel"></div>
+  </section>
+
+  <section class="card" id="ig-city-head">
+    <div class="card-head"><h2>🏙 2부 (도시) — 엔드게임</h2>
+      <p class="card-sub">라이벌 추월(1부) 이후 도시 정복 엔드게임 · 진입→완성 이탈·페이싱</p></div>
+    <section class="tiles" id="ig-city-kpi"></section>
+  </section>
+
+  <section class="card">
+    <div class="card-head"><h2>2부 진입 퍼널</h2>
+      <p class="card-sub">도시 진입 → 첫 인수 → 첫 업글 → 첫 월세 → 첫 라이브이벤트 → 완성(엔딩) · 어디서 막히나</p></div>
+    <div id="ig-city-funnel"></div>
+  </section>
+
+  <section class="card">
+    <div class="card-head"><h2>2부 초반 이탈 곡선</h2>
+      <p class="card-sub">진입 직후 완성도 0.1%단위(≤5%) 생존 · 절벽=붉은 점 · 2부 초반 이탈 진단</p></div>
+    <div id="ig-city-deci"></div>
+  </section>
+
+  <section class="card">
+    <div class="card-head"><h2>2부 진행 페이싱</h2>
+      <p class="card-sub">완성도 %별 진입 후 경과일(중앙값) · 어느 구간이 오래 걸리나(캘린더)</p></div>
+    <div id="ig-city-pacing"></div>
+  </section>
+
+  <section class="card" id="risk-card" hidden>
+    <div class="card-head"><h2>⚠ 위험 신호 — 조작 의심</h2>
+      <p class="card-sub">아래 유저들은 위 지표에 섞여 있습니다. 수가 늘면 엔딩 도달률·페이싱이 먼저 오염됩니다.</p>
+      <p class="card-sub" id="risk-sub"></p></div>
+    <div class="table-scroll"><table class="ledger" id="risk-table"></table></div>
+    <p class="card-sub" id="risk-reason"></p>
+
+    <div class="vsub">APK 서명 인증서 — v971부터 변조본 결제 차단</div>
+    <p class="card-sub">변조 APK는 재서명되므로 인증서 해시가 달라집니다. <b>오탐 의심</b>은 인증서에만 걸렸는데
+      과거 위조 이력이 없고 정상 결제 이력만 있는 유저입니다 — <b>0이 아니면 즉시 롤백 검토</b>입니다.
+      인증서를 못 읽으면 통과시킵니다(fail-open).</p>
+    <div id="risk-cert"></div>
+
+    <div class="vsub">구간별 비율 — 깊이 갈수록 짙어집니다</div>
+    <p class="card-sub">전체 비율이 작아도 엔드게임 코호트에서는 몇 배가 됩니다. 조작 유저는 진행을 가속하니
+      깊은 구간에 몰립니다 — <b>엔딩 도달률·페이싱을 읽기 전에 이 표를 보세요.</b></p>
+    <div class="chart" id="risk-seg"></div>
+
+    <div class="vsub">위조 유저는 어떤 사람들인가</div>
+    <div id="risk-cmp"></div>
+
+    <div class="vsub">최근 사례</div>
+    <div id="risk-users"></div>
+  </section>
+
+  <section class="empty" id="ig-empty" hidden>
+    <h2>아직 인게임 데이터가 없습니다</h2>
+    <p>BigQuery 수집(Action)이 <code>docs/data/ingame.json</code> 을 만들면 채워집니다.
+       GA4 export가 다음날 landing되므로 배포 다음날부터 채워집니다.</p>
+    <p><b>출시 전이라면 정상입니다.</b> 수집이 돌려면 ①앱이 Play 에 올라가 실제 유저 이벤트가
+       쌓이고 ②GitHub Secret <code>GCP_SA_KEY</code> 가 등록돼 있어야 합니다. 시크릿이 없으면
+       워크플로는 <b>초록색으로 아무것도 하지 않고</b> 끝납니다 — 실패가 아닙니다.</p>
+  </section>
+</main>
+
+<main class="wrap" id="view-realtime" hidden>
+
+  <p class="rt-warn">
+    <b>오늘 처음 앱을 연 사람들</b>이 퍼널 어디까지 갔는지만 봅니다.
+    GA4 <b>스트리밍(intraday)</b> 데이터라 후처리 전이고 <b>스트리밍을 켠 시점부터</b>만 쌓입니다 —
+    인게임 뷰의 완결 수치와 비교하거나 합산하지 마세요. 집계된 이탈률은 인게임 뷰가 맡습니다.
+    후처리 전이라 <b>중간 단계가 드문드문 비어</b> 보일 수 있습니다 — 뒤 단계를 밟았으면 앞 단계도 밟은 것으로 읽으세요.
+  </p>
+
+  <p class="rt-meta" id="rt-meta"></p>
+
+  <section class="tiles" id="rt-tiles"></section>
+
+  <section class="card">
+    <div class="card-head"><h2>오늘 가입자 코호트 — 단계별 도달</h2>
+      <p class="card-sub">오늘 가입한 사람 중 몇 명이 각 단계를 통과했는지. 뚝 떨어지는 칸이 막힌 지점입니다.
+        <b>파란 칸</b>은 앞을 밟아야 뒤가 오는 <b>순차 단계</b>라 낙폭을 함께 적습니다.
+        아래로 따로 뺀 <span class="fn-side-key">녹색 칸</span>은 아무 때나 찍히는 <b>독립 단계</b>라 낙폭을 재지 않습니다.
+        <code>(추정 N)</code>은 그 단계의 기록이 없지만 뒤 단계를 밟아 지나간 것으로 <b>추론해 채운 몫</b>입니다 — 실측이 아닙니다.</p></div>
+    <div class="chart" id="rt-funnel"></div>
+  </section>
+
+
+  <section class="card" id="rt-cert-card" hidden>
+    <div class="card-head"><h2>🔐 APK 서명 인증서 — 변조본 결제 차단 (v971~)</h2>
+      <p class="card-sub">확정 데이터는 하루 늦게 오므로 <b>여기서만 시간 단위로 보입니다</b>.
+        오탐(정상 유저가 막힘)은 돈 낸 사람이 물건을 못 받는 상황이라 어뷰징보다 훨씬 비쌉니다 —
+        1명이라도 보이면 즉시 롤백 검토입니다. Play 자동환불까지 <b>3일</b>이 실질 데드라인입니다.</p>
+      <p class="card-sub" id="rt-cert-sub"></p></div>
+    <div class="table-scroll" id="rt-cert-blocked"></div>
+    <div class="vsub">인증서 분포</div>
+    <div class="table-scroll"><table class="ledger rt-ads" id="rt-cert"></table></div>
+  </section>
+
+  <section class="card" id="rt-city-card" hidden>
+    <div class="card-head"><h2>🏙 2부(도시) — 오늘</h2>
+      <p class="card-sub">2부 활동은 확정 데이터보다 여기에 먼저 들어옵니다. <b>위 가입자 코호트와는 무관합니다</b> —
+        2부는 오래 플레이한 사람만 닿으므로 오늘 가입자 안에 있을 수 없습니다.</p>
+      <p class="card-sub" id="rt-city-sub"></p></div>
+    <div class="chart" id="rt-city"></div>
+  </section>
+
+  <section class="card" id="rt-ver-card" hidden>
+    <div class="card-head"><h2>버전별</h2>
+      <p class="card-sub">새 빌드가 실제로 퍼지고 있는지 보는 자리입니다. 사람이 붙는 빌드만 코호트에 넣고,
+        한두 명짜리 테스트 빌드는 <span class="fn-side-key">녹색</span>으로 빼 둡니다 — 숨기면 롤아웃이 시작된 걸 놓칩니다.</p>
+      <p class="card-sub" id="rt-ver-sub"></p></div>
+    <div class="chart" id="rt-ver"></div>
+  </section>
+
+  <section class="card" id="rt-ctry-card" hidden>
+    <div class="card-head"><h2>국가별 <span class="count" id="rt-ctry-count"></span></h2>
+      <p class="card-sub">같은 코호트를 나라로 쪼갰습니다. 마케팅은 국가 단위로 도는데 퍼널은 하나뿐이라
+        "어느 시장 설치가 값을 하나"를 볼 데가 없었습니다. 눈금은 퍼널에서 벽으로 확인된 칸들입니다.
+        <b>흐린 줄</b>은 가입 5명 미만이라 비율이 한 칸에 수십 %p씩 움직입니다 — 수만 보세요.</p></div>
+    <div class="vsub">티어 합계 — 막대는 유입 비중</div>
+    <p class="card-sub">티어는 <b>시장 단가</b> 기준입니다(T1=미국·일본·독일…). 우리 성과 기준이 아닙니다 —
+      그 어긋남이 핵심입니다. 비싼 시장에서 유입을 사고 있는데 성과가 낮다면 거기서 바로 보입니다.</p>
+    <div class="chart" id="rt-ctry-tier"></div>
+
+    <div class="vsub">국가별</div>
+    <div class="table-scroll"><table class="ledger rt-ads" id="rt-ctry"></table></div>
+  </section>
+
+  <section class="card">
+    <div class="card-head"><h2>가입자별 진행 <span class="count" id="rt-count"></span></h2>
+      <p class="card-sub"><b>최근 24시간</b>에 처음 앱을 연 사람 전부. 최근 가입 순이고, 막대가 각자 멈춘 지점입니다. 칸에 올리면 단계 이름이 나옵니다.
+      위 카드들은 <b>오늘(KST)</b> 기준이라 이 목록보다 인원이 적습니다.
+      진한 파랑은 기록이 남은 칸, <b>옅은 파랑</b>은 뒤 단계로 보아 지나갔다고 본 칸,
+      끝에 떨어진 <b>녹색</b>은 독립 단계입니다.</p></div>
+    <div class="table-scroll"><table class="ledger rt-users" id="rt-users"></table></div>
+  </section>
+
+  <section class="empty" id="rt-empty" hidden>
+    <h2>실시간 데이터가 없습니다</h2>
+    <p>GA4 → BigQuery 링크에서 <b>스트리밍</b> 내보내기가 켜져 있어야 <code>events_intraday_*</code>
+       테이블이 생깁니다. 켠 <b>시점부터</b> 쌓이므로 과거는 소급되지 않습니다.</p>
+  </section>
+</main>
+
+
+
+
+<script src="refresh.js?v=4816d6ee"></script>
+<script src="ingame.js?v=fc08ede9"></script>
+<script src="realtime.js?v=3a1f2377"></script>
+</body>
+</html>
+
+<footer class="foot">
+  <p>
+    수치는 GA4 → BigQuery 원본에서 하루 1회(<b>인게임</b>) · 매시(<b>실시간</b>) 수집합니다.
+    날짜는 모두 <b>KST 기준</b>이고, 각 화면 상단의 갱신 시각이 <b>자동 수집이 살아 있는지</b>를
+    말해 줍니다 — 시각이 멈춰 있으면 숫자가 아니라 수집을 먼저 의심하세요.
+    지역·기기모델이 비어 있는 줄(Play 사전 출시 보고서 봇)과 디버그 빌드는 분모에서 제외합니다.
+  </p>
+  <p>
+    <b>매출·마케팅비 뷰는 아직 없습니다.</b> 출시 후 광고·인앱 매출이 발생하면
+    secondact-dashboard 의 <code>app.js</code>·<code>sync.py</code> 를 가져옵니다.
+    <b>전체 가입자·어뷰징 뷰</b>도 보류입니다 — 전 이력 무윈도우 스캔이라
+    앱 나이에 비례해 스캔량이 영원히 늘어납니다(레퍼런스 실측 8.2GB/회).
+    데이터가 쌓인 뒤 윈도우를 다시 설계해 넣습니다.
+  </p>
+</footer>
