@@ -1,14 +1,14 @@
 {
-  "updated": "2026-10-12 02:55 KST",
+  "updated": "2026-10-13 03:38 KST",
   "window_days": 45,
   "diag_start": "2026-01-01",
-  "last_table": "20261010",
+  "last_table": "20261011",
   "retention_curve": [
     {
       "day": 1,
-      "ret": 0,
-      "base": 0,
-      "pct": null
+      "ret": 1,
+      "base": 1,
+      "pct": 100.0
     },
     {
       "day": 2,
@@ -192,6 +192,26 @@
         "date": "2026-10-10",
         "new": 1,
         "days": [
+          100.0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      {
+        "date": "2026-10-11",
+        "new": 1,
+        "days": [
           null,
           null,
           null,
@@ -211,18 +231,18 @@
     ]
   },
   "kpi": {
-    "dau": 1,
-    "wau": 1,
-    "new_7d": 1,
-    "cumulative": 1,
-    "d1": null,
-    "d1_base": 0,
+    "dau": 2,
+    "wau": 2,
+    "new_7d": 2,
+    "cumulative": 2,
+    "d1": 100.0,
+    "d1_base": 1,
     "d7": null,
     "d7_base": 0,
     "d30": null,
     "d30_base": 0,
     "reach1": 0.0,
-    "reach1_base": 1
+    "reach1_base": 2
   },
   "rebirth_funnel": [
     {
@@ -242,7 +262,6 @@
   "progress_heatmap": {
     "bucket": 5,
     "dates": [
-      "2026-08-26",
       "2026-08-27",
       "2026-08-28",
       "2026-08-29",
@@ -287,7 +306,8 @@
       "2026-10-07",
       "2026-10-08",
       "2026-10-09",
-      "2026-10-10"
+      "2026-10-10",
+      "2026-10-11"
     ],
     "cells": []
   },
@@ -529,9 +549,9 @@
     "versions": [
       {
         "version": "통합",
-        "users": 1,
+        "users": 2,
         "dist": {
-          "0": 1,
+          "0": 2,
           "1": 0,
           "2": 0,
           "3": 0,
@@ -646,8 +666,8 @@
     "eligible_new": 0,
     "entered_new": 0,
     "entered": 0,
-    "all_users": 1,
-    "on_new": 1,
+    "all_users": 2,
+    "on_new": 2,
     "conv_pct": null,
     "rollout_pct": 100.0,
     "note": "도감은 codex_open(화면을 연 순간)으로만 관측되므로 자격자 수는 하한입니다."
