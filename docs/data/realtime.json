@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-13 14:27 KST",
+ "updated": "2026-10-13 18:32 KST",
  "stage_labels": [
   {
    "key": "new_game",
@@ -136,7 +136,7 @@
   {
    "d": "20261013",
    "users": 20,
-   "events": 90
+   "events": 105
   }
  ],
  "day": "20261013",
@@ -362,7 +362,7 @@
   }
  ],
  "cohort_n": 0,
- "excluded_nogeo": 21,
+ "excluded_nogeo": 11,
  "excluded_build": 2,
  "newest_build": null,
  "versions": {
@@ -407,12 +407,12 @@
   "dist": [
    {
     "cert": "(미기록)",
-    "users": 17,
+    "users": 16,
     "ok": true
    },
    {
     "cert": "8c4f94bc5f5be330",
-    "users": 3,
+    "users": 4,
     "ok": false
    }
   ],
