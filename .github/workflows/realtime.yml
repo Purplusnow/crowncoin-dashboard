@@ -27,11 +27,13 @@ on:
 permissions:
   contents: write
 
-# ⚠ realtime(iap.py) 과 sync(sync.py) 는 **같은 docs/data/daily.json 을 쓴다.**
-# 그래서 두 워크플로가 **하나의 그룹**을 공유한다 — 따로 두면 동시에 떠서 푸시가 밀리고,
-# 재시도 리베이스가 같은 파일 같은 줄을 만나 CONFLICT 로 죽는다(2026-10-07 실측:
-# "업데이트"로 넷을 한꺼번에 던졌더니 realtime 이 그렇게 실패했다).
+# ⚠ 이 레포는 realtime 과 ingame 두 워크플로가 **각각 다른 파일**을 쓴다
+# (realtime.json / ingame.json). 그래도 **하나의 그룹**을 공유한다 — 따로 두면
+# 동시에 떠서 푸시가 밀리고, 재시도 리베이스가 CONFLICT 로 죽는다
+# (secondact-dashboard 2026-10-07 실측: 넷을 한꺼번에 던져 realtime 이 그렇게 실패).
 # 그룹 이름은 '무엇을 쓰는가'로 짓는다 — 워크플로 이름으로 지으면 또 갈라진다.
+# ★위 문단의 iap.py·sync.py·daily.json 언급은 템플릿 원본(secondact-dashboard)의 것이었다.
+#   이 레포 tools/ 에는 realtime.py·ingame.py·probe.py 뿐이다.
 concurrency:
   group: write-daily-json
   cancel-in-progress: false
@@ -104,8 +106,12 @@ jobs:
           # 그래서 먼저 add 하고 스테이지와 비교한다.
           git config user.name  "crowncoin-bot"
           git config user.email "34591718+Purplusnow@users.noreply.github.com"
-          git add docs/data/realtime.json docs/data/daily.json
-          if git diff --cached --quiet -- docs/data/realtime.json docs/data/daily.json; then
+          # ★daily.json 은 이 레포에 없다 — secondact-dashboard 를 템플릿으로 가져올 때
+          #   남은 잔재다(그쪽은 iap.py·sync.py 가 그 파일을 쓴다). 여기 tools/ 에는
+          #   realtime.py·ingame.py·probe.py 뿐이라 git add 가 pathspec 오류로 죽었다
+          #   (실측: 10-12~13 실시간 수집 전부 exit 128 로 실패, 데이터가 10-11 에서 멈춤).
+          git add docs/data/realtime.json
+          if git diff --cached --quiet -- docs/data/realtime.json; then
             echo "변경 없음 — 커밋 생략"
             exit 0
           fi
