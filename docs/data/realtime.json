@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-15 13:27 KST",
+ "updated": "2026-10-15 14:21 KST",
  "stage_labels": [
   {
    "key": "new_game",
@@ -132,7 +132,344 @@
    "kind": "side"
   }
  ],
- "tables": [],
- "scan_mb": 0.0,
- "scan_note": "이번 실행 스캔 0.0MB. 매시간(24회/일)이면 월 0.00GB — 무료 구간은 월 1,024GB."
+ "tables": [
+  {
+   "d": "20261015",
+   "users": 1,
+   "events": 20
+  }
+ ],
+ "day": "20261015",
+ "summary": {
+  "users": 1,
+  "new_users": 1,
+  "first_touch_today": 1,
+  "purchases": 0,
+  "exceptions": 0,
+  "first_at": "2026-10-15 13:59",
+  "last_at": "2026-10-15 14:04"
+ },
+ "users": [],
+ "stay60": 0,
+ "funnel": [
+  {
+   "key": "new_game",
+   "label": "새게임",
+   "n": 0,
+   "rec": 0,
+   "pct": 0,
+   "kind": "spine"
+  },
+  {
+   "key": "intro_done",
+   "label": "인트로",
+   "n": 0,
+   "rec": 0,
+   "pct": 0,
+   "kind": "spine"
+  },
+  {
+   "key": "dev_concept",
+   "label": "기획",
+   "n": 0,
+   "rec": 0,
+   "pct": 0,
+   "kind": "spine"
+  },
+  {
+   "key": "dev_design",
+   "label": "디자인",
+   "n": 0,
+   "rec": 0,
+   "pct": 0,
+   "kind": "spine"
+  },
+  {
+   "key": "dev_prototype",
+   "label": "프로토",
+   "n": 0,
+   "rec": 0,
+   "pct": 0,
+   "kind": "spine"
+  },
+  {
+   "key": "dev_alpha",
+   "label": "알파",
+   "n": 0,
+   "rec": 0,
+   "pct": 0,
+   "kind": "spine"
+  },
+  {
+   "key": "dev_beta",
+   "label": "베타",
+   "n": 0,
+   "rec": 0,
+   "pct": 0,
+   "kind": "spine"
+  },
+  {
+   "key": "dev_launch",
+   "label": "출시",
+   "n": 0,
+   "rec": 0,
+   "pct": 0,
+   "kind": "spine"
+  },
+  {
+   "key": "first_ops",
+   "label": "첫운영",
+   "n": 0,
+   "rec": 0,
+   "pct": 0,
+   "kind": "spine"
+  },
+  {
+   "key": "property_1",
+   "label": "부동산1",
+   "n": 0,
+   "rec": 0,
+   "pct": 0,
+   "kind": "spine"
+  },
+  {
+   "key": "property_2",
+   "label": "부동산2",
+   "n": 0,
+   "rec": 0,
+   "pct": 0,
+   "kind": "spine"
+  },
+  {
+   "key": "property_3",
+   "label": "부동산3",
+   "n": 0,
+   "rec": 0,
+   "pct": 0,
+   "kind": "spine"
+  },
+  {
+   "key": "property_4",
+   "label": "부동산4",
+   "n": 0,
+   "rec": 0,
+   "pct": 0,
+   "kind": "spine"
+  },
+  {
+   "key": "property_5",
+   "label": "부동산5",
+   "n": 0,
+   "rec": 0,
+   "pct": 0,
+   "kind": "spine"
+  },
+  {
+   "key": "game_sale",
+   "label": "은퇴",
+   "n": 0,
+   "rec": 0,
+   "pct": 0,
+   "kind": "spine"
+  },
+  {
+   "key": "first_donate",
+   "label": "첫후원",
+   "n": 0,
+   "rec": 0,
+   "pct": 0,
+   "kind": "spine"
+  },
+  {
+   "key": "class2",
+   "label": "신분2",
+   "n": 0,
+   "rec": 0,
+   "pct": 0,
+   "kind": "spine"
+  },
+  {
+   "key": "class3",
+   "label": "신분3",
+   "n": 0,
+   "rec": 0,
+   "pct": 0,
+   "kind": "spine"
+  },
+  {
+   "key": "class4",
+   "label": "신분4",
+   "n": 0,
+   "rec": 0,
+   "pct": 0,
+   "kind": "spine"
+  },
+  {
+   "key": "class5",
+   "label": "신분5",
+   "n": 0,
+   "rec": 0,
+   "pct": 0,
+   "kind": "spine"
+  },
+  {
+   "key": "class6",
+   "label": "신분6",
+   "n": 0,
+   "rec": 0,
+   "pct": 0,
+   "kind": "spine"
+  },
+  {
+   "key": "class7",
+   "label": "신분7",
+   "n": 0,
+   "rec": 0,
+   "pct": 0,
+   "kind": "spine"
+  },
+  {
+   "key": "first_rebirth",
+   "label": "첫환생",
+   "n": 0,
+   "rec": 0,
+   "pct": 0,
+   "kind": "spine"
+  },
+  {
+   "key": "first_manager",
+   "label": "첫매니저",
+   "n": 0,
+   "rec": 0,
+   "pct": 0,
+   "kind": "side"
+  },
+  {
+   "key": "first_finance",
+   "label": "첫금융",
+   "n": 0,
+   "rec": 0,
+   "pct": 0,
+   "kind": "side"
+  },
+  {
+   "key": "first_ad",
+   "label": "첫광고",
+   "n": 0,
+   "rec": 0,
+   "pct": 0,
+   "kind": "side"
+  }
+ ],
+ "cohort_n": 0,
+ "excluded_nogeo": 14,
+ "excluded_build": 1,
+ "newest_build": null,
+ "versions": {
+  "live": [],
+  "rows": [
+   {
+    "ver": "1.0 (v29)",
+    "n": 1,
+    "live": false
+   }
+  ]
+ },
+ "by_country": {
+  "marks": [
+   {
+    "key": "intro_done",
+    "label": "인트로"
+   },
+   {
+    "key": "property_2",
+    "label": "부동산2"
+   },
+   {
+    "key": "game_sale",
+    "label": "은퇴"
+   },
+   {
+    "key": "first_rebirth",
+    "label": "첫환생"
+   }
+  ],
+  "rows": [],
+  "tiers": []
+ },
+ "apk_cert": {
+  "good": "dc0a72d0f17e769e",
+  "events": 0,
+  "users": 0,
+  "false_pos": 0,
+  "unknown": 0,
+  "known_bad": 0,
+  "dist": [
+   {
+    "cert": "8c4f94bc5f5be330",
+    "users": 1,
+    "ok": false
+   }
+  ],
+  "blocked": []
+ },
+ "city": {
+  "users": 0,
+  "enters": 0,
+  "done": 0,
+  "steps": [
+   {
+    "key": "first_conquer",
+    "label": "첫 인수",
+    "n": 0,
+    "pct": 0
+   },
+   {
+    "key": "first_upgrade",
+    "label": "첫 업그레이드",
+    "n": 0,
+    "pct": 0
+   },
+   {
+    "key": "first_rent",
+    "label": "첫 월세",
+    "n": 0,
+    "pct": 0
+   },
+   {
+    "key": "first_event",
+    "label": "첫 라이브이벤트",
+    "n": 0,
+    "pct": 0
+   }
+  ]
+ },
+ "ads": {
+  "total": 0,
+  "by_result": [
+   {
+    "result": "earned",
+    "n": 0
+   },
+   {
+    "result": "dismissed",
+    "n": 0
+   },
+   {
+    "result": "no_ad",
+    "n": 0
+   },
+   {
+    "result": "failed",
+    "n": 0
+   }
+  ],
+  "finish_pct": null,
+  "supply_pct": null,
+  "by_country": [],
+  "viewers": 0,
+  "by_placement": []
+ },
+ "scan_mb": 10.0,
+ "scan_note": "이번 실행 스캔 10.0MB. 매시간(24회/일)이면 월 7.03GB — 무료 구간은 월 1,024GB."
 }
