@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-15 18:48 KST",
+ "updated": "2026-10-15 20:41 KST",
  "stage_labels": [
   {
    "key": "new_game",
@@ -362,7 +362,7 @@
   }
  ],
  "cohort_n": 0,
- "excluded_nogeo": 14,
+ "excluded_nogeo": 0,
  "excluded_build": 1,
  "newest_build": null,
  "versions": {
