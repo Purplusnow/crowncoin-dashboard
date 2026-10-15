@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-15 14:21 KST",
+ "updated": "2026-10-15 15:25 KST",
  "stage_labels": [
   {
    "key": "new_game",
@@ -470,6 +470,6 @@
   "viewers": 0,
   "by_placement": []
  },
- "scan_mb": 10.0,
- "scan_note": "이번 실행 스캔 10.0MB. 매시간(24회/일)이면 월 7.03GB — 무료 구간은 월 1,024GB."
+ "scan_mb": 90.0,
+ "scan_note": "이번 실행 스캔 90.0MB. 매시간(24회/일)이면 월 63.28GB — 무료 구간은 월 1,024GB."
 }
