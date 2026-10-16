@@ -1,38 +1,38 @@
 {
-  "updated": "2026-10-16 02:39 KST",
+  "updated": "2026-10-16 22:45 KST",
   "window_days": 45,
   "diag_start": "2026-01-01",
-  "last_table": "20261013",
+  "last_table": "20261015",
   "retention_curve": [
     {
       "day": 1,
       "ret": 3,
-      "base": 3,
-      "pct": 100.0
+      "base": 6,
+      "pct": 50.0
     },
     {
       "day": 2,
       "ret": 1,
-      "base": 2,
-      "pct": 50.0
+      "base": 6,
+      "pct": 16.7
     },
     {
       "day": 3,
       "ret": 0,
-      "base": 1,
+      "base": 3,
       "pct": 0.0
     },
     {
       "day": 4,
       "ret": 0,
-      "base": 0,
-      "pct": null
+      "base": 2,
+      "pct": 0.0
     },
     {
       "day": 5,
       "ret": 0,
-      "base": 0,
-      "pct": null
+      "base": 1,
+      "pct": 0.0
     },
     {
       "day": 6,
@@ -195,8 +195,8 @@
           100.0,
           0.0,
           0.0,
-          null,
-          null,
+          0.0,
+          0.0,
           null,
           null,
           null,
@@ -214,8 +214,8 @@
         "days": [
           100.0,
           100.0,
-          null,
-          null,
+          0.0,
+          0.0,
           null,
           null,
           null,
@@ -233,8 +233,8 @@
         "new": 1,
         "days": [
           100.0,
-          null,
-          null,
+          0.0,
+          0.0,
           null,
           null,
           null,
@@ -251,6 +251,26 @@
       {
         "date": "2026-10-13",
         "new": 3,
+        "days": [
+          0.0,
+          0.0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      {
+        "date": "2026-10-15",
+        "new": 1,
         "days": [
           null,
           null,
@@ -271,23 +291,23 @@
     ]
   },
   "kpi": {
-    "dau": 5,
-    "wau": 6,
-    "new_7d": 6,
-    "cumulative": 6,
-    "d1": 100.0,
-    "d1_base": 3,
+    "dau": 1,
+    "wau": 7,
+    "new_7d": 7,
+    "cumulative": 7,
+    "d1": 50.0,
+    "d1_base": 6,
     "d7": null,
     "d7_base": 0,
     "d30": null,
     "d30_base": 0,
     "reach1": 0.0,
-    "reach1_base": 6
+    "reach1_base": 7
   },
   "rebirth_funnel": [
     {
       "stage": "새게임",
-      "users": 3
+      "users": 4
     },
     {
       "stage": "은퇴",
@@ -302,7 +322,6 @@
   "progress_heatmap": {
     "bucket": 5,
     "dates": [
-      "2026-08-30",
       "2026-08-31",
       "2026-09-01",
       "2026-09-02",
@@ -347,7 +366,8 @@
       "2026-10-11",
       "2026-10-12",
       "2026-10-13",
-      "2026-10-14"
+      "2026-10-14",
+      "2026-10-15"
     ],
     "cells": []
   },
@@ -589,9 +609,9 @@
     "versions": [
       {
         "version": "통합",
-        "users": 6,
+        "users": 7,
         "dist": {
-          "0": 6,
+          "0": 7,
           "1": 0,
           "2": 0,
           "3": 0,
@@ -706,8 +726,8 @@
     "eligible_new": 0,
     "entered_new": 0,
     "entered": 0,
-    "all_users": 6,
-    "on_new": 6,
+    "all_users": 7,
+    "on_new": 7,
     "conv_pct": null,
     "rollout_pct": 100.0,
     "note": "도감은 codex_open(화면을 연 순간)으로만 관측되므로 자격자 수는 하한입니다."
