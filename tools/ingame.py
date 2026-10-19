@@ -58,9 +58,54 @@ def q(sql: str) -> list[dict]:
     return rows
 
 
+#: _TABLE_SUFFIX → 'YYYYMMDD' 정규화. intraday 테이블 접미사는 'intraday_YYYYMMDD' 라
+#: 날짜 비교에 그대로 쓰면 문자열 비교가 깨진다('intraday_' > '2026'). 날짜로 쓰는 자리는
+#: 전부 이 식을 거친다.
+DAY = "IF(STARTS_WITH(_TABLE_SUFFIX,'intraday_'), SUBSTR(_TABLE_SUFFIX,10), _TABLE_SUFFIX)"
+
+#: 스코프 두 개. main() 에서 실제 테이블 목록을 보고 채운다.
+IN_LIVE = "TRUE"      # 확정 + 오늘치 intraday (날짜당 한 장)
+IN_SETTLED = "TRUE"   # 확정 테이블만
+
+
+def _scan_tables() -> tuple[str, str, str, str]:
+    """테이블 목록을 메타데이터로 읽어 **날짜당 한 장**씩 고른다(스캔 0바이트).
+
+    ★GA4 는 일별 테이블이 확정되기 전까지 어제치 events_intraday_* 를 그대로 남겨 둔다.
+      그래서 아침에는 어제·오늘 두 장이 동시에 존재하고, LIKE 'intraday%' 로 받으면
+      이틀치가 합산된다. 날짜마다 **확정본이 있으면 확정본, 없으면 intraday** 하나만 쓴다.
+    """
+    settled, intra = {}, {}
+    for t in client.list_tables(f"{PROJECT}.{DATASET}"):
+        tid = t.table_id
+        if tid.startswith("events_intraday_"):
+            intra[tid[len("events_intraday_"):]] = f"intraday_{tid[len('events_intraday_'):]}"
+        elif tid.startswith("events_"):
+            settled[tid[len("events_"):]] = tid[len("events_"):]
+    live = dict(intra); live.update(settled)      # 확정본이 intraday 를 덮는다
+    def _in(d: dict) -> str:
+        return ("_TABLE_SUFFIX IN (" + ", ".join(f"'{v}'" for v in sorted(d.values())) + ")"
+                if d else "FALSE")
+    last_live = max(live) if live else None
+    last_settled = max(settled) if settled else None
+    return _in(live), _in(settled), last_live, last_settled
+
+
 def suffix_daily(cond: str) -> str:
-    """_TABLE_SUFFIX 조건 + intraday 제외 헬퍼."""
-    return f"({cond}) AND _TABLE_SUFFIX NOT LIKE 'intraday%' AND IFNULL(geo.country,'') != ''"
+    """**스트리밍 포함** 스코프 — 오늘치 intraday 까지 본다(DAU·퍼널·광고·버전 등).
+
+    조건식의 날짜 비교는 호출자가 {DAY} 를 써야 한다.
+    """
+    return f"({cond}) AND {IN_LIVE} AND IFNULL(geo.country,'') != ''"
+
+
+def suffix_settled(cond: str) -> str:
+    """**확정 테이블만** — 리텐션·코호트 전용.
+
+    intraday 는 후처리 전이고 '하루가 덜 찬' 값이라 완결 지표에 섞으면 왜곡된다
+    (realtime.py 와 같은 판단). D1 분모에 반나절짜리 코호트가 들어가면 리텐션이 내려간다.
+    """
+    return f"({cond}) AND {IN_SETTLED} AND IFNULL(geo.country,'') != ''"
 
 
 def main() -> None:
@@ -71,28 +116,35 @@ def main() -> None:
     out: dict = {"updated": datetime.now(KST).strftime("%Y-%m-%d %H:%M") + " KST", "window_days": WINDOW_DAYS,
                  "diag_start": f"{DIAG_START[:4]}-{DIAG_START[4:6]}-{DIAG_START[6:]}"}
 
+    # ── 스코프 결정(스캔 0바이트) — 날짜당 한 장씩 고른다 ──────────────
+    global IN_LIVE, IN_SETTLED
+    IN_LIVE, IN_SETTLED, last_live, last_settled = _scan_tables()
+    out["last_table"] = last_settled          # 확정 데이터가 어디까지인지(리텐션 신뢰구간)
+    out["last_live"] = last_live              # 스트리밍 포함 최신일(DAU 기준일)
+
     # ── KPI: DAU·WAU·신규(7일)·누적·D1/D7 리텐션 ───────────────────────
     # (기존 '신규/활성 45일'은 게임 나이와 겹쳐 신규≈활성≈전체로 오해 유발 → 실질 지표로 교체)
-    last_t = q(f"SELECT MAX(_TABLE_SUFFIX) AS t FROM {TABLE} WHERE _TABLE_SUFFIX NOT LIKE 'intraday%' AND IFNULL(geo.country,'') != ''")[0]["t"]
-    out["last_table"] = last_t
-
+    # ★DAU·WAU·누적은 **스트리밍 포함**이다. 확정 테이블만 보면 출시 당일 지표가
+    #   다음날 아침까지 0으로 보인다(실측: 10-19 저녁에 유저가 들어왔는데 last_table 이
+    #   10-15 에 멈춰 DAU=1 로 굳어 있었다).
+    last_t = last_live
     _last = datetime.strptime(last_t, "%Y%m%d").date()
     d7 = (_last - timedelta(days=6)).strftime("%Y%m%d")     # 최근 7일(마지막일 포함)
     k = q(f"""
       SELECT
-        COUNT(DISTINCT IF(_TABLE_SUFFIX='{last_t}', user_pseudo_id, NULL)) AS dau,
+        COUNT(DISTINCT IF({DAY}='{last_t}', user_pseudo_id, NULL)) AS dau,
         COUNT(DISTINCT user_pseudo_id) AS wau,
         COUNT(DISTINCT IF(event_name='first_open', user_pseudo_id, NULL)) AS new_7d
       FROM {TABLE}
-      WHERE {suffix_daily(f"_TABLE_SUFFIX BETWEEN '{d7}' AND '{last_t}'")}
+      WHERE {suffix_daily(f"{DAY} BETWEEN '{d7}' AND '{last_t}'")}
     """)[0]
-    cum = q(f"SELECT COUNT(DISTINCT user_pseudo_id) AS n FROM {TABLE} WHERE _TABLE_SUFFIX NOT LIKE 'intraday%' AND IFNULL(geo.country,'') != ''")[0]["n"]
+    cum = q(f"SELECT COUNT(DISTINCT user_pseudo_id) AS n FROM {TABLE} WHERE {IN_LIVE} AND IFNULL(geo.country,'') != ''")[0]["n"]
     # 리텐션 곡선 D1~D30 — 설치일(d0) 대비 정확히 n일 뒤 복귀. 분모(base[n])=마지막 테이블일 기준 n일 관측
     # 가능한 코호트(d0 ≤ last-n). 복귀자는 정의상 d0+n ≤ last라 모두 관측가능(별도 필터 불필요).
     inst_hist = q(f"""
       SELECT d0, COUNT(*) AS n FROM (
         SELECT user_pseudo_id, MIN(_TABLE_SUFFIX) AS d0
-        FROM {TABLE} WHERE event_name='first_open' AND _TABLE_SUFFIX NOT LIKE 'intraday%' AND IFNULL(geo.country,'') != ''
+        FROM {TABLE} WHERE event_name='first_open' AND {IN_SETTLED} AND IFNULL(geo.country,'') != ''
         GROUP BY user_pseudo_id
       ) GROUP BY d0
     """)
@@ -101,12 +153,12 @@ def main() -> None:
         SELECT i.user_pseudo_id AS uid, DATE_DIFF(a.d, i.d0, DAY) AS off
         FROM (
           SELECT user_pseudo_id, MIN(PARSE_DATE('%Y%m%d', _TABLE_SUFFIX)) AS d0
-          FROM {TABLE} WHERE event_name='first_open' AND _TABLE_SUFFIX NOT LIKE 'intraday%' AND IFNULL(geo.country,'') != ''
+          FROM {TABLE} WHERE event_name='first_open' AND {IN_SETTLED} AND IFNULL(geo.country,'') != ''
           GROUP BY user_pseudo_id
         ) i
         JOIN (
           SELECT DISTINCT user_pseudo_id, PARSE_DATE('%Y%m%d', _TABLE_SUFFIX) AS d
-          FROM {TABLE} WHERE _TABLE_SUFFIX NOT LIKE 'intraday%' AND IFNULL(geo.country,'') != ''
+          FROM {TABLE} WHERE {IN_SETTLED} AND IFNULL(geo.country,'') != ''
         ) a ON a.user_pseudo_id = i.user_pseudo_id
       ) WHERE off BETWEEN 1 AND 30 GROUP BY off
     """)
@@ -129,12 +181,12 @@ def main() -> None:
         SELECT i.user_pseudo_id AS uid, i.d0 AS d0, DATE_DIFF(a.d, PARSE_DATE('%Y%m%d', i.d0), DAY) AS off
         FROM (
           SELECT user_pseudo_id, MIN(_TABLE_SUFFIX) AS d0
-          FROM {TABLE} WHERE event_name='first_open' AND _TABLE_SUFFIX NOT LIKE 'intraday%' AND IFNULL(geo.country,'') != ''
+          FROM {TABLE} WHERE event_name='first_open' AND {IN_SETTLED} AND IFNULL(geo.country,'') != ''
           GROUP BY user_pseudo_id
         ) i
         JOIN (
           SELECT DISTINCT user_pseudo_id, PARSE_DATE('%Y%m%d', _TABLE_SUFFIX) AS d
-          FROM {TABLE} WHERE _TABLE_SUFFIX NOT LIKE 'intraday%' AND IFNULL(geo.country,'') != ''
+          FROM {TABLE} WHERE {IN_SETTLED} AND IFNULL(geo.country,'') != ''
         ) a ON a.user_pseudo_id = i.user_pseudo_id
       ) WHERE off BETWEEN 1 AND {COHORT_N} GROUP BY d0, off
     """)
@@ -177,7 +229,7 @@ def main() -> None:
         COUNT(DISTINCT IF(event_name='onb_step' AND {_stp('game_sale')}, user_pseudo_id, NULL)) AS retired,
         COUNT(DISTINCT IF(event_name='onb_step' AND {_stp('first_rebirth')}, user_pseudo_id, NULL)) AS rebirthed
       FROM {TABLE}
-      WHERE _TABLE_SUFFIX NOT LIKE 'intraday%' AND IFNULL(geo.country,'') != ''
+      WHERE {IN_LIVE} AND IFNULL(geo.country,'') != ''
     """)[0]
     r = {k: int(v or 0) for k, v in fr.items()}
     out["rebirth_funnel"] = [
@@ -195,7 +247,7 @@ def main() -> None:
           MIN((SELECT value.int_value FROM UNNEST(event_params) WHERE key='secs_since_install')) AS secs
         FROM {TABLE}
         WHERE event_name='progress_pct'
-          AND {suffix_daily(f"_TABLE_SUFFIX BETWEEN '{win_start}' AND '{end_s}'")}
+          AND {suffix_daily(f"{DAY} BETWEEN '{win_start}' AND '{end_s}'")}
         GROUP BY pct, user_pseudo_id
       )
       SELECT pct,
@@ -215,11 +267,11 @@ def main() -> None:
     PROG_BUCKET = 5
     prog = q(f"""
       WITH u AS (
-        SELECT _TABLE_SUFFIX AS d, user_pseudo_id AS uid,
+        SELECT {DAY} AS d, user_pseudo_id AS uid,
           MAX((SELECT value.int_value FROM UNNEST(event_params) WHERE key='pct')) AS mp
         FROM {TABLE}
         WHERE event_name='progress_pct'
-          AND {suffix_daily(f"_TABLE_SUFFIX BETWEEN '{win_start}' AND '{end_s}'")}
+          AND {suffix_daily(f"{DAY} BETWEEN '{win_start}' AND '{end_s}'")}
         GROUP BY d, uid
       )
       SELECT d, CAST(FLOOR(LEAST(mp,100)/{PROG_BUCKET})*{PROG_BUCKET} AS INT64) AS bucket,
@@ -294,7 +346,7 @@ def main() -> None:
           MIN(event_timestamp) AS first_ts,
           {flag_sql}
         FROM {TABLE}
-        WHERE {suffix_daily(f"_TABLE_SUFFIX BETWEEN '{win_start}' AND '{end_s}'")}
+        WHERE {suffix_daily(f"{DAY} BETWEEN '{win_start}' AND '{end_s}'")}
         GROUP BY user_pseudo_id
       )
       SELECT fver AS version, COUNT(*) AS users,
@@ -328,7 +380,7 @@ def main() -> None:
           ARRAY_AGG(app_info.version IGNORE NULLS ORDER BY event_timestamp)[SAFE_OFFSET(0)] AS fver,
           {flag_sql}
         FROM {TABLE}
-        WHERE _TABLE_SUFFIX NOT LIKE 'intraday%' AND IFNULL(geo.country,'') != ''
+        WHERE {IN_LIVE} AND IFNULL(geo.country,'') != ''
         GROUP BY user_pseudo_id
       )
       SELECT fver AS version, COUNT(*) AS users, {sum_sql}
@@ -369,7 +421,7 @@ def main() -> None:
           MAX(IF(event_name='progress_pct',
                  (SELECT value.int_value FROM UNNEST(event_params) WHERE key='pct'), 0)) AS maxpct
         FROM {TABLE}
-        WHERE _TABLE_SUFFIX NOT LIKE 'intraday%' AND IFNULL(geo.country,'') != ''
+        WHERE {IN_LIVE} AND IFNULL(geo.country,'') != ''
         GROUP BY user_pseudo_id
       )
       SELECT fver AS version, IFNULL(maxpct, 0) AS maxpct, COUNT(*) AS users
@@ -425,7 +477,7 @@ def main() -> None:
           MAX(IF(event_name='city_onb_step' AND {_p_str('step')}='first_event',1,0)) AS s_event,
           MAX(IF(event_name='city_complete',1,0)) AS completed
         FROM {TABLE}
-        WHERE {suffix_daily(f"_TABLE_SUFFIX >= '{DIAG_START}'")}
+        WHERE {suffix_daily(f"{DAY} >= '{DIAG_START}'")}
         GROUP BY user_pseudo_id
       )
       SELECT SUM(entered) AS entered, SUM(s_conquer) AS s_conquer, SUM(s_upgrade) AS s_upgrade,
@@ -494,7 +546,7 @@ def main() -> None:
         SELECT {_p_int('deci')} AS deci, user_pseudo_id,
                MIN({_p_int('days_since_enter')}) AS days
         FROM {TABLE}
-        WHERE event_name='city_progress_deci' AND {suffix_daily(f"_TABLE_SUFFIX >= '{DIAG_START}'")}
+        WHERE event_name='city_progress_deci' AND {suffix_daily(f"{DAY} >= '{DIAG_START}'")}
         GROUP BY deci, user_pseudo_id
       )
       WHERE deci BETWEEN 1 AND 50 GROUP BY deci ORDER BY deci
@@ -523,7 +575,7 @@ def main() -> None:
       FROM (
         SELECT {_p_int('pct')} AS pct, user_pseudo_id, MIN({_p_int('days_since_enter')}) AS days
         FROM {TABLE}
-        WHERE event_name='city_progress_pct' AND {suffix_daily(f"_TABLE_SUFFIX >= '{DIAG_START}'")}
+        WHERE event_name='city_progress_pct' AND {suffix_daily(f"{DAY} >= '{DIAG_START}'")}
         GROUP BY pct, user_pseudo_id
       )
       GROUP BY pct ORDER BY pct
@@ -539,7 +591,7 @@ def main() -> None:
     # DAU 를 같이 내보내는 건 노출/DAU 를 봐야 '광고가 줄었나, 사람이 줄었나'가 갈리기 때문이다.
     adr = q(f"""
       SELECT
-        FORMAT_DATE('%Y-%m-%d', PARSE_DATE('%Y%m%d', _TABLE_SUFFIX)) AS d,
+        FORMAT_DATE('%Y-%m-%d', PARSE_DATE('%Y%m%d', {DAY})) AS d,
         COUNTIF(event_name='ad_impression') AS total,
         COUNTIF(event_name='ad_impression' AND {_p_str('result')}='earned') AS earned,
         COUNTIF(event_name='ad_impression' AND {_p_str('result')}='dismissed') AS dismissed,
@@ -547,7 +599,7 @@ def main() -> None:
         COUNT(DISTINCT IF(event_name='ad_impression', user_pseudo_id, NULL)) AS viewers,
         COUNT(DISTINCT user_pseudo_id) AS dau
       FROM {TABLE}
-      WHERE {suffix_daily(f"_TABLE_SUFFIX BETWEEN '{win_start}' AND '{end_s}'")}
+      WHERE {suffix_daily(f"{DAY} BETWEEN '{win_start}' AND '{end_s}'")}
       GROUP BY d
       HAVING total > 0
       ORDER BY d
