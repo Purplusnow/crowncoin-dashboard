@@ -279,6 +279,17 @@ def main() -> None:
     vcount = Counter((r["ver"] or "?") for r in rows if (r["country"] or "").strip())
     floor = max(10, int(0.03 * sum(vcount.values())))
     LIVE = {v for v, c in vcount.items() if c >= floor}
+    # ★출시 직후엔 **전체 유저가 문턱(10명)보다 적어** 아무 빌드도 라이브로 안 잡힌다.
+    #   그러면 전원이 testbuild 로 빠져 실시간 탭이 통째로 빈다 — 가입자는 있는데
+    #   목록·퍼널·국가가 전부 0 이 된다(실측 2026-10-20: 5명 전원 제외, cohort_n=0).
+    #   표본이 적을 땐 '많이 붙은 쪽이 라이브'라는 판정 자체가 성립하지 않으므로,
+    #   **가장 많은 빌드를 라이브로 보고 판정했다는 사실을 화면에 적는다**.
+    #   유저가 늘면 위 규칙이 자연히 다시 이긴다(이 분기는 안 탄다).
+    live_fallback = False
+    if not LIVE and vcount:
+        top = max(vcount.values())
+        LIVE = {v for v, c in vcount.items() if c == top}
+        live_fallback = True
 
     users, funnel, rec, stay60 = [], [0] * len(ORDER), [0] * len(ORDER), 0
     nogeo = 0
@@ -349,6 +360,9 @@ def main() -> None:
     out["cohort_n"] = n
     out["excluded_nogeo"] = nogeo
     out["excluded_build"] = testbuild
+    # True 면 표본이 적어 빌드 판정을 못 하고 '최다 빌드=라이브'로 가정했다는 뜻.
+    out["live_fallback"] = live_fallback
+    out["live_floor"] = floor
     # 가장 최근 라이브 빌드 — 목록에서 '새 빌드로 들어온 사람'을 눈에 띄게 하는 기준.
     # 롤아웃이 끝나면 자연히 이쪽이 다수가 되고 옛 빌드가 눌리므로 규칙을 안 고쳐도 된다.
     def _bn(v: str) -> int:

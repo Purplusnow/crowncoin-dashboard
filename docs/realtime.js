@@ -31,6 +31,10 @@
       (s.first_at ? `  ·  데이터 범위 ${s.first_at} ~ ${s.last_at} (KST)` : '') +
       (d.excluded_nogeo ? `  ·  지역 미상 ${num(d.excluded_nogeo)}명 제외` : '')
       + (d.excluded_build ? `  ·  테스트 빌드 ${num(d.excluded_build)}명 제외` : '')
+      // 표본이 문턱(기본 10명)보다 적으면 '많이 붙은 쪽이 라이브'라는 판정이 성립하지 않는다.
+      // 그때는 최다 빌드를 라이브로 가정하는데, 가정했다는 사실을 반드시 적는다 —
+      // 안 적으면 출시 직후의 소표본을 확정 판정처럼 읽게 된다.
+      + (d.live_fallback ? `  ·  표본이 적어 빌드 판정 보류(최다 빌드를 라이브로 가정)` : '')
       + (d.scan_mb != null ? `  ·  스캔 ${d.scan_mb}MB` : '');
 
     const users = d.users || [];
