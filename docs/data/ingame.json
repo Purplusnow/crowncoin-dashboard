@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-20 07:13 KST",
+  "updated": "2026-10-20 08:24 KST",
   "window_days": 45,
   "diag_start": "2026-01-01",
   "last_table": "20261015",
@@ -595,7 +595,7 @@
       },
       {
         "date": "2026-10-20",
-        "new": 2,
+        "new": 3,
         "days": [
           null,
           null,
@@ -633,10 +633,10 @@
     ]
   },
   "kpi": {
-    "dau": 3,
-    "wau": 5,
-    "new_7d": 5,
-    "cumulative": 11,
+    "dau": 4,
+    "wau": 6,
+    "new_7d": 6,
+    "cumulative": 12,
     "d1": 42.9,
     "d1_base": 7,
     "d1_prov": false,
@@ -647,12 +647,12 @@
     "d30_base": 0,
     "d30_prov": false,
     "reach1": 0.0,
-    "reach1_base": 11
+    "reach1_base": 12
   },
   "rebirth_funnel": [
     {
       "stage": "새게임",
-      "users": 8
+      "users": 9
     },
     {
       "stage": "은퇴",
@@ -667,6 +667,7 @@
   "progress_heatmap": {
     "bucket": 5,
     "dates": [
+      "2026-09-03",
       "2026-09-04",
       "2026-09-05",
       "2026-09-06",
@@ -711,8 +712,7 @@
       "2026-10-15",
       "2026-10-16",
       "2026-10-17",
-      "2026-10-18",
-      "2026-10-19"
+      "2026-10-18"
     ],
     "cells": []
   },
@@ -954,9 +954,9 @@
     "versions": [
       {
         "version": "통합",
-        "users": 11,
+        "users": 12,
         "dist": {
-          "0": 11,
+          "0": 12,
           "1": 0,
           "2": 0,
           "3": 0,
@@ -1071,8 +1071,8 @@
     "eligible_new": 0,
     "entered_new": 0,
     "entered": 0,
-    "all_users": 11,
-    "on_new": 11,
+    "all_users": 12,
+    "on_new": 12,
     "conv_pct": null,
     "rollout_pct": 100.0,
     "note": "도감은 codex_open(화면을 연 순간)으로만 관측되므로 자격자 수는 하한입니다."
