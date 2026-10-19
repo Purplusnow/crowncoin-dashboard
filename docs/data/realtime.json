@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-20 06:00 KST",
+ "updated": "2026-10-20 06:59 KST",
  "stage_labels": [
   {
    "key": "new_game",
@@ -136,7 +136,7 @@
   {
    "d": "20261020",
    "users": 3,
-   "events": 122
+   "events": 128
   }
  ],
  "day": "20261020",
@@ -147,7 +147,7 @@
   "purchases": 0,
   "exceptions": 0,
   "first_at": "2026-10-20 00:00",
-  "last_at": "2026-10-20 02:19"
+  "last_at": "2026-10-20 06:53"
  },
  "users": [],
  "stay60": 0,
