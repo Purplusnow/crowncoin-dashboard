@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-19 23:29 KST",
+ "updated": "2026-10-20 00:32 KST",
  "stage_labels": [
   {
    "key": "new_game",
@@ -135,19 +135,19 @@
  "tables": [
   {
    "d": "20261019",
-   "users": 1,
-   "events": 22
+   "users": 2,
+   "events": 26
   }
  ],
  "day": "20261019",
  "summary": {
-  "users": 1,
-  "new_users": 1,
-  "first_touch_today": 1,
+  "users": 2,
+  "new_users": 2,
+  "first_touch_today": 0,
   "purchases": 0,
   "exceptions": 0,
   "first_at": "2026-10-19 19:17",
-  "last_at": "2026-10-19 19:20"
+  "last_at": "2026-10-19 23:35"
  },
  "users": [],
  "stay60": 0,
@@ -363,14 +363,14 @@
  ],
  "cohort_n": 0,
  "excluded_nogeo": 0,
- "excluded_build": 1,
+ "excluded_build": 2,
  "newest_build": null,
  "versions": {
   "live": [],
   "rows": [
    {
     "ver": "1.0 (v29)",
-    "n": 1,
+    "n": 2,
     "live": false
    }
   ]
@@ -409,6 +409,11 @@
     "cert": "90008c15f5bc0e6d",
     "users": 1,
     "ok": false
+   },
+   {
+    "cert": "(미기록)",
+    "users": 1,
+    "ok": true
    }
   ],
   "blocked": []
