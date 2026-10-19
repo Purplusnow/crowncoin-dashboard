@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-20 00:32 KST",
+ "updated": "2026-10-20 02:45 KST",
  "stage_labels": [
   {
    "key": "new_game",
@@ -134,20 +134,20 @@
  ],
  "tables": [
   {
-   "d": "20261019",
-   "users": 2,
-   "events": 26
+   "d": "20261020",
+   "users": 3,
+   "events": 122
   }
  ],
- "day": "20261019",
+ "day": "20261020",
  "summary": {
-  "users": 2,
+  "users": 3,
   "new_users": 2,
-  "first_touch_today": 0,
+  "first_touch_today": 2,
   "purchases": 0,
   "exceptions": 0,
-  "first_at": "2026-10-19 19:17",
-  "last_at": "2026-10-19 23:35"
+  "first_at": "2026-10-20 00:00",
+  "last_at": "2026-10-20 02:19"
  },
  "users": [],
  "stay60": 0,
@@ -363,14 +363,14 @@
  ],
  "cohort_n": 0,
  "excluded_nogeo": 0,
- "excluded_build": 2,
+ "excluded_build": 4,
  "newest_build": null,
  "versions": {
   "live": [],
   "rows": [
    {
     "ver": "1.0 (v29)",
-    "n": 2,
+    "n": 4,
     "live": false
    }
   ]
@@ -406,14 +406,9 @@
   "known_bad": 0,
   "dist": [
    {
-    "cert": "90008c15f5bc0e6d",
-    "users": 1,
+    "cert": "8c4f94bc5f5be330",
+    "users": 3,
     "ok": false
-   },
-   {
-    "cert": "(미기록)",
-    "users": 1,
-    "ok": true
    }
   ],
   "blocked": []
