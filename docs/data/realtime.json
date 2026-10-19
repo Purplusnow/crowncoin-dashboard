@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-20 06:59 KST",
+ "updated": "2026-10-20 08:24 KST",
  "stage_labels": [
   {
    "key": "new_game",
@@ -135,19 +135,19 @@
  "tables": [
   {
    "d": "20261020",
-   "users": 3,
-   "events": 128
+   "users": 4,
+   "events": 157
   }
  ],
  "day": "20261020",
  "summary": {
-  "users": 3,
-  "new_users": 2,
-  "first_touch_today": 2,
+  "users": 4,
+  "new_users": 3,
+  "first_touch_today": 3,
   "purchases": 0,
   "exceptions": 0,
   "first_at": "2026-10-20 00:00",
-  "last_at": "2026-10-20 06:53"
+  "last_at": "2026-10-20 08:02"
  },
  "users": [],
  "stay60": 0,
@@ -363,14 +363,14 @@
  ],
  "cohort_n": 0,
  "excluded_nogeo": 0,
- "excluded_build": 4,
+ "excluded_build": 5,
  "newest_build": null,
  "versions": {
   "live": [],
   "rows": [
    {
     "ver": "1.0 (v29)",
-    "n": 4,
+    "n": 5,
     "live": false
    }
   ]
@@ -398,7 +398,7 @@
   "tiers": []
  },
  "apk_cert": {
-  "good": "dc0a72d0f17e769e",
+  "good": "",
   "events": 0,
   "users": 0,
   "false_pos": 0,
@@ -407,8 +407,8 @@
   "dist": [
    {
     "cert": "8c4f94bc5f5be330",
-    "users": 3,
-    "ok": false
+    "users": 4,
+    "ok": null
    }
   ],
   "blocked": []
@@ -445,11 +445,11 @@
   ]
  },
  "ads": {
-  "total": 0,
+  "total": 1,
   "by_result": [
    {
     "result": "earned",
-    "n": 0
+    "n": 1
    },
    {
     "result": "dismissed",
@@ -464,11 +464,33 @@
     "n": 0
    }
   ],
-  "finish_pct": null,
-  "supply_pct": null,
-  "by_country": [],
-  "viewers": 0,
-  "by_placement": []
+  "finish_pct": 100.0,
+  "supply_pct": 0.0,
+  "by_country": [
+   {
+    "country": "기타(요청 10회 미만)",
+    "total": 1,
+    "earned": 1,
+    "dismissed": 0,
+    "no_ad": 0,
+    "failed": 0,
+    "users": 1,
+    "lumped": 1,
+    "finish_pct": 100.0,
+    "supply_pct": 0.0
+   }
+  ],
+  "viewers": 1,
+  "by_placement": [
+   {
+    "placement": "offline",
+    "earned": 1,
+    "dismissed": 0,
+    "no_ad": 0,
+    "failed": 0,
+    "total": 1
+   }
+  ]
  },
  "scan_mb": 90.0,
  "scan_note": "이번 실행 스캔 90.0MB. 매시간(24회/일)이면 월 63.28GB — 무료 구간은 월 1,024GB."
