@@ -136,11 +136,17 @@ def apply_admob(days: int) -> None:
             continue
         per.setdefault(date, {})[name] = per.setdefault(date, {}).get(name, 0.0) + usd
 
-    # ★이 보드는 **왕관과 금화 한 앱**의 수지를 본다. purplusnow AdMob 계정에는 앱이
-    #   여러 개라(Pocket Arcade·퐁당냥·FaceLapse…), 전부 합산하면 광고매출이 통째로
-    #   거짓이 된다 — 원작 daily.json 에 실제로 다른 앱 줄이 섞여 있다.
+    # ⏸ 광고매출 수집은 **보류**다(투자자 결정 2026-10-20) — 원작 SECONDACT BOARD 를
+    #   계정 전체를 보는 **통합 대시보드**로 쓰기로 했고, 이 게임만의 광고매출을 따로
+    #   떼는 일은 그 뒤로 미룬다. ADMOB_* 시크릿이 없으면 sync.yml 이 이 스텝을
+    #   통째로 건너뛰므로 지금은 이 코드가 아예 안 돈다.
+    #   ★광고 '탭' 자체는 시크릿 없이도 동작한다 — 노출·시청자·완료율은 GA4 에서 온다.
+    #     시크릿이 필요한 건 AdMob '금액'뿐이다.
+    #
+    #   되살릴 때: purplusnow 계정에 앱이 8개라 전부 합산하면 광고매출이 통째로 거짓이
+    #   된다(원작 daily.json 에 실제로 "Pocket Arcade - Offline Games" 줄이 섞여 있다).
     #   ADMOB_APP 에 앱 이름(부분일치, 대소문자 무시)을 넣으면 그 앱만 센다.
-    #   비워 두면 **합산하지 않고 경고**한다 — 조용히 틀린 숫자를 쓰는 것보다 낫다.
+    #   비워 두면 합산하되 **경고를 찍는다** — 조용히 틀린 숫자를 쓰는 것보다 낫다.
     only = (os.environ.get("ADMOB_APP") or "").strip().lower()
     if not only:
         print("  ⚠ ADMOB_APP 이 비어 있습니다 — 계정의 모든 앱이 합산됩니다. "
