@@ -1,0 +1,109 @@
+{
+ "updated": "2026-10-20 07:25 KST",
+ "level": "ok",
+ "window_days": 7,
+ "total": 0,
+ "recent": 0,
+ "recent_base": 8,
+ "recent_rate": 0.0,
+ "thresholds": {
+  "warn_n": 5,
+  "alert_n": 20,
+  "warn_rate": 0.1,
+  "alert_rate": 0.5
+ },
+ "signals": [
+  {
+   "key": "clock_drift",
+   "label": "시계 앞당김",
+   "desc": "기기가 주장한 경과 시간이 실제보다 1시간 넘게 깁니다. 방치보상이 '비운 시간'으로 계산되므로 그대로 돈이 됩니다.",
+   "total": 0,
+   "recent": 0
+  },
+  {
+   "key": "fake_purchase",
+   "label": "결제 위조",
+   "desc": "게임이 purchase_anomaly 를 쏜 유저입니다. 주문ID 형식이 깨졌거나 재사용됐는데 보상은 이미 지급된 건이 대부분입니다 — 탐지는 했지만 막지는 못한 것이라 유료 상품이 공짜로 나갑니다. 유일하게 돈이 걸린 신호입니다.",
+   "total": 0,
+   "recent": 0,
+   "granted": 0
+  },
+  {
+   "key": "pct_burst",
+   "label": "추월% 폭주",
+   "desc": "추월%가 같은 1초에 10칸 이상 건너뜁니다. 정상 플레이면 몇 분에 걸쳐 하나씩 오릅니다 — 세이브를 바꿔 끼워 진행도가 어긋난 흔적입니다.",
+   "total": 0,
+   "recent": 0
+  }
+ ],
+ "apk_cert": {
+  "good": "",
+  "events": 0,
+  "users": 0,
+  "false_pos": 0,
+  "unknown": 0,
+  "dist": [
+   {
+    "cert": "8c4f94bc5f5be330",
+    "users": 4,
+    "ok": null
+   },
+   {
+    "cert": "(미기록)",
+    "users": 3,
+    "ok": null
+   }
+  ]
+ },
+ "segments": [
+  {
+   "seg": "전체",
+   "users": 7,
+   "fake": 0,
+   "pct": 0.0,
+   "mult": null
+  },
+  {
+   "seg": "추월 50%+",
+   "users": 0,
+   "fake": 0,
+   "pct": 0,
+   "mult": null
+  },
+  {
+   "seg": "추월 90%+",
+   "users": 0,
+   "fake": 0,
+   "pct": 0,
+   "mult": null
+  },
+  {
+   "seg": "추월 100%",
+   "users": 0,
+   "fake": 0,
+   "pct": 0,
+   "mult": null
+  },
+  {
+   "seg": "2부 진입",
+   "users": 0,
+   "fake": 0,
+   "pct": 0,
+   "mult": null
+  }
+ ],
+ "compare": {
+  "normal": {
+   "users": 7,
+   "payers": 1,
+   "pay_pct": 14.29,
+   "ads": 0.4,
+   "days": 1.6,
+   "mins": 48.7
+  }
+ },
+ "reasons": [],
+ "daily": [],
+ "users": [],
+ "scan_mb": 60.0
+}

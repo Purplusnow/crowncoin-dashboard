@@ -1,0 +1,77 @@
+# 전체 가입자 목록 수집 — BigQuery → docs/data/users/YYYY-MM-DD.json
+#
+# ★이 레포는 **스트리밍(intraday)까지 읽는다**(원작은 확정본만). 확정이 며칠 밀리면
+#   가장 최근 가입자가 목록에서 통째로 빠지기 때문이다(실측 2026-10-20: 확정이 10-15 에
+#   멈춰 10-19·10-20 가입자 4명이 안 보였다). 그래서 하루 한 번으로는 모자라 **하루 두 번** 돈다.
+# 이미 받은 날짜는 index.json 을 보고 건너뛰므로, 늦게 확정된 날만 따라잡는다.
+#
+# 하루치 파일은 한 번 쓰고 다시 안 바뀐다. 한 파일에 다 담으면 매일 2MB를 통째로 다시
+# 커밋하게 돼서 리포가 연 수백 MB씩 불어나는데, 쪼개 두면 히스토리가 쌓이지 않는다.
+name: users
+
+on:
+  schedule:
+    - cron: '30 13 * * *'         # 22:30 KST — ingame 보강 돌고 난 뒤
+    - cron: '30 1 * * *'          # 10:30 KST — 오전에도 한 번(스트리밍 반영)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: users
+  cancel-in-progress: false
+
+jobs:
+  users:
+    runs-on: ubuntu-latest
+    env:
+      GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: 의존성
+        if: env.GCP_SA_KEY != ''
+        run: pip install --quiet google-cloud-bigquery
+
+      - name: 서비스계정 키 파일화
+        if: env.GCP_SA_KEY != ''
+        run: |
+          printf '%s' "$GCP_SA_KEY" > "$RUNNER_TEMP/sa.json"
+          echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/sa.json" >> "$GITHUB_ENV"
+
+      - name: 가입자 수집
+        if: env.GCP_SA_KEY != ''
+        working-directory: tools
+        run: python3 users.py
+
+      # 위험 신호 — 같은 자격증명으로 이미 전 기간을 훑는 잡이라 여기 얹는다.
+      - name: 위험 신호 감시
+        if: env.GCP_SA_KEY != ''
+        working-directory: tools
+        run: python3 anomaly.py
+
+      - name: 커밋
+        if: env.GCP_SA_KEY != ''
+        run: |
+          git config user.name  "crowncoin-bot"
+          git config user.email "34591718+Purplusnow@users.noreply.github.com"
+          git add docs/data/users docs/data/anomaly.json
+          if git diff --cached --quiet -- docs/data/users docs/data/anomaly.json; then
+            echo "새로 받은 날짜 없음 — 커밋 생략"
+            exit 0
+          fi
+          git commit -m "가입자 수집: $(date -u -d '+9 hours' '+%Y-%m-%d %H:%M') KST"
+          # 다른 수집 잡이나 사람 커밋이 사이에 끼면 푸시가 밀린다(! [rejected] fetch first).
+          # 재시도가 없으면 수집은 성공해 놓고 그 회차 데이터를 통째로 버리게 된다 —
+          # 10/02 00:34 스케줄 실행이 그렇게 날아갔다. 리베이스하고 몇 번 다시 민다.
+          for i in 1 2 3 4 5; do
+            git push && break
+            echo "푸시 밀림 — 리베이스 후 재시도 $i"
+            git pull --rebase --autostash origin main || exit 1
+            sleep $((i * 3))
+          done

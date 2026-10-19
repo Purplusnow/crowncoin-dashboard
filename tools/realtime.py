@@ -466,7 +466,11 @@ def main() -> None:
              IFNULL(ver, '') AS ver, seen
       FROM u WHERE cert_bad > 0 ORDER BY cert_bad DESC LIMIT 50
     """)
-    GOOD_CERT = os.environ.get("APK_CERT", "dc0a72d0f17e769e")
+    # ★기대 인증서는 **앱마다 다르다** — Play 가 앱서명키로 재서명하므로 인생 2막 값을
+    #   그대로 쓰면 정상 유저가 전부 '변조'로 찍힌다(원작 템플릿의 기본값이 그것이었다).
+    #   C&C 실데이터엔 아직 cert 가 한 건도 안 찍혀 검증이 불가하므로 **빈 값이 기본**이고,
+    #   빈 값이면 인증서 판정을 하지 않는다(ok=None). 값을 확인하면 APK_CERT 로 넣는다.
+    GOOD_CERT = os.environ.get("APK_CERT", "")
     out["apk_cert"] = {
         "good": GOOD_CERT,
         "events": int(cert_row["events"] or 0),
@@ -475,7 +479,7 @@ def main() -> None:
         "unknown": int(cert_row["unknown"] or 0),
         "known_bad": int(cert_row["known_bad"] or 0),
         "dist": [{"cert": x["cert"], "users": int(x["users"]),
-                  "ok": x["cert"] in (GOOD_CERT, "(미기록)")} for x in cert_dist],
+                  "ok": (None if not GOOD_CERT else x["cert"] in (GOOD_CERT, "(미기록)"))} for x in cert_dist],
         "blocked": [{"tag": b["tag"], "events": int(b["cert_bad"]), "cert": b["cert"],
                      "country": b["country"], "ver": b["ver"], "seen": b["seen"],
                      # 오탐: 인증서에만 걸렸고 정상 결제 이력이 있음 / 보류: 결제 이력도 없음

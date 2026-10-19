@@ -23,6 +23,7 @@
 <nav class="viewnav">
   <button class="vtab is-on" data-view="ingame" type="button">인게임</button>
   <button class="vtab" data-view="realtime" type="button">실시간</button>
+  <button class="vtab" data-view="users" type="button">전체 가입자</button>
 </nav>
 
 <div class="risk" id="risk" hidden></div>
@@ -227,6 +228,33 @@
   </section>
 </main>
 
+<main class="wrap" id="view-users" hidden>
+
+  <p class="rt-warn">
+    <b>출시 이후 가입자 전부</b>를 한 명씩 보여줍니다. 각 줄의 값은 <b>지금까지의 누적</b>입니다 —
+    추월%는 그 사람이 지금껏 도달한 최고치이고, 체류·접속일도 전 기간 합계입니다.
+    목록이 가입일로 묶여 있을 뿐 가입 당일 기록이 아닙니다.
+    <b>스트리밍(intraday)까지 포함</b>합니다 — 아직 확정 안 된 날은 가입일 옆에 <b>집계중</b>으로 표시되고, 그 줄의 값은 더 늘 수 있습니다.
+  </p>
+
+  <p class="rt-meta" id="us-meta"></p>
+
+  <section class="card">
+    <div class="card-head"><h2>가입자</h2>
+      <p class="card-sub">최근 가입일부터. 칸에 올리면 단계 이름이 나옵니다. 진한 파랑은 기록이 남은 칸,
+        <b>옅은 파랑</b>은 뒤 단계로 보아 지나갔다고 본 칸, 끝에 떨어진 <b>녹색</b>은 독립 단계입니다.</p>
+      <p class="card-sub" id="us-shown"></p></div>
+    <div class="table-scroll"><table class="ledger rt-users" id="us-users"></table></div>
+    <button type="button" class="tab rt-more" id="us-more">더 보기</button>
+  </section>
+
+  <section class="empty" id="us-empty" hidden>
+    <h2>아직 가입자 데이터가 없습니다</h2>
+    <p><code>tools/users.py</code> 가 <code>docs/data/users/</code> 를 채우면 보입니다.</p>
+  </section>
+</main>
+
+
 
 
 
@@ -234,6 +262,8 @@
 <script src="userrow.js?v=c3aab60d"></script>
 <script src="ingame.js?v=fc08ede9"></script>
 <script src="realtime.js?v=3a1f2377"></script>
+<script src="users.js?v=port1"></script>
+<script src="anomaly.js?v=port1"></script>
 </body>
 </html>
 

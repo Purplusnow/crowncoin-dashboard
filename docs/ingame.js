@@ -46,7 +46,7 @@
   // ── 뷰 토글 ────────────────────────────────────────────────
   let loaded = false;
   /* 뷰가 셋 이상으로 늘어 일반화했다. 다른 뷰는 window.__viewShown 으로 전환을 전달받는다. */
-  const VIEWS = ['ingame', 'realtime'];   // 매출·광고·가입자 뷰는 아직 안 넣었다
+  const VIEWS = ['ingame', 'realtime', 'users'];   // 매출·광고 뷰는 아직 안 넣었다
   function show(view) {
     VIEWS.forEach(v => { const el = $('#view-' + v); if (el) el.hidden = v !== view; });
     const db = $('#demo-banner'); if (db) db.hidden = true;
