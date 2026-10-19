@@ -1,189 +1,223 @@
 {
-  "updated": "2026-10-20 07:05 KST",
+  "updated": "2026-10-20 07:07 KST",
   "window_days": 45,
   "diag_start": "2026-01-01",
   "last_table": "20261015",
   "last_live": "20261020",
+  "unsettled_days": [
+    "20261019",
+    "20261020"
+  ],
   "retention_curve": [
     {
       "day": 1,
       "ret": 3,
       "base": 7,
-      "pct": 42.9
+      "pct": 42.9,
+      "prov": false
     },
     {
       "day": 2,
       "ret": 1,
       "base": 7,
-      "pct": 14.3
+      "pct": 14.3,
+      "prov": false
     },
     {
       "day": 3,
       "ret": 0,
       "base": 7,
-      "pct": 0.0
+      "pct": 0.0,
+      "prov": false
     },
     {
       "day": 4,
       "ret": 0,
       "base": 7,
-      "pct": 0.0
+      "pct": 0.0,
+      "prov": true
     },
     {
       "day": 5,
       "ret": 0,
       "base": 7,
-      "pct": 0.0
+      "pct": 0.0,
+      "prov": true
     },
     {
       "day": 6,
       "ret": 0,
       "base": 6,
-      "pct": 0.0
+      "pct": 0.0,
+      "prov": true
     },
     {
       "day": 7,
       "ret": 0,
       "base": 6,
-      "pct": 0.0
+      "pct": 0.0,
+      "prov": true
     },
     {
       "day": 8,
       "ret": 0,
       "base": 3,
-      "pct": 0.0
+      "pct": 0.0,
+      "prov": true
     },
     {
       "day": 9,
       "ret": 0,
       "base": 2,
-      "pct": 0.0
+      "pct": 0.0,
+      "prov": true
     },
     {
       "day": 10,
       "ret": 0,
       "base": 1,
-      "pct": 0.0
+      "pct": 0.0,
+      "prov": true
     },
     {
       "day": 11,
       "ret": 0,
       "base": 0,
-      "pct": null
+      "pct": null,
+      "prov": false
     },
     {
       "day": 12,
       "ret": 0,
       "base": 0,
-      "pct": null
+      "pct": null,
+      "prov": false
     },
     {
       "day": 13,
       "ret": 0,
       "base": 0,
-      "pct": null
+      "pct": null,
+      "prov": false
     },
     {
       "day": 14,
       "ret": 0,
       "base": 0,
-      "pct": null
+      "pct": null,
+      "prov": false
     },
     {
       "day": 15,
       "ret": 0,
       "base": 0,
-      "pct": null
+      "pct": null,
+      "prov": false
     },
     {
       "day": 16,
       "ret": 0,
       "base": 0,
-      "pct": null
+      "pct": null,
+      "prov": false
     },
     {
       "day": 17,
       "ret": 0,
       "base": 0,
-      "pct": null
+      "pct": null,
+      "prov": false
     },
     {
       "day": 18,
       "ret": 0,
       "base": 0,
-      "pct": null
+      "pct": null,
+      "prov": false
     },
     {
       "day": 19,
       "ret": 0,
       "base": 0,
-      "pct": null
+      "pct": null,
+      "prov": false
     },
     {
       "day": 20,
       "ret": 0,
       "base": 0,
-      "pct": null
+      "pct": null,
+      "prov": false
     },
     {
       "day": 21,
       "ret": 0,
       "base": 0,
-      "pct": null
+      "pct": null,
+      "prov": false
     },
     {
       "day": 22,
       "ret": 0,
       "base": 0,
-      "pct": null
+      "pct": null,
+      "prov": false
     },
     {
       "day": 23,
       "ret": 0,
       "base": 0,
-      "pct": null
+      "pct": null,
+      "prov": false
     },
     {
       "day": 24,
       "ret": 0,
       "base": 0,
-      "pct": null
+      "pct": null,
+      "prov": false
     },
     {
       "day": 25,
       "ret": 0,
       "base": 0,
-      "pct": null
+      "pct": null,
+      "prov": false
     },
     {
       "day": 26,
       "ret": 0,
       "base": 0,
-      "pct": null
+      "pct": null,
+      "prov": false
     },
     {
       "day": 27,
       "ret": 0,
       "base": 0,
-      "pct": null
+      "pct": null,
+      "prov": false
     },
     {
       "day": 28,
       "ret": 0,
       "base": 0,
-      "pct": null
+      "pct": null,
+      "prov": false
     },
     {
       "day": 29,
       "ret": 0,
       "base": 0,
-      "pct": null
+      "pct": null,
+      "prov": false
     },
     {
       "day": 30,
       "ret": 0,
       "base": 0,
-      "pct": null
+      "pct": null,
+      "prov": false
     }
   ],
   "retention_cohort": {
@@ -207,6 +241,22 @@
           null,
           null,
           null
+        ],
+        "prov": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          true,
+          false,
+          false,
+          false,
+          false
         ]
       },
       {
@@ -227,6 +277,22 @@
           null,
           null,
           null
+        ],
+        "prov": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false
         ]
       },
       {
@@ -247,6 +313,22 @@
           null,
           null,
           null
+        ],
+        "prov": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
         ]
       },
       {
@@ -267,6 +349,22 @@
           null,
           null,
           null
+        ],
+        "prov": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
         ]
       },
       {
@@ -287,6 +385,22 @@
           null,
           null,
           null
+        ],
+        "prov": [
+          false,
+          false,
+          false,
+          true,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
         ]
       }
     ]
@@ -298,10 +412,13 @@
     "cumulative": 11,
     "d1": 42.9,
     "d1_base": 7,
+    "d1_prov": false,
     "d7": 0.0,
     "d7_base": 6,
+    "d7_prov": true,
     "d30": null,
     "d30_base": 0,
+    "d30_prov": false,
     "reach1": 0.0,
     "reach1_base": 11
   },

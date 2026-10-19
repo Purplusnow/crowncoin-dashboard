@@ -68,7 +68,7 @@ IN_LIVE = "TRUE"      # 확정 + 오늘치 intraday (날짜당 한 장)
 IN_SETTLED = "TRUE"   # 확정 테이블만
 
 
-def _scan_tables() -> tuple[str, str, str, str]:
+def _scan_tables() -> tuple[str, str, str, str, set]:
     """테이블 목록을 메타데이터로 읽어 **날짜당 한 장**씩 고른다(스캔 0바이트).
 
     ★GA4 는 일별 테이블이 확정되기 전까지 어제치 events_intraday_* 를 그대로 남겨 둔다.
@@ -88,7 +88,9 @@ def _scan_tables() -> tuple[str, str, str, str]:
                 if d else "FALSE")
     last_live = max(live) if live else None
     last_settled = max(settled) if settled else None
-    return _in(live), _in(settled), last_live, last_settled
+    # 확정본 없이 intraday 로만 덮인 날 = 아직 '덜 찬' 날. 이 날에 걸리는 리텐션은 하한이다.
+    unsettled = {d for d in live if d not in settled}
+    return _in(live), _in(settled), last_live, last_settled, unsettled
 
 
 def suffix_daily(cond: str) -> str:
@@ -118,9 +120,10 @@ def main() -> None:
 
     # ── 스코프 결정(스캔 0바이트) — 날짜당 한 장씩 고른다 ──────────────
     global IN_LIVE, IN_SETTLED
-    IN_LIVE, IN_SETTLED, last_live, last_settled = _scan_tables()
+    IN_LIVE, IN_SETTLED, last_live, last_settled, UNSETTLED = _scan_tables()
     out["last_table"] = last_settled          # 확정 데이터가 어디까지인지(리텐션 신뢰구간)
     out["last_live"] = last_live              # 스트리밍 포함 최신일(DAU 기준일)
+    out["unsettled_days"] = sorted(UNSETTLED)  # 아직 확정 안 된 날(리텐션 '+' 표기 근거)
 
     # ── KPI: DAU·WAU·신규(7일)·누적·D1/D7 리텐션 ───────────────────────
     # (기존 '신규/활성 45일'은 게임 나이와 겹쳐 신규≈활성≈전체로 오해 유발 → 실질 지표로 교체)
@@ -128,7 +131,7 @@ def main() -> None:
     #   다음날 아침까지 0으로 보인다(실측: 10-19 저녁에 유저가 들어왔는데 last_table 이
     #   10-15 에 멈춰 DAU=1 로 굳어 있었다).
     last_t = last_live
-    _last = datetime.strptime(last_t, "%Y%m%d").date()
+    _last = datetime.strptime(last_t, "%Y%m%d").date()   # = last_live. 리텐션 관측 가능 상한도 여기까지.
     d7 = (_last - timedelta(days=6)).strftime("%Y%m%d")     # 최근 7일(마지막일 포함)
     k = q(f"""
       SELECT
@@ -157,21 +160,34 @@ def main() -> None:
           GROUP BY user_pseudo_id
         ) i
         JOIN (
-          SELECT DISTINCT user_pseudo_id, PARSE_DATE('%Y%m%d', _TABLE_SUFFIX) AS d
-          FROM {TABLE} WHERE {IN_SETTLED} AND IFNULL(geo.country,'') != ''
+          -- ★복귀(분자)는 **스트리밍 포함**. 오늘 돌아온 사람이 내일까지 안 보이면
+          --   리텐션이 하루 내내 가짜로 낮다. 분모는 아래 i(확정일 코호트)라 고정이므로
+          --   분자만 더 들어오는 구조 → 측정값은 **하한**이고 '23.4%+' 로 표기한다.
+          SELECT DISTINCT user_pseudo_id, PARSE_DATE('%Y%m%d', {DAY}) AS d
+          FROM {TABLE} WHERE {IN_LIVE} AND IFNULL(geo.country,'') != ''
         ) a ON a.user_pseudo_id = i.user_pseudo_id
       ) WHERE off BETWEEN 1 AND 30 GROUP BY off
     """)
     ret_by = {int(x["off"]): int(x["ret"] or 0) for x in retq}
     insts = [(datetime.strptime(x["d0"], "%Y%m%d").date(), int(x["n"])) for x in inst_hist]
+    _uns = {datetime.strptime(d, "%Y%m%d").date() for d in UNSETTLED}
+
+    def _prov(nd: int, cohorts) -> bool:
+        """이 오프셋의 복귀일이 '덜 찬 날'에 걸리나. 걸리면 값은 하한이다('+')."""
+        return any(d0 + timedelta(days=nd) in _uns for d0, c in cohorts if c)
+
     out["retention_curve"] = []
     for nd in range(1, 31):
+        # ★관측 가능 범위를 last_live 까지로 넓힌다. 확정본만 보면 '오늘 돌아온 사람'이
+        #   내일까지 안 세어져 리텐션이 하루 내내 가짜로 낮다.
         cutoff = _last - timedelta(days=nd)
-        base = sum(c for d0, c in insts if d0 <= cutoff)
+        contrib = [(d0, c) for d0, c in insts if d0 <= cutoff]
+        base = sum(c for _, c in contrib)
         rr = ret_by.get(nd, 0)
         out["retention_curve"].append({
             "day": nd, "ret": rr, "base": base,
             "pct": (round(100 * rr / base, 1) if base else None),
+            "prov": _prov(nd, contrib),          # True면 화면에 '23.4%+' 로 찍는다
         })
     # 코호트 리텐션 삼각 — 설치일(d0) 행 × Day1..DayN 열. 셀=그 코호트 중 정확히 n일 뒤 복귀 비율.
     # d0+n > last(아직 안 지난 날)은 관측불가 → null. 최근 COHORT_DAYS일치 코호트 × Day1..COHORT_N.
@@ -185,8 +201,8 @@ def main() -> None:
           GROUP BY user_pseudo_id
         ) i
         JOIN (
-          SELECT DISTINCT user_pseudo_id, PARSE_DATE('%Y%m%d', _TABLE_SUFFIX) AS d
-          FROM {TABLE} WHERE {IN_SETTLED} AND IFNULL(geo.country,'') != ''
+          SELECT DISTINCT user_pseudo_id, PARSE_DATE('%Y%m%d', {DAY}) AS d   -- 복귀는 스트리밍 포함(위 주석)
+          FROM {TABLE} WHERE {IN_LIVE} AND IFNULL(geo.country,'') != ''
         ) a ON a.user_pseudo_id = i.user_pseudo_id
       ) WHERE off BETWEEN 1 AND {COHORT_N} GROUP BY d0, off
     """)
@@ -198,23 +214,27 @@ def main() -> None:
     for d0s in sorted(inst_by.keys()):
         d0 = datetime.strptime(d0s, "%Y%m%d").date()
         nu = inst_by[d0s]
-        days = []
+        days, prov = [], []
         for nd in range(1, COHORT_N + 1):
-            if d0 + timedelta(days=nd) > _last or nu == 0:
-                days.append(None)  # 아직 관측 불가 / 코호트 없음
+            rd = d0 + timedelta(days=nd)
+            if rd > _last or nu == 0:
+                days.append(None); prov.append(False)   # 아직 관측 불가 / 코호트 없음
             else:
                 days.append(round(100 * coh_ret.get((d0s, nd), 0) / nu, 1))
+                prov.append(rd in _uns)                 # 복귀일이 '덜 찬 날' → 하한
         out["retention_cohort"]["rows"].append({
-            "date": d0.strftime("%Y-%m-%d"), "new": nu, "days": days,
+            "date": d0.strftime("%Y-%m-%d"), "new": nu, "days": days, "prov": prov,
         })
     def _dget(nd):
         row = out["retention_curve"][nd - 1]
-        return row["pct"], row["base"]
-    d1p, d1b = _dget(1); d7p, d7b = _dget(7); d30p, d30b = _dget(30)
+        return row["pct"], row["base"], row["prov"]
+    d1p, d1b, d1v = _dget(1); d7p, d7b, d7v = _dget(7); d30p, d30b, d30v = _dget(30)
     out["kpi"] = {
         "dau": int(k["dau"] or 0), "wau": int(k["wau"] or 0),
         "new_7d": int(k["new_7d"] or 0), "cumulative": int(cum or 0),
-        "d1": d1p, "d1_base": d1b, "d7": d7p, "d7_base": d7b, "d30": d30p, "d30_base": d30b,
+        "d1": d1p, "d1_base": d1b, "d1_prov": d1v,
+        "d7": d7p, "d7_base": d7b, "d7_prov": d7v,
+        "d30": d30p, "d30_base": d30b, "d30_prov": d30v,
     }
 
     # ── 새게임→은퇴→첫환생 퍼널 (진단이벤트 기간, 신뢰 가능한 onb_step만) ──────────────────

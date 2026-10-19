@@ -320,13 +320,21 @@
   function renderKpi(d) {
     const host = $('#ig-kpi'); host.innerHTML = '';
     const k = d.kpi || {};
-    const pctT = (v, base) => v != null ? v + '%' : (base ? '0%' : '—');
-    host.appendChild(tile('DAU', num(k.dau || 0), `일간 활성 (${d.last_table || '최신'})`));
+    // ★prov=true 면 복귀일이 아직 '덜 찬 날'에 걸린 값이다. 분모(코호트)는 확정일이라
+    //   고정이고 분자만 더 들어올 수 있으므로 **하한**이다 → '23.4%+' 로 찍는다.
+    const pctT = (v, base, prov) => v != null ? (v + '%' + (prov ? '+' : '')) : (base ? '0%' : '—');
+    // ★기준일은 last_live(스트리밍 포함)다. last_table(확정)로 찍으면 화면이 며칠 전
+    //   날짜를 말하면서 오늘 숫자를 보여주는 꼴이 된다(실측: DAU 3 인데 라벨은 10-15).
+    const _lv = d.last_live || d.last_table;
+    const _ds = _lv ? `${_lv.slice(4,6)}-${_lv.slice(6,8)}` : '최신';
+    const _un = (d.unsettled_days || []).includes(_lv);
+    host.appendChild(tile('DAU', num(k.dau || 0), `일간 활성 (${_ds}${_un ? ' 집계중' : ''})`));
     host.appendChild(tile('WAU', num(k.wau || 0), '주간 활성 (최근 7일)'));
     host.appendChild(tile('신규 (7일)', num(k.new_7d || 0), '최근 7일 첫 설치'));
     host.appendChild(tile('누적 유저', num(k.cumulative || 0), '전체 설치'));
     host.appendChild(tile('추월 1% 돌파', pctT(k.reach1, k.reach1_base), `은퇴 후 1%+ 도달 · 최대 누수 · 모수 ${num(k.reach1_base || 0)}`));
-    host.appendChild(tile('D1 리텐션', pctT(k.d1, k.d1_base), `설치 다음날 복귀 · 모수 ${num(k.d1_base || 0)}`));
+    host.appendChild(tile('D1 리텐션', pctT(k.d1, k.d1_base, k.d1_prov),
+      `설치 다음날 복귀 · 모수 ${num(k.d1_base || 0)}${k.d1_prov ? ' · 집계중(하한)' : ''}`));
     host.appendChild(tile('D7 리텐션', pctT(k.d7, k.d7_base), `설치 7일뒤 복귀 · 모수 ${num(k.d7_base || 0)}`));
     host.appendChild(tile('D30 리텐션', pctT(k.d30, k.d30_base), `설치 30일뒤 복귀 · 모수 ${num(k.d30_base || 0)}`));
   }
@@ -352,10 +360,14 @@
     // 최신 코호트가 위로 오도록 역순
     c.rows.slice().reverse().forEach(r => {
       h += `<tr><td class="stick vt-ver">${esc(r.date)}</td><td class="num">${num(r.new)}</td>`;
-      r.days.forEach(p => {
+      r.days.forEach((p, i) => {
         if (p == null) { h += '<td class="num coh-na">·</td>'; return; }
         const lg = 90 - 42 * Math.min(p / 50, 1);
-        h += `<td class="num fcell" style="background:${heat(p)};color:${lg < 55 ? '#fff' : '#333'}">${p}%</td>`;
+        // prov=복귀일이 아직 안 찬 날 → 값은 하한. '+' 와 점선 테두리로 구분한다.
+        const pv = r.prov && r.prov[i];
+        const bd = pv ? ';outline:1px dashed rgba(0,0,0,.35);outline-offset:-2px' : '';
+        h += `<td class="num fcell" title="${pv ? '집계중 — 더 올라갈 수 있음' : ''}"`
+           + ` style="background:${heat(p)};color:${lg < 55 ? '#fff' : '#333'}${bd}">${p}%${pv ? '+' : ''}</td>`;
       });
       h += '</tr>';
     });
@@ -363,7 +375,7 @@
     const tbl = el('table', 'vftable coh-table', h);
     const scroll = el('div', 'table-scroll'); scroll.appendChild(tbl);
     host.appendChild(scroll);
-    host.appendChild(el('p', 'chart-note', `설치일 코호트 × Day1~D${N} 복귀율 · 셀=그 코호트 중 정확히 n일 뒤 접속 비율 · 회색(·)=아직 관측 불가 · 최신 설치일이 위`));
+    host.appendChild(el('p', 'chart-note', `설치일 코호트 × Day1~D${N} 복귀율 · 셀=그 코호트 중 정확히 n일 뒤 접속 비율 · "+"(점선)=복귀일이 아직 집계중이라 **하한** · 회색(·)=아직 관측 불가 · 최신 설치일이 위`));
   }
 
   // ── 은퇴→환생 퍼널 + 원인 3분할 ───────────────────────────
