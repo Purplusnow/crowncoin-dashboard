@@ -21,8 +21,10 @@
 </header>
 
 <nav class="viewnav">
+  <button class="vtab" data-view="revenue" type="button">매출</button>
   <button class="vtab is-on" data-view="ingame" type="button">인게임</button>
   <button class="vtab" data-view="realtime" type="button">실시간</button>
+  <button class="vtab" data-view="ads" type="button">광고</button>
   <button class="vtab" data-view="users" type="button">전체 가입자</button>
 </nav>
 
@@ -254,6 +256,128 @@
   </section>
 </main>
 
+<main class="wrap" id="view-revenue">
+
+  <div class="toolbar">
+    <button class="tab" data-days="7"  type="button">최근 7일</button>
+    <button class="tab" data-days="30" type="button">30일</button>
+    <button class="tab" data-days="90" type="button">90일</button>
+    <button class="tab is-on" data-days="0" type="button">전체</button>
+
+    <label class="check" for="fee-toggle">
+      <input type="checkbox" id="fee-toggle" checked>
+      <span id="fee-label">인앱 수수료 반영</span>
+    </label>
+
+    <p class="fx-note" id="fx-note" hidden></p>
+  </div>
+
+  <section class="empty" id="empty" hidden>
+    <h2>아직 기록이 없습니다</h2>
+    <p><code>docs/data/daily.json</code> 의 <code>daily</code> 배열에 하루 한 줄씩 넣으면 채워집니다.</p>
+<pre>{ "date": "2026-09-04", "admob": 4200, "iap": 11000, "ads": 30000 }</pre>
+    <p>구글플레이에 찍힌 각국 통화를 그대로 넣어도 됩니다 — 그날 환율로 원화 환산합니다.</p>
+<pre>{ "date": "2026-09-04",
+  "iap": { "KRW": 11000, "USD": 8.97, "JPY": 600 },
+  "admob": 4200, "ads": 30000 }</pre>
+    <p>터미널이 편하면:</p>
+<pre>python3 tools/add.py 2026-09-04 --admob 4200 --ads 30000 \
+    --iap KRW:11000 USD:8.97 JPY:600</pre>
+    <p>화면이 어떻게 보이는지 먼저 확인하려면 <a href="?demo=1">데모 데이터로 보기</a>.</p>
+  </section>
+
+  <div id="content" hidden>
+
+    <section class="hero">
+      <div class="hero-label">누적 순이익</div>
+      <p class="hero-value num" id="hero-value">—</p>
+      <p class="hero-sub" id="hero-sub"></p>
+    </section>
+
+    <section class="tiles" id="tiles"></section>
+
+    <section class="card" id="mon-card" hidden>
+      <div class="card-head">
+        <h2>수익 지표</h2>
+        <p class="card-sub" id="mon-sub">실매출(수동입력) × 유저수(GA4) 기반 · 원화</p>
+      </div>
+      <section class="tiles" id="mon-tiles"></section>
+      <p class="card-sub" id="mon-note"></p>
+    </section>
+
+    <section class="card">
+      <div class="card-head card-head-row">
+        <div>
+          <h2>일별</h2>
+          <p class="card-sub" id="daily-sub"></p>
+          <p class="proj" id="daily-proj" hidden></p>
+        </div>
+        <div class="seg" id="daily-view" role="group" aria-label="일별 차트 표시 범위"></div>
+      </div>
+      <div class="chart" id="chart-daily"></div>
+      <div class="legend" id="legend-daily"></div>
+    </section>
+
+    <section class="card">
+      <div class="card-head card-head-row">
+        <div>
+          <h2>누적</h2>
+          <p class="card-sub" id="cum-sub"></p>
+          <p class="proj" id="cum-proj" hidden></p>
+        </div>
+        <div class="seg" id="cum-view" role="group" aria-label="누적 차트 표시 범위"></div>
+      </div>
+      <div class="chart" id="chart-cum"></div>
+      <div class="legend" id="legend-cum"></div>
+    </section>
+
+    <section class="card">
+      <div class="card-head">
+        <h2>원장</h2>
+        <p class="card-sub">입력한 값 그대로와, 거기서 더해진 값. 단위는 원.</p>
+      </div>
+      <div class="table-scroll">
+        <table class="ledger" id="ledger"></table>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<main class="wrap" id="view-ads" hidden>
+  <p class="meta" id="ad-meta"></p>
+  <p class="empty" id="ad-empty" hidden>광고 데이터가 아직 없습니다.</p>
+
+  <section class="card" id="ad-rev" hidden>
+    <div class="card-head"><h2>광고 매출</h2>
+      <p class="card-sub"><b>앱별 표는 계정의 모든 앱</b>을, 위 타일(eCPM·완주)은 <b>인생 2막만</b> 다룹니다 —
+        매출은 AdMob(앱별)이지만 노출은 GA4 BigQuery 이고 그 export 가 인생 2막 것만 있기 때문입니다.
+        매출은 AdMob, 노출은 GA4라 출처가 둘입니다. 노출 이력은 확정본(어제까지)을 쓰고
+        오늘만 스트리밍으로 이어 붙입니다 — <b>(진행중)</b>이 붙은 줄은 자정부터 지금까지라 잠정입니다.
+        <b>eCPM</b>의 분모는 <b>완주</b>입니다 — 보상형 광고는 끝까지 봐야 매출이 잡힙니다.
+        <b>노출/DAU</b>는 매출이 흔들렸을 때 '광고를 덜 봤나, 사람이 줄었나'를 가릅니다.</p></div>
+    <section class="tiles" id="ad-rev-tiles"></section>
+    <div class="vsub">앱별 — 이 AdMob 계정의 모든 앱</div>
+    <div class="table-scroll"><table class="ledger rt-ads" id="ad-apps"></table></div>
+    <div class="vsub">일별 추이 — 최근 14일</div>
+    <div class="table-scroll"><table class="ledger rt-ads" id="ad-rev-table"></table></div>
+  </section>
+
+  <section class="card" id="ad-detail" hidden>
+    <div class="card-head"><h2>리워드 광고</h2>
+      <p class="card-sub">오늘 활동한 <b>전체 유저</b> 기준입니다 — 실시간 탭의 가입자 목록(최근 24시간)과
+        모수가 다릅니다. 그래서 2부 전용 지점(도시 보급)도 여기 나옵니다.
+        <b>완주율</b>은 화면에 뜬 광고만 분모로 삼습니다 — 띄울 광고가 없던 건(<code>no_ad</code>)
+        유저 행동이 아니라 공급 문제라 따로 셉니다.</p></div>
+    <section class="tiles" id="ad-tiles"></section>
+    <div class="vsub">지점별</div>
+    <div class="table-scroll"><table class="ledger rt-ads" id="ad-place"></table></div>
+    <div class="vsub">국가별 — 요청 10회 미만은 기타로 묶습니다(비율이 요동쳐서)</div>
+    <div class="table-scroll"><table class="ledger rt-ads" id="ad-country"></table></div>
+  </section>
+</main>
+
+
 
 
 
@@ -263,22 +387,30 @@
 <script src="ingame.js?v=fc08ede9"></script>
 <script src="realtime.js?v=3a1f2377"></script>
 <script src="users.js?v=port1"></script>
+<script src="app.js?v=port1"></script>
+<script src="ads.js?v=port1"></script>
 <script src="anomaly.js?v=port1"></script>
 </body>
 </html>
 
 <footer class="foot">
   <p>
-    수치는 GA4 → BigQuery 원본에서 하루 1회(<b>인게임</b>) · 매시(<b>실시간</b>) 수집합니다.
+    수치는 GA4 → BigQuery 원본에서 하루 2회(<b>인게임</b>·<b>가입자</b>) · 매시 4회(<b>실시간</b>) 수집합니다. 확정 일별 테이블뿐 아니라 <b>스트리밍(intraday)</b>까지 읽어 오늘치가 바로 보입니다 — 아직 확정 안 된 값은 <b>“+”(하한)</b> 또는 <b>집계중</b>으로 표시합니다.
     날짜는 모두 <b>KST 기준</b>이고, 각 화면 상단의 갱신 시각이 <b>자동 수집이 살아 있는지</b>를
     말해 줍니다 — 시각이 멈춰 있으면 숫자가 아니라 수집을 먼저 의심하세요.
     지역·기기모델이 비어 있는 줄(Play 사전 출시 보고서 봇)과 디버그 빌드는 분모에서 제외합니다.
   </p>
+  <p class="sync-line" id="sync-line" hidden></p>
   <p>
-    <b>매출·마케팅비 뷰는 아직 없습니다.</b> 출시 후 광고·인앱 매출이 발생하면
-    secondact-dashboard 의 <code>app.js</code>·<code>sync.py</code> 를 가져옵니다.
-    <b>전체 가입자·어뷰징 뷰</b>도 보류입니다 — 전 이력 무윈도우 스캔이라
-    앱 나이에 비례해 스캔량이 영원히 늘어납니다(레퍼런스 실측 8.2GB/회).
-    데이터가 쌓인 뒤 윈도우를 다시 설계해 넣습니다.
+    <b>광고매출·마케팅비는 자동</b>으로 수집되고 <b>인앱매출만 손으로</b> 넣습니다 — Play 는 주문 목록 API 를
+    주지 않습니다(<code>tools/add.py</code>). 각국 통화는 그날 ECB 환율로 원화 환산합니다(주말·공휴일은
+    직전 영업일). 상단의 <b>인앱 수수료 반영</b>은 <b id="foot-fee-target">인앱매출</b>에서
+    표시가에 포함된 부가세(<code>config.json</code> 의 <code>tax_rates</code>)와 스토어 수수료
+    <b id="foot-fee">15%</b>를 뗄지를 정하며, 히어로·타일·차트·원장에 한꺼번에 걸립니다.
+  </p>
+  <p>
+    ⚠ <b>전체 가입자·이상징후는 전 이력을 윈도우 없이 훑습니다</b> — 앱이 나이를 먹을수록 스캔량이
+    계속 늘어납니다(원작 실측 8.2GB/회). 지금은 가입자 10MB · 이상징후 60MB 로 무료 구간(월 1TB)의
+    1% 미만이지만, 각 화면이 <b>스캔량을 스스로 보고</b>하므로 그 숫자가 커지면 윈도우를 다시 설계하세요.
   </p>
 </footer>
