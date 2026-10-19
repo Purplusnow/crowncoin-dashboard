@@ -43,6 +43,8 @@ jobs:
       ADMOB_CLIENT_SECRET: ${{ secrets.ADMOB_CLIENT_SECRET }}
       ADMOB_REFRESH_TOKEN: ${{ secrets.ADMOB_REFRESH_TOKEN }}
       ADMOB_PUBLISHER_ID: ${{ secrets.ADMOB_PUBLISHER_ID }}
+      # 이 보드가 셀 앱(이름 부분일치). 비우면 계정의 모든 앱이 합산된다.
+      ADMOB_APP: ${{ vars.ADMOB_APP || 'Crown' }}
 
     steps:
       - uses: actions/checkout@v4

@@ -136,9 +136,24 @@ def apply_admob(days: int) -> None:
             continue
         per.setdefault(date, {})[name] = per.setdefault(date, {}).get(name, 0.0) + usd
 
+    # ★이 보드는 **왕관과 금화 한 앱**의 수지를 본다. purplusnow AdMob 계정에는 앱이
+    #   여러 개라(Pocket Arcade·퐁당냥·FaceLapse…), 전부 합산하면 광고매출이 통째로
+    #   거짓이 된다 — 원작 daily.json 에 실제로 다른 앱 줄이 섞여 있다.
+    #   ADMOB_APP 에 앱 이름(부분일치, 대소문자 무시)을 넣으면 그 앱만 센다.
+    #   비워 두면 **합산하지 않고 경고**한다 — 조용히 틀린 숫자를 쓰는 것보다 낫다.
+    only = (os.environ.get("ADMOB_APP") or "").strip().lower()
+    if not only:
+        print("  ⚠ ADMOB_APP 이 비어 있습니다 — 계정의 모든 앱이 합산됩니다. "
+              "앱 이름 일부를 넣어 이 보드의 앱만 세게 하세요(예: ADMOB_APP='Crown').",
+              file=sys.stderr)
+
     data = load()
     changed = []
     for date, apps in sorted(per.items()):
+        if only:
+            apps = {k: v for k, v in apps.items() if only in k.lower()}
+            if not apps:
+                continue
         row = row_for(data, date)
         total = round(sum(apps.values()), 2)
         before = (row.get("admob") or {}).get("USD")
