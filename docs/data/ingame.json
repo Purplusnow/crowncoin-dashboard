@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-20 07:07 KST",
+  "updated": "2026-10-20 07:13 KST",
   "window_days": 45,
   "diag_start": "2026-01-01",
   "last_table": "20261015",
@@ -257,7 +257,8 @@
           false,
           false,
           false
-        ]
+        ],
+        "base_prov": false
       },
       {
         "date": "2026-10-11",
@@ -293,7 +294,8 @@
           false,
           false,
           false
-        ]
+        ],
+        "base_prov": false
       },
       {
         "date": "2026-10-12",
@@ -329,7 +331,8 @@
           false,
           false,
           false
-        ]
+        ],
+        "base_prov": false
       },
       {
         "date": "2026-10-13",
@@ -365,7 +368,45 @@
           false,
           false,
           false
-        ]
+        ],
+        "base_prov": false
+      },
+      {
+        "date": "2026-10-14",
+        "new": 0,
+        "days": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "prov": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "base_prov": false
       },
       {
         "date": "2026-10-15",
@@ -401,7 +442,193 @@
           false,
           false,
           false
-        ]
+        ],
+        "base_prov": false
+      },
+      {
+        "date": "2026-10-16",
+        "new": 0,
+        "days": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "prov": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "base_prov": false
+      },
+      {
+        "date": "2026-10-17",
+        "new": 0,
+        "days": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "prov": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "base_prov": false
+      },
+      {
+        "date": "2026-10-18",
+        "new": 0,
+        "days": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "prov": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "base_prov": false
+      },
+      {
+        "date": "2026-10-19",
+        "new": 2,
+        "days": [
+          50.0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "prov": [
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "base_prov": true
+      },
+      {
+        "date": "2026-10-20",
+        "new": 2,
+        "days": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "prov": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "base_prov": true
       }
     ]
   },
@@ -904,5 +1131,5 @@
       "dau": 2
     }
   ],
-  "scan_mb": 160.0
+  "scan_mb": 170.0
 }

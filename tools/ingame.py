@@ -192,12 +192,16 @@ def main() -> None:
     # 코호트 리텐션 삼각 — 설치일(d0) 행 × Day1..DayN 열. 셀=그 코호트 중 정확히 n일 뒤 복귀 비율.
     # d0+n > last(아직 안 지난 날)은 관측불가 → null. 최근 COHORT_DAYS일치 코호트 × Day1..COHORT_N.
     COHORT_N = 14
+    # ★코호트 표의 설치(분모)는 **스트리밍 포함**이다. 확정일만 쓰면 가장 최근 코호트가
+    #   통째로 사라져 "오늘·어제 설치자가 표에 없다"가 된다(투자자 지적).
+    #   대신 분모가 아직 안 찬 날(d0 ∈ unsettled)은 행 단위로 '집계중'으로 표시한다 —
+    #   그 행은 분모가 더 늘 수 있어 비율이 **내려갈 수도** 있으므로 '+'(하한)를 붙이면 거짓이다.
     cohq = q(f"""
       SELECT d0, off, COUNT(DISTINCT uid) AS ret FROM (
         SELECT i.user_pseudo_id AS uid, i.d0 AS d0, DATE_DIFF(a.d, PARSE_DATE('%Y%m%d', i.d0), DAY) AS off
         FROM (
-          SELECT user_pseudo_id, MIN(_TABLE_SUFFIX) AS d0
-          FROM {TABLE} WHERE event_name='first_open' AND {IN_SETTLED} AND IFNULL(geo.country,'') != ''
+          SELECT user_pseudo_id, MIN({DAY}) AS d0
+          FROM {TABLE} WHERE event_name='first_open' AND {IN_LIVE} AND IFNULL(geo.country,'') != ''
           GROUP BY user_pseudo_id
         ) i
         JOIN (
@@ -209,11 +213,23 @@ def main() -> None:
     coh_ret: dict = {}
     for x in cohq:
         coh_ret[(x["d0"], int(x["off"]))] = int(x["ret"] or 0)
-    inst_by = {x["d0"]: int(x["n"]) for x in inst_hist}
+    inst_live = q(f"""
+      SELECT d0, COUNT(*) AS n FROM (
+        SELECT user_pseudo_id, MIN({DAY}) AS d0
+        FROM {TABLE} WHERE event_name='first_open' AND {IN_LIVE} AND IFNULL(geo.country,'') != ''
+        GROUP BY user_pseudo_id
+      ) GROUP BY d0
+    """)
+    inst_by = {x["d0"]: int(x["n"]) for x in inst_live}
+    # ★날짜를 빈칸 없이 채운다 — 설치 0명인 날도 행으로 남겨야 공백이 '데이터 누락'인지
+    #   '그날 아무도 안 왔는지' 구분된다(10-16~18 은 정책 거절로 앱이 내려가 있던 날이다).
+    _first = min((datetime.strptime(x, "%Y%m%d").date() for x in inst_by), default=_last)
+    _all_days = [(_first + timedelta(days=i)).strftime("%Y%m%d")
+                 for i in range((_last - _first).days + 1)]
     out["retention_cohort"] = {"n": COHORT_N, "rows": []}
-    for d0s in sorted(inst_by.keys()):
+    for d0s in _all_days:
         d0 = datetime.strptime(d0s, "%Y%m%d").date()
-        nu = inst_by[d0s]
+        nu = inst_by.get(d0s, 0)
         days, prov = [], []
         for nd in range(1, COHORT_N + 1):
             rd = d0 + timedelta(days=nd)
@@ -224,6 +240,8 @@ def main() -> None:
                 prov.append(rd in _uns)                 # 복귀일이 '덜 찬 날' → 하한
         out["retention_cohort"]["rows"].append({
             "date": d0.strftime("%Y-%m-%d"), "new": nu, "days": days, "prov": prov,
+            # 분모(그날 설치자)가 아직 안 찬 날 → 비율이 내려갈 수도 있다. '+' 를 붙이면 안 된다.
+            "base_prov": d0s in UNSETTLED,
         })
     def _dget(nd):
         row = out["retention_curve"][nd - 1]

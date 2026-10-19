@@ -359,15 +359,24 @@
     h += '</tr></thead><tbody>';
     // 최신 코호트가 위로 오도록 역순
     c.rows.slice().reverse().forEach(r => {
-      h += `<tr><td class="stick vt-ver">${esc(r.date)}</td><td class="num">${num(r.new)}</td>`;
+      // base_prov = 그날 설치자(분모)가 아직 안 찬 날. 분모가 늘면 비율이 **내려갈 수도**
+      // 있으므로 '+'(하한)를 붙이면 거짓이다 → 행 전체를 '집계중(*)'으로 표시한다.
+      const bp = !!r.base_prov;
+      const zero = !r.new;
+      h += `<tr${bp ? ' style="opacity:.82"' : ''}>`
+         + `<td class="stick vt-ver">${esc(r.date)}${bp ? ' <span title="설치 집계중 — 분모가 더 늘 수 있음">*</span>' : ''}</td>`
+         + `<td class="num"${zero ? ' style="color:#9aa"' : ''}>${num(r.new)}</td>`;
       r.days.forEach((p, i) => {
-        if (p == null) { h += '<td class="num coh-na">·</td>'; return; }
+        if (p == null) { h += `<td class="num coh-na">${zero ? '' : '·'}</td>`; return; }
         const lg = 90 - 42 * Math.min(p / 50, 1);
         // prov=복귀일이 아직 안 찬 날 → 값은 하한. '+' 와 점선 테두리로 구분한다.
-        const pv = r.prov && r.prov[i];
-        const bd = pv ? ';outline:1px dashed rgba(0,0,0,.35);outline-offset:-2px' : '';
-        h += `<td class="num fcell" title="${pv ? '집계중 — 더 올라갈 수 있음' : ''}"`
-           + ` style="background:${heat(p)};color:${lg < 55 ? '#fff' : '#333'}${bd}">${p}%${pv ? '+' : ''}</td>`;
+        // '+' 는 **분모가 고정된** 셀에만 붙인다(분자만 더 들어오는 경우 = 참 하한).
+        const pv = !bp && r.prov && r.prov[i];
+        const dash = (pv || bp) ? ';outline:1px dashed rgba(0,0,0,.35);outline-offset:-2px' : '';
+        const tip = pv ? '집계중 — 더 올라갈 수 있음(하한)'
+                       : (bp ? '설치 집계중 — 분모가 늘면 내려갈 수도 있음' : '');
+        h += `<td class="num fcell" title="${tip}"`
+           + ` style="background:${heat(p)};color:${lg < 55 ? '#fff' : '#333'}${dash}">${p}%${pv ? '+' : ''}</td>`;
       });
       h += '</tr>';
     });
@@ -375,7 +384,7 @@
     const tbl = el('table', 'vftable coh-table', h);
     const scroll = el('div', 'table-scroll'); scroll.appendChild(tbl);
     host.appendChild(scroll);
-    host.appendChild(el('p', 'chart-note', `설치일 코호트 × Day1~D${N} 복귀율 · 셀=그 코호트 중 정확히 n일 뒤 접속 비율 · "+"(점선)=복귀일이 아직 집계중이라 **하한** · 회색(·)=아직 관측 불가 · 최신 설치일이 위`));
+    host.appendChild(el('p', 'chart-note', `설치일 코호트 × Day1~D${N} 복귀율 · "+"=복귀일 집계중이라 **하한**(올라가기만 함) · "*"=설치 집계중이라 분모가 늘면 내려갈 수도 · 신규 0인 날도 빈칸 없이 표시 · 최신 설치일이 위`));
   }
 
   // ── 은퇴→환생 퍼널 + 원인 3분할 ───────────────────────────
