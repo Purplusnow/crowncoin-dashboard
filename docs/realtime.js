@@ -41,6 +41,12 @@
     const stuck = users.filter(u => u.far <= 1).length;   // 인트로도 못 넘긴 사람
     tiles([
       ['오늘 가입', num(d.cohort_n), '처음 앱을 연 사람'],
+      // ★구글애즈 전환수와 **맞대 볼 수 있는 유일한 숫자**. '오늘 가입'은 오가닉까지
+      //   포함하므로 애즈와 비교하면 항상 우리가 크다. 판정은 firebase_campaign 의 gclid.
+      //   실시간으로는 애즈가 낮게 보이는 게 정상이다(클릭일 기준 + 전환 반입이 몇 시간 늦음).
+      //   하루가 닫혔는데도 애즈가 **더 많으면** 그때가 의심할 자리다.
+      ['광고 유입', num((d.acq || {}).ad || 0),
+       `first_open ${num((d.acq || {}).first_open || 0)} 중 · 애즈 전환과 대조`],
       ['인트로 전 이탈', num(stuck), d.cohort_n ? `${Math.round(100 * stuck / d.cohort_n)}%` : '', stuck > 0],
       // 60초 = 게임 시계로 한 달(2초/일 × 30일). 단계가 아니라 '첫 1분을 버텼나'다.
       ['60초 체류', num(d.stay60), d.cohort_n ? `${Math.round(100 * (d.stay60 || 0) / d.cohort_n)}%` : ''],

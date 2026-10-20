@@ -212,6 +212,35 @@ def main() -> None:
       FROM {TABLE} WHERE {INTRADAY} AND {HAS_GEO}
     """)[0]
 
+    # ── 광고 유입(gclid) ─────────────────────────────────────────
+    # 구글애즈 전환수와 **맞대 볼 수 있는 유일한 숫자**다. 대시보드의 '신규'는 오가닉까지
+    # 포함하므로 애즈와 비교하면 항상 우리가 크다(실측 10-20: 신규 4 중 광고 2).
+    #
+    # 판정은 firebase_campaign 이벤트의 gclid 로 한다 — 광고를 클릭해 Play 로 들어오면
+    # 구글이 referrer 에 gclid 를 심고, 앱 첫 실행 때 Install Referrer API 로 받아 이 이벤트를
+    # 쏜다. ★traffic_source(유저 스코프)는 GA4 **후처리**에서 채워져 intraday 엔 비어 있다 —
+    #   그걸 보고 "내일까지 기다려야 한다"고 오판한 적이 있다. gclid 는 스트리밍에 바로 온다.
+    #
+    # 애즈와 차이가 나는 건 영구 격차가 아니라 시차다: 애즈는 **클릭 날짜**에 적고
+    # Firebase→애즈 전환 반입이 몇 시간 늦다. 그래서 실시간으로는 **애즈가 낮게** 보이는 게
+    # 정상이고, 하루가 닫히면 붙어야 한다. 애즈가 더 많으면 그때가 의심할 자리다.
+    acq = q(f"""
+      WITH fo AS (
+        SELECT DISTINCT user_pseudo_id AS uid FROM {TABLE}
+        WHERE {INTRADAY} AND {HAS_GEO} AND event_name='first_open'
+      ), ad AS (
+        SELECT DISTINCT user_pseudo_id AS uid FROM {TABLE}
+        WHERE {INTRADAY} AND event_name='firebase_campaign'
+          AND (SELECT value.string_value FROM UNNEST(event_params) WHERE key='gclid') IS NOT NULL
+      )
+      SELECT COUNT(*) AS first_open,
+             COUNTIF(uid IN (SELECT uid FROM ad)) AS ad_n
+      FROM fo
+    """)[0]
+    out["acq"] = {"first_open": int(acq["first_open"] or 0),
+                  "ad": int(acq["ad_n"] or 0),
+                  "other": int((acq["first_open"] or 0) - (acq["ad_n"] or 0))}
+
     flags = ",\n        ".join(
         f"MAX(IF(event_name='onb_step' AND (SELECT value.string_value FROM UNNEST(event_params) WHERE key='step')='{k}',1,0)) AS s_{k}"
         for k, _ in STAGES + [(k, lab) for k, lab in EXTRA])
