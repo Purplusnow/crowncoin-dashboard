@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-21 07:44 KST",
+ "updated": "2026-10-21 08:48 KST",
  "stage_labels": [
   {
    "key": "new_game",
@@ -135,26 +135,70 @@
  "tables": [
   {
    "d": "20261021",
-   "users": 11,
-   "events": 274
+   "users": 12,
+   "events": 288
   }
  ],
  "day": "20261021",
  "summary": {
-  "users": 11,
-  "new_users": 9,
-  "first_touch_today": 9,
+  "users": 12,
+  "new_users": 10,
+  "first_touch_today": 10,
   "purchases": 0,
   "exceptions": 0,
   "first_at": "2026-10-21 00:01",
-  "last_at": "2026-10-21 07:42"
+  "last_at": "2026-10-21 08:13"
  },
  "acq": {
-  "first_open": 9,
-  "ad": 8,
+  "first_open": 10,
+  "ad": 9,
   "other": 1
  },
  "users": [
+  {
+   "tag": "b4fb7c",
+   "joined": "08:12",
+   "last_seen": "08:13",
+   "mins": 0.9,
+   "span": 1,
+   "sessions": 1,
+   "off": 0,
+   "off_boost": 0,
+   "prog": 0.0,
+   "events": 9,
+   "ver": "1.0 (v29)",
+   "country": "Brazil",
+   "reached": [
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "far": 0,
+   "far_label": "새게임"
+  },
   {
    "tag": "53cd5c",
    "joined": "07:41",
@@ -165,7 +209,7 @@
    "off": 0,
    "off_boost": 0,
    "prog": 0.0,
-   "events": 5,
+   "events": 10,
    "ver": "1.0 (v29)",
    "country": "Brazil",
    "reached": [
@@ -814,50 +858,6 @@
    ],
    "far": 1,
    "far_label": "인트로"
-  },
-  {
-   "tag": "17397a",
-   "joined": "10/20 08:01",
-   "last_seen": "08:02",
-   "mins": 1.2,
-   "span": 1,
-   "sessions": 1,
-   "off": 0,
-   "off_boost": 0,
-   "prog": 0.0,
-   "events": 9,
-   "ver": "1.0 (v29)",
-   "country": "Brazil",
-   "reached": [
-    1,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
-   ],
-   "far": 0,
-   "far_label": "새게임"
   }
  ],
  "stay60": 6,
@@ -1201,16 +1201,16 @@
   "dist": [
    {
     "cert": "8c4f94bc5f5be330",
-    "users": 8,
-    "ok": null
-   },
-   {
-    "cert": "(미기록)",
-    "users": 2,
+    "users": 10,
     "ok": null
    },
    {
     "cert": "90008c15f5bc0e6d",
+    "users": 1,
+    "ok": null
+   },
+   {
+    "cert": "(미기록)",
     "users": 1,
     "ok": null
    }
