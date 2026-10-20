@@ -1,10 +1,10 @@
 {
- "updated": "2026-10-20 15:22 KST",
+ "updated": "2026-10-21 03:03 KST",
  "level": "ok",
  "window_days": 7,
  "total": 0,
  "recent": 0,
- "recent_base": 12,
+ "recent_base": 15,
  "recent_rate": 0.0,
  "thresholds": {
   "warn_n": 5,
@@ -44,12 +44,12 @@
   "unknown": 0,
   "dist": [
    {
-    "cert": "(미기록)",
+    "cert": "8c4f94bc5f5be330",
     "users": 4,
     "ok": null
    },
    {
-    "cert": "8c4f94bc5f5be330",
+    "cert": "(미기록)",
     "users": 4,
     "ok": null
    },
