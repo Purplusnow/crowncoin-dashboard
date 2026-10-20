@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-20 15:22 KST",
+ "updated": "2026-10-20 18:35 KST",
  "level": "ok",
  "window_days": 7,
  "total": 0,
@@ -44,12 +44,12 @@
   "unknown": 0,
   "dist": [
    {
-    "cert": "(미기록)",
+    "cert": "8c4f94bc5f5be330",
     "users": 4,
     "ok": null
    },
    {
-    "cert": "8c4f94bc5f5be330",
+    "cert": "(미기록)",
     "users": 4,
     "ok": null
    },
