@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-20 10:38 KST",
+ "updated": "2026-10-20 14:27 KST",
  "level": "ok",
  "window_days": 7,
  "total": 0,
@@ -44,13 +44,18 @@
   "unknown": 0,
   "dist": [
    {
+    "cert": "(미기록)",
+    "users": 4,
+    "ok": null
+   },
+   {
     "cert": "8c4f94bc5f5be330",
     "users": 4,
     "ok": null
    },
    {
-    "cert": "(미기록)",
-    "users": 3,
+    "cert": "90008c15f5bc0e6d",
+    "users": 1,
     "ok": null
    }
   ]
@@ -58,7 +63,7 @@
  "segments": [
   {
    "seg": "전체",
-   "users": 7,
+   "users": 9,
    "fake": 0,
    "pct": 0.0,
    "mult": null
@@ -94,12 +99,12 @@
  ],
  "compare": {
   "normal": {
-   "users": 7,
+   "users": 9,
    "payers": 1,
-   "pay_pct": 14.29,
-   "ads": 0.4,
-   "days": 1.6,
-   "mins": 48.7
+   "pay_pct": 11.11,
+   "ads": 0.3,
+   "days": 1.4,
+   "mins": 38.0
   }
  },
  "reasons": [],
