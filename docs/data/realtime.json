@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-20 09:43 KST",
+ "updated": "2026-10-20 10:16 KST",
  "stage_labels": [
   {
    "key": "new_game",
@@ -136,7 +136,7 @@
   {
    "d": "20261020",
    "users": 5,
-   "events": 175
+   "events": 195
   }
  ],
  "day": "20261020",
@@ -147,7 +147,7 @@
   "purchases": 0,
   "exceptions": 0,
   "first_at": "2026-10-20 00:00",
-  "last_at": "2026-10-20 09:19"
+  "last_at": "2026-10-20 09:57"
  },
  "users": [
   {
@@ -329,14 +329,14 @@
   {
    "tag": "6ee3ce",
    "joined": "10/19 23:35",
-   "last_seen": "06:58",
-   "mins": 75.4,
-   "span": 443,
-   "sessions": 2,
-   "off": 1,
-   "off_boost": 1,
+   "last_seen": "09:57",
+   "mins": 81.2,
+   "span": 622,
+   "sessions": 3,
+   "off": 2,
+   "off_boost": 2,
    "prog": 0.0,
-   "events": 137,
+   "events": 157,
    "ver": "1.0 (v29)",
    "country": "Japan",
    "reached": [
@@ -697,7 +697,7 @@
     "property_2": 1,
     "game_sale": 1,
     "first_rebirth": 0,
-    "med_min": 75.4,
+    "med_min": 81.2,
     "intro_done_pct": 100.0,
     "property_2_pct": 100.0,
     "game_sale_pct": 100.0,
@@ -738,7 +738,7 @@
     "property_2": 1,
     "game_sale": 1,
     "first_rebirth": 0,
-    "med_min": 75.4,
+    "med_min": 81.2,
     "intro_done_pct": 100.0,
     "property_2_pct": 100.0,
     "game_sale_pct": 100.0,
@@ -820,11 +820,11 @@
   ]
  },
  "ads": {
-  "total": 1,
+  "total": 2,
   "by_result": [
    {
     "result": "earned",
-    "n": 1
+    "n": 2
    },
    {
     "result": "dismissed",
@@ -844,8 +844,8 @@
   "by_country": [
    {
     "country": "기타(요청 10회 미만)",
-    "total": 1,
-    "earned": 1,
+    "total": 2,
+    "earned": 2,
     "dismissed": 0,
     "no_ad": 0,
     "failed": 0,
@@ -859,11 +859,11 @@
   "by_placement": [
    {
     "placement": "offline",
-    "earned": 1,
+    "earned": 2,
     "dismissed": 0,
     "no_ad": 0,
     "failed": 0,
-    "total": 1
+    "total": 2
    }
   ]
  },
