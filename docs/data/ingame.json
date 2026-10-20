@@ -1,11 +1,12 @@
 {
-  "updated": "2026-10-20 23:10 KST",
+  "updated": "2026-10-21 02:49 KST",
   "window_days": 45,
   "diag_start": "2026-01-01",
   "last_table": "20261019",
-  "last_live": "20261020",
+  "last_live": "20261021",
   "unsettled_days": [
-    "20261020"
+    "20261020",
+    "20261021"
   ],
   "retention_curve": [
     {
@@ -18,9 +19,9 @@
     {
       "day": 2,
       "ret": 1,
-      "base": 7,
-      "pct": 14.3,
-      "prov": false
+      "base": 9,
+      "pct": 11.1,
+      "prov": true
     },
     {
       "day": 3,
@@ -46,9 +47,9 @@
     {
       "day": 6,
       "ret": 0,
-      "base": 6,
+      "base": 7,
       "pct": 0.0,
-      "prov": false
+      "prov": true
     },
     {
       "day": 7,
@@ -60,30 +61,30 @@
     {
       "day": 8,
       "ret": 0,
-      "base": 3,
+      "base": 6,
       "pct": 0.0,
       "prov": true
     },
     {
       "day": 9,
       "ret": 0,
-      "base": 2,
+      "base": 3,
       "pct": 0.0,
       "prov": true
     },
     {
       "day": 10,
       "ret": 0,
-      "base": 1,
+      "base": 2,
       "pct": 0.0,
       "prov": true
     },
     {
       "day": 11,
       "ret": 0,
-      "base": 0,
-      "pct": null,
-      "prov": false
+      "base": 1,
+      "pct": 0.0,
+      "prov": true
     },
     {
       "day": 12,
@@ -236,7 +237,7 @@
           0.0,
           0.0,
           0.0,
-          null,
+          0.0,
           null,
           null,
           null
@@ -252,7 +253,7 @@
           false,
           false,
           true,
-          false,
+          true,
           false,
           false,
           false
@@ -272,7 +273,7 @@
           0.0,
           0.0,
           0.0,
-          null,
+          0.0,
           null,
           null,
           null,
@@ -288,7 +289,7 @@
           false,
           false,
           true,
-          false,
+          true,
           false,
           false,
           false,
@@ -308,7 +309,7 @@
           0.0,
           0.0,
           0.0,
-          null,
+          0.0,
           null,
           null,
           null,
@@ -324,7 +325,7 @@
           false,
           false,
           true,
-          false,
+          true,
           false,
           false,
           false,
@@ -344,7 +345,7 @@
           0.0,
           0.0,
           0.0,
-          null,
+          0.0,
           null,
           null,
           null,
@@ -360,7 +361,7 @@
           false,
           false,
           true,
-          false,
+          true,
           false,
           false,
           false,
@@ -416,7 +417,7 @@
           0.0,
           0.0,
           0.0,
-          null,
+          0.0,
           null,
           null,
           null,
@@ -432,7 +433,7 @@
           false,
           false,
           true,
-          false,
+          true,
           false,
           false,
           false,
@@ -560,6 +561,43 @@
         "new": 2,
         "days": [
           50.0,
+          0.0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "prov": [
+          true,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "base_prov": false
+      },
+      {
+        "date": "2026-10-20",
+        "new": 9,
+        "days": [
+          11.1,
           null,
           null,
           null,
@@ -590,11 +628,11 @@
           false,
           false
         ],
-        "base_prov": false
+        "base_prov": true
       },
       {
-        "date": "2026-10-20",
-        "new": 7,
+        "date": "2026-10-21",
+        "new": 3,
         "days": [
           null,
           null,
@@ -632,10 +670,10 @@
     ]
   },
   "kpi": {
-    "dau": 8,
-    "wau": 10,
-    "new_7d": 10,
-    "cumulative": 16,
+    "dau": 4,
+    "wau": 15,
+    "new_7d": 15,
+    "cumulative": 21,
     "d1": 44.4,
     "d1_base": 9,
     "d1_prov": true,
@@ -645,17 +683,17 @@
     "d30": null,
     "d30_base": 0,
     "d30_prov": false,
-    "reach1": 6.2,
-    "reach1_base": 16
+    "reach1": 4.8,
+    "reach1_base": 21
   },
   "rebirth_funnel": [
     {
       "stage": "새게임",
-      "users": 12
+      "users": 17
     },
     {
       "stage": "은퇴",
-      "users": 0
+      "users": 1
     },
     {
       "stage": "첫환생",
@@ -953,9 +991,9 @@
     "versions": [
       {
         "version": "통합",
-        "users": 16,
+        "users": 21,
         "dist": {
-          "0": 15,
+          "0": 20,
           "1": 0,
           "2": 0,
           "3": 1,
@@ -1070,8 +1108,8 @@
     "eligible_new": 0,
     "entered_new": 0,
     "entered": 0,
-    "all_users": 16,
-    "on_new": 16,
+    "all_users": 21,
+    "on_new": 21,
     "conv_pct": null,
     "rollout_pct": 100.0,
     "note": "도감은 codex_open(화면을 연 순간)으로만 관측되므로 자격자 수는 하한입니다."
