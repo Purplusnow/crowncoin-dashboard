@@ -69,9 +69,18 @@ jobs:
           # 다른 수집 잡이나 사람 커밋이 사이에 끼면 푸시가 밀린다(! [rejected] fetch first).
           # 재시도가 없으면 수집은 성공해 놓고 그 회차 데이터를 통째로 버리게 된다 —
           # 10/02 00:34 스케줄 실행이 그렇게 날아갔다. 리베이스하고 몇 번 다시 민다.
+          # ★리베이스하면 **충돌로 죽는다**. 수집 파일은 잡마다 통째로 다시 쓰므로
+          #   같은 파일의 같은 줄이 양쪽에서 바뀌고, git 은 그걸 못 고른다
+          #   (실측 2026-10-20: 수동 dispatch 와 스케줄이 겹쳐 realtime.json 에서 CONFLICT,
+          #    수집은 성공했는데 커밋만 통째로 버려졌다).
+          #   생성 파일은 **방금 수집한 쪽이 항상 옳다** — 고를 일이 없다.
+          #   그래서 베이스만 옮기고(reset --soft) 내 작업물로 다시 커밋한다.
           for i in 1 2 3 4 5; do
             git push && break
-            echo "푸시 밀림 — 리베이스 후 재시도 $i"
-            git pull --rebase --autostash origin main || exit 1
+            echo "푸시 밀림 — 베이스 이동 후 재시도 $i"
+            git fetch origin main || exit 1
+            MSG=$(git log -1 --pretty=%B)
+            git reset --soft origin/main || exit 1
+            git commit -q -m "$MSG" || echo "  (원격과 동일 — 올릴 변경 없음)"
             sleep $((i * 3))
           done
