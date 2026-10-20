@@ -1,20 +1,19 @@
 {
-  "updated": "2026-10-20 10:38 KST",
+  "updated": "2026-10-20 14:27 KST",
   "window_days": 45,
   "diag_start": "2026-01-01",
-  "last_table": "20261015",
+  "last_table": "20261019",
   "last_live": "20261020",
   "unsettled_days": [
-    "20261019",
     "20261020"
   ],
   "retention_curve": [
     {
       "day": 1,
-      "ret": 3,
-      "base": 7,
-      "pct": 42.9,
-      "prov": false
+      "ret": 4,
+      "base": 9,
+      "pct": 44.4,
+      "prov": true
     },
     {
       "day": 2,
@@ -35,7 +34,7 @@
       "ret": 0,
       "base": 7,
       "pct": 0.0,
-      "prov": true
+      "prov": false
     },
     {
       "day": 5,
@@ -49,7 +48,7 @@
       "ret": 0,
       "base": 6,
       "pct": 0.0,
-      "prov": true
+      "prov": false
     },
     {
       "day": 7,
@@ -251,7 +250,7 @@
           false,
           false,
           false,
-          true,
+          false,
           true,
           false,
           false,
@@ -287,7 +286,7 @@
           false,
           false,
           false,
-          true,
+          false,
           true,
           false,
           false,
@@ -323,7 +322,7 @@
           false,
           false,
           false,
-          true,
+          false,
           true,
           false,
           false,
@@ -359,7 +358,7 @@
           false,
           false,
           false,
-          true,
+          false,
           true,
           false,
           false,
@@ -431,7 +430,7 @@
           false,
           false,
           false,
-          true,
+          false,
           true,
           false,
           false,
@@ -591,7 +590,7 @@
           false,
           false
         ],
-        "base_prov": true
+        "base_prov": false
       },
       {
         "date": "2026-10-20",
@@ -637,9 +636,9 @@
     "wau": 7,
     "new_7d": 7,
     "cumulative": 13,
-    "d1": 42.9,
-    "d1_base": 7,
-    "d1_prov": false,
+    "d1": 44.4,
+    "d1_base": 9,
+    "d1_prov": true,
     "d7": 0.0,
     "d7_base": 6,
     "d7_prov": true,
@@ -652,11 +651,11 @@
   "rebirth_funnel": [
     {
       "stage": "새게임",
-      "users": 10
+      "users": 9
     },
     {
       "stage": "은퇴",
-      "users": 1
+      "users": 0
     },
     {
       "stage": "첫환생",
