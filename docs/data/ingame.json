@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-21 08:28 KST",
+  "updated": "2026-10-21 10:22 KST",
   "window_days": 45,
   "diag_start": "2026-01-01",
   "last_table": "20261019",
@@ -597,7 +597,7 @@
         "date": "2026-10-20",
         "new": 9,
         "days": [
-          11.1,
+          22.2,
           null,
           null,
           null,
@@ -670,7 +670,7 @@
     ]
   },
   "kpi": {
-    "dau": 12,
+    "dau": 13,
     "wau": 22,
     "new_7d": 22,
     "cumulative": 28,
@@ -700,11 +700,26 @@
       "users": 1
     }
   ],
-  "pacing": [],
+  "pacing": [
+    {
+      "pct": 1,
+      "users": 1,
+      "median_hours": 15.3
+    },
+    {
+      "pct": 2,
+      "users": 1,
+      "median_hours": 15.4
+    },
+    {
+      "pct": 3,
+      "users": 1,
+      "median_hours": 15.4
+    }
+  ],
   "progress_heatmap": {
     "bucket": 5,
     "dates": [
-      "2026-09-04",
       "2026-09-05",
       "2026-09-06",
       "2026-09-07",
@@ -749,9 +764,16 @@
       "2026-10-16",
       "2026-10-17",
       "2026-10-18",
-      "2026-10-19"
+      "2026-10-19",
+      "2026-10-20"
     ],
-    "cells": []
+    "cells": [
+      {
+        "date": "2026-10-20",
+        "bucket": 0,
+        "n": 1
+      }
+    ]
   },
   "stage_labels": [
     {
@@ -1166,6 +1188,15 @@
       "supply_bad": 0,
       "viewers": 1,
       "dau": 2
+    },
+    {
+      "date": "2026-10-20",
+      "total": 10,
+      "earned": 9,
+      "dismissed": 1,
+      "supply_bad": 0,
+      "viewers": 1,
+      "dau": 10
     }
   ],
   "scan_mb": 170.0
