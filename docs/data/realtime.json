@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-21 10:22 KST",
+ "updated": "2026-10-21 10:04 KST",
  "stage_labels": [
   {
    "key": "new_game",
@@ -135,19 +135,19 @@
  "tables": [
   {
    "d": "20261021",
-   "users": 13,
-   "events": 322
+   "users": 12,
+   "events": 298
   }
  ],
  "day": "20261021",
  "summary": {
-  "users": 13,
+  "users": 12,
   "new_users": 10,
   "first_touch_today": 10,
   "purchases": 0,
   "exceptions": 0,
   "first_at": "2026-10-21 00:01",
-  "last_at": "2026-10-21 10:21"
+  "last_at": "2026-10-21 10:03"
  },
  "acq": {
   "first_open": 10,
@@ -642,14 +642,14 @@
   {
    "tag": "0f4b21",
    "joined": "10/20 23:12",
-   "last_seen": "10:21",
-   "mins": 3.1,
-   "span": 668,
-   "sessions": 2,
+   "last_seen": "23:15",
+   "mins": 3.0,
+   "span": 3,
+   "sessions": 1,
    "off": 0,
    "off_boost": 0,
    "prog": 0.0,
-   "events": 30,
+   "events": 27,
    "ver": "1.0 (v29)",
    "country": "Brazil",
    "reached": [
@@ -1157,7 +1157,7 @@
   "dist": [
    {
     "cert": "8c4f94bc5f5be330",
-    "users": 11,
+    "users": 10,
     "ok": null
    },
    {
@@ -1205,11 +1205,11 @@
   ]
  },
  "ads": {
-  "total": 6,
+  "total": 3,
   "by_result": [
    {
     "result": "earned",
-    "n": 5
+    "n": 2
    },
    {
     "result": "dismissed",
@@ -1224,19 +1224,19 @@
     "n": 0
    }
   ],
-  "finish_pct": 83.3,
+  "finish_pct": 66.7,
   "supply_pct": 0.0,
   "by_country": [
    {
     "country": "기타(요청 10회 미만)",
-    "total": 6,
-    "earned": 5,
+    "total": 3,
+    "earned": 2,
     "dismissed": 1,
     "no_ad": 0,
     "failed": 0,
     "users": 1,
     "lumped": 1,
-    "finish_pct": 83.3,
+    "finish_pct": 66.7,
     "supply_pct": 0.0
    }
   ],
@@ -1244,27 +1244,11 @@
   "by_placement": [
    {
     "placement": "offline",
-    "earned": 3,
+    "earned": 2,
     "dismissed": 1,
     "no_ad": 0,
     "failed": 0,
-    "total": 4
-   },
-   {
-    "placement": "boost",
-    "earned": 1,
-    "dismissed": 0,
-    "no_ad": 0,
-    "failed": 0,
-    "total": 1
-   },
-   {
-    "placement": "gem_ad",
-    "earned": 1,
-    "dismissed": 0,
-    "no_ad": 0,
-    "failed": 0,
-    "total": 1
+    "total": 3
    }
   ]
  },
