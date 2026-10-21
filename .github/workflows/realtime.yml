@@ -104,6 +104,7 @@ jobs:
         run: |
           # git diff 는 '추적되지 않는 파일'을 못 본다 — 최초 생성 때 변경 없음으로 오판한다.
           # 그래서 먼저 add 하고 스테이지와 비교한다.
+          MINE="docs/data/realtime.json"          # 이 잡이 **소유한** 산출물만 건드린다
           git config user.name  "crowncoin-bot"
           git config user.email "34591718+Purplusnow@users.noreply.github.com"
           # ★daily.json 은 이 레포에 없다 — secondact-dashboard 를 템플릿으로 가져올 때
@@ -125,12 +126,26 @@ jobs:
           #    수집은 성공했는데 커밋만 통째로 버려졌다).
           #   생성 파일은 **방금 수집한 쪽이 항상 옳다** — 고를 일이 없다.
           #   그래서 베이스만 옮기고(reset --soft) 내 작업물로 다시 커밋한다.
+          # ★`git reset --soft` 는 **인덱스를 통째로 유지**한다. 그 인덱스에는 이 잡이
+          #   건드리지도 않은 파일의 **체크아웃 당시(옛) 내용**이 들어 있어서, 그 사이
+          #   다른 잡이 올린 최신 파일을 **되돌리는 커밋**이 된다.
+          #   실측 2026-10-21: ingame 잡이 `git add docs/data/ingame.json` 만 했는데도
+          #   커밋에 realtime.json 이 끼어 13:12 수집을 10:04 로 되돌렸다. 조용히.
+          #   (리베이스를 걷어내며 내가 넣은 수정이 만든 회귀다.)
+          #   → 자기 산출물만 들고 최신으로 옮긴다.
           for i in 1 2 3 4 5; do
             git push && break
-            echo "푸시 밀림 — 베이스 이동 후 재시도 $i"
-            git fetch origin main || exit 1
+            echo "푸시 밀림 — 내 산출물만 들고 최신으로 옮긴다 ($i)"
             MSG=$(git log -1 --pretty=%B)
-            git reset --soft origin/main || exit 1
-            git commit -q -m "$MSG" || echo "  (원격과 동일 — 올릴 변경 없음)"
+            TMP=$(mktemp -d)
+            for f in $MINE; do mkdir -p "$TMP/$(dirname "$f")"; cp -R "$f" "$TMP/$f"; done
+            git fetch origin main || exit 1
+            git reset -q --hard origin/main || exit 1
+            for f in $MINE; do rm -rf "$f"; mkdir -p "$(dirname "$f")"; cp -R "$TMP/$f" "$f"; done
+            git add $MINE
+            if git diff --cached --quiet -- $MINE; then
+              echo "  원격이 이미 같은 내용 — 올릴 것 없음"; exit 0
+            fi
+            git commit -q -m "$MSG"
             sleep $((i * 3))
           done
