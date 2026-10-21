@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-21 13:16 KST",
+ "updated": "2026-10-21 14:17 KST",
  "stage_labels": [
   {
    "key": "new_game",
@@ -783,7 +783,7 @@
    "prog": 0.0,
    "events": 21,
    "ver": "1.0 (v29)",
-   "country": "Iran",
+   "country": "Brazil",
    "reached": [
     1,
     0,
@@ -1111,26 +1111,26 @@
   "rows": [
    {
     "country": "Brazil",
-    "n": 11,
+    "n": 12,
     "intro_done": 3,
     "property_2": 1,
     "game_sale": 0,
     "first_rebirth": 0,
     "med_min": 0.9,
-    "intro_done_pct": 27.3,
-    "property_2_pct": 9.1,
+    "intro_done_pct": 25.0,
+    "property_2_pct": 8.3,
     "game_sale_pct": 0.0,
     "first_rebirth_pct": 0.0
    },
    {
     "country": "Iran",
-    "n": 3,
+    "n": 2,
     "intro_done": 2,
     "property_2": 0,
     "game_sale": 0,
     "first_rebirth": 0,
-    "med_min": 1.8,
-    "intro_done_pct": 66.7,
+    "med_min": 3.7,
+    "intro_done_pct": 100.0,
     "property_2_pct": 0.0,
     "game_sale_pct": 0.0,
     "first_rebirth_pct": 0.0
@@ -1165,26 +1165,26 @@
    },
    {
     "country": "T2",
-    "n": 11,
+    "n": 12,
     "intro_done": 3,
     "property_2": 1,
     "game_sale": 0,
     "first_rebirth": 0,
     "med_min": 0.9,
-    "intro_done_pct": 27.3,
-    "property_2_pct": 9.1,
+    "intro_done_pct": 25.0,
+    "property_2_pct": 8.3,
     "game_sale_pct": 0.0,
     "first_rebirth_pct": 0.0
    },
    {
     "country": "T3",
-    "n": 3,
+    "n": 2,
     "intro_done": 2,
     "property_2": 0,
     "game_sale": 0,
     "first_rebirth": 0,
-    "med_min": 1.8,
-    "intro_done_pct": 66.7,
+    "med_min": 3.7,
+    "intro_done_pct": 100.0,
     "property_2_pct": 0.0,
     "game_sale_pct": 0.0,
     "first_rebirth_pct": 0.0
