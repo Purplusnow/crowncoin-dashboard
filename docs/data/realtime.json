@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-22 08:14 KST",
+ "updated": "2026-10-22 09:17 KST",
  "stage_labels": [
   {
    "key": "new_game",
@@ -136,7 +136,7 @@
   {
    "d": "20261022",
    "users": 6,
-   "events": 453
+   "events": 506
   }
  ],
  "day": "20261022",
@@ -147,7 +147,7 @@
   "purchases": 0,
   "exceptions": 0,
   "first_at": "2026-10-22 01:19",
-  "last_at": "2026-10-22 07:49"
+  "last_at": "2026-10-22 09:09"
  },
  "acq": {
   "first_open": 3,
@@ -158,14 +158,14 @@
   {
    "tag": "d1a821",
    "joined": "06:50",
-   "last_seen": "07:49",
-   "mins": 59.5,
-   "span": 59,
-   "sessions": 1,
-   "off": 0,
-   "off_boost": 0,
+   "last_seen": "09:09",
+   "mins": 95.1,
+   "span": 139,
+   "sessions": 2,
+   "off": 1,
+   "off_boost": 1,
    "prog": 0.0,
-   "events": 122,
+   "events": 175,
    "ver": "1.0 (v29)",
    "country": "Taiwan",
    "reached": [
@@ -184,8 +184,8 @@
     1,
     1,
     1,
-    0,
-    0,
+    1,
+    1,
     0,
     0,
     0,
@@ -194,10 +194,10 @@
     0,
     0,
     1,
-    0
+    1
    ],
-   "far": 14,
-   "far_label": "은퇴"
+   "far": 16,
+   "far_label": "신분2"
   },
   {
    "tag": "e45f53",
@@ -677,17 +677,17 @@
   {
    "key": "first_donate",
    "label": "첫후원",
-   "n": 2,
-   "rec": 2,
-   "pct": 22.2,
+   "n": 3,
+   "rec": 3,
+   "pct": 33.3,
    "kind": "spine"
   },
   {
    "key": "class2",
    "label": "신분2",
-   "n": 2,
-   "rec": 2,
-   "pct": 22.2,
+   "n": 3,
+   "rec": 3,
+   "pct": 33.3,
    "kind": "spine"
   },
   {
@@ -757,9 +757,9 @@
   {
    "key": "first_ad",
    "label": "첫광고",
-   "n": 2,
-   "rec": 2,
-   "pct": 22.2,
+   "n": 3,
+   "rec": 3,
+   "pct": 33.3,
    "kind": "side"
   }
  ],
@@ -873,7 +873,7 @@
     "property_2": 1,
     "game_sale": 1,
     "first_rebirth": 0,
-    "med_min": 59.5,
+    "med_min": 95.1,
     "intro_done_pct": 100.0,
     "property_2_pct": 100.0,
     "game_sale_pct": 100.0,
@@ -970,11 +970,11 @@
   ]
  },
  "ads": {
-  "total": 4,
+  "total": 5,
   "by_result": [
    {
     "result": "earned",
-    "n": 4
+    "n": 5
    },
    {
     "result": "dismissed",
@@ -994,13 +994,13 @@
   "by_country": [
    {
     "country": "기타(요청 10회 미만)",
-    "total": 4,
-    "earned": 4,
+    "total": 5,
+    "earned": 5,
     "dismissed": 0,
     "no_ad": 0,
     "failed": 0,
-    "users": 2,
-    "lumped": 1,
+    "users": 3,
+    "lumped": 2,
     "finish_pct": 100.0,
     "supply_pct": 0.0
    }
@@ -1017,6 +1017,14 @@
    },
    {
     "placement": "offline",
+    "earned": 1,
+    "dismissed": 0,
+    "no_ad": 0,
+    "failed": 0,
+    "total": 1
+   },
+   {
+    "placement": "boost",
     "earned": 1,
     "dismissed": 0,
     "no_ad": 0,
