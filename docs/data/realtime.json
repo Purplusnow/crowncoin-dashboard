@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-23 07:26 KST",
+ "updated": "2026-10-23 08:16 KST",
  "stage_labels": [
   {
    "key": "new_game",
@@ -135,19 +135,19 @@
  "tables": [
   {
    "d": "20261023",
-   "users": 7,
-   "events": 460
+   "users": 8,
+   "events": 557
   }
  ],
  "day": "20261023",
  "summary": {
-  "users": 7,
+  "users": 8,
   "new_users": 4,
   "first_touch_today": 4,
   "purchases": 0,
   "exceptions": 0,
-  "first_at": "2026-10-23 00:38",
-  "last_at": "2026-10-23 07:13"
+  "first_at": "2026-10-23 00:13",
+  "last_at": "2026-10-23 08:00"
  },
  "acq": {
   "first_open": 4,
@@ -422,14 +422,14 @@
   {
    "tag": "ad05b1",
    "joined": "10/22 20:16",
-   "last_seen": "22:12",
-   "mins": 46.0,
-   "span": 116,
-   "sessions": 1,
-   "off": 7,
+   "last_seen": "07:20",
+   "mins": 52.9,
+   "span": 663,
+   "sessions": 3,
+   "off": 10,
    "off_boost": 0,
    "prog": 0.0,
-   "events": 148,
+   "events": 193,
    "ver": "1.0 (v29)",
    "country": "Indonesia",
    "reached": [
@@ -449,7 +449,7 @@
     1,
     1,
     1,
-    0,
+    1,
     0,
     0,
     0,
@@ -460,8 +460,8 @@
     1,
     0
    ],
-   "far": 15,
-   "far_label": "첫후원"
+   "far": 16,
+   "far_label": "신분2"
   },
   {
    "tag": "2d7e0f",
@@ -817,9 +817,9 @@
   {
    "key": "class2",
    "label": "신분2",
-   "n": 5,
-   "rec": 5,
-   "pct": 41.7,
+   "n": 6,
+   "rec": 6,
+   "pct": 50.0,
    "kind": "spine"
   },
   {
@@ -953,7 +953,7 @@
     "property_2": 2,
     "game_sale": 2,
     "first_rebirth": 0,
-    "med_min": 46.0,
+    "med_min": 52.9,
     "intro_done_pct": 100.0,
     "property_2_pct": 100.0,
     "game_sale_pct": 100.0,
@@ -1116,7 +1116,7 @@
   "dist": [
    {
     "cert": "8c4f94bc5f5be330",
-    "users": 7,
+    "users": 8,
     "ok": null
    }
   ],
@@ -1154,11 +1154,11 @@
   ]
  },
  "ads": {
-  "total": 6,
+  "total": 9,
   "by_result": [
    {
     "result": "earned",
-    "n": 6
+    "n": 9
    },
    {
     "result": "dismissed",
@@ -1178,8 +1178,8 @@
   "by_country": [
    {
     "country": "기타(요청 10회 미만)",
-    "total": 6,
-    "earned": 6,
+    "total": 9,
+    "earned": 9,
     "dismissed": 0,
     "no_ad": 0,
     "failed": 0,
@@ -1192,20 +1192,20 @@
   "viewers": 2,
   "by_placement": [
    {
+    "placement": "offline",
+    "earned": 5,
+    "dismissed": 0,
+    "no_ad": 0,
+    "failed": 0,
+    "total": 5
+   },
+   {
     "placement": "gem_ad",
     "earned": 3,
     "dismissed": 0,
     "no_ad": 0,
     "failed": 0,
     "total": 3
-   },
-   {
-    "placement": "offline",
-    "earned": 2,
-    "dismissed": 0,
-    "no_ad": 0,
-    "failed": 0,
-    "total": 2
    },
    {
     "placement": "boost",
