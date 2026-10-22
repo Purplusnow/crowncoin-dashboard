@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-22 19:04 KST",
+ "updated": "2026-10-22 19:27 KST",
  "stage_labels": [
   {
    "key": "new_game",
@@ -136,7 +136,7 @@
   {
    "d": "20261022",
    "users": 10,
-   "events": 1317
+   "events": 1331
   }
  ],
  "day": "20261022",
@@ -147,7 +147,7 @@
   "purchases": 0,
   "exceptions": 0,
   "first_at": "2026-10-22 01:19",
-  "last_at": "2026-10-22 18:13"
+  "last_at": "2026-10-22 19:21"
  },
  "acq": {
   "first_open": 7,
@@ -1084,11 +1084,11 @@
   ]
  },
  "ads": {
-  "total": 32,
+  "total": 33,
   "by_result": [
    {
     "result": "earned",
-    "n": 30
+    "n": 31
    },
    {
     "result": "dismissed",
@@ -1104,12 +1104,12 @@
    }
   ],
   "finish_pct": 100.0,
-  "supply_pct": 6.2,
+  "supply_pct": 6.1,
   "by_country": [
    {
     "country": "Japan",
-    "total": 16,
-    "earned": 16,
+    "total": 17,
+    "earned": 17,
     "dismissed": 0,
     "no_ad": 0,
     "failed": 0,
@@ -1134,11 +1134,11 @@
   "by_placement": [
    {
     "placement": "offline",
-    "earned": 20,
+    "earned": 21,
     "dismissed": 0,
     "no_ad": 2,
     "failed": 0,
-    "total": 22
+    "total": 23
    },
    {
     "placement": "boost",
