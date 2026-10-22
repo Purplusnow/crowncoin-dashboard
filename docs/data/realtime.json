@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-22 13:33 KST",
+ "updated": "2026-10-22 14:32 KST",
  "stage_labels": [
   {
    "key": "new_game",
@@ -136,7 +136,7 @@
   {
    "d": "20261022",
    "users": 9,
-   "events": 947
+   "events": 1021
   }
  ],
  "day": "20261022",
@@ -147,7 +147,7 @@
   "purchases": 0,
   "exceptions": 0,
   "first_at": "2026-10-22 01:19",
-  "last_at": "2026-10-22 13:30"
+  "last_at": "2026-10-22 14:30"
  },
  "acq": {
   "first_open": 6,
@@ -202,14 +202,14 @@
   {
    "tag": "bc4914",
    "joined": "12:20",
-   "last_seen": "13:22",
-   "mins": 37.5,
-   "span": 61,
-   "sessions": 1,
-   "off": 1,
-   "off_boost": 1,
+   "last_seen": "14:24",
+   "mins": 40.9,
+   "span": 124,
+   "sessions": 2,
+   "off": 2,
+   "off_boost": 2,
    "prog": 0.0,
-   "events": 88,
+   "events": 107,
    "ver": "1.0 (v29)",
    "country": "Colombia",
    "reached": [
@@ -229,7 +229,7 @@
     1,
     1,
     1,
-    0,
+    1,
     0,
     0,
     0,
@@ -240,8 +240,8 @@
     0,
     1
    ],
-   "far": 15,
-   "far_label": "첫후원"
+   "far": 16,
+   "far_label": "신분2"
   },
   {
    "tag": "feddb6",
@@ -290,14 +290,14 @@
   {
    "tag": "d1a821",
    "joined": "06:50",
-   "last_seen": "13:30",
-   "mins": 155.8,
-   "span": 400,
-   "sessions": 4,
-   "off": 5,
-   "off_boost": 5,
-   "prog": 0.0,
-   "events": 250,
+   "last_seen": "14:30",
+   "mins": 168.3,
+   "span": 460,
+   "sessions": 5,
+   "off": 7,
+   "off_boost": 7,
+   "prog": 0.2,
+   "events": 302,
    "ver": "1.0 (v29)",
    "country": "Taiwan",
    "reached": [
@@ -318,8 +318,8 @@
     1,
     1,
     1,
-    0,
-    0,
+    1,
+    1,
     0,
     0,
     0,
@@ -328,8 +328,8 @@
     1,
     1
    ],
-   "far": 16,
-   "far_label": "신분2"
+   "far": 18,
+   "far_label": "신분4"
   },
   {
    "tag": "e45f53",
@@ -817,25 +817,25 @@
   {
    "key": "class2",
    "label": "신분2",
-   "n": 3,
-   "rec": 3,
-   "pct": 25.0,
+   "n": 4,
+   "rec": 4,
+   "pct": 33.3,
    "kind": "spine"
   },
   {
    "key": "class3",
    "label": "신분3",
-   "n": 1,
-   "rec": 1,
-   "pct": 8.3,
+   "n": 2,
+   "rec": 2,
+   "pct": 16.7,
    "kind": "spine"
   },
   {
    "key": "class4",
    "label": "신분4",
-   "n": 0,
-   "rec": 0,
-   "pct": 0.0,
+   "n": 1,
+   "rec": 1,
+   "pct": 8.3,
    "kind": "spine"
   },
   {
@@ -992,7 +992,7 @@
     "property_2": 1,
     "game_sale": 1,
     "first_rebirth": 0,
-    "med_min": 37.5,
+    "med_min": 40.9,
     "intro_done_pct": 100.0,
     "property_2_pct": 100.0,
     "game_sale_pct": 100.0,
@@ -1018,7 +1018,7 @@
     "property_2": 1,
     "game_sale": 1,
     "first_rebirth": 0,
-    "med_min": 155.8,
+    "med_min": 168.3,
     "intro_done_pct": 100.0,
     "property_2_pct": 100.0,
     "game_sale_pct": 100.0,
@@ -1115,11 +1115,11 @@
   ]
  },
  "ads": {
-  "total": 20,
+  "total": 23,
   "by_result": [
    {
     "result": "earned",
-    "n": 20
+    "n": 23
    },
    {
     "result": "dismissed",
@@ -1150,8 +1150,8 @@
    },
    {
     "country": "기타(요청 10회 미만)",
-    "total": 6,
-    "earned": 6,
+    "total": 9,
+    "earned": 9,
     "dismissed": 0,
     "no_ad": 0,
     "failed": 0,
@@ -1165,11 +1165,11 @@
   "by_placement": [
    {
     "placement": "offline",
-    "earned": 11,
+    "earned": 14,
     "dismissed": 0,
     "no_ad": 0,
     "failed": 0,
-    "total": 11
+    "total": 14
    },
    {
     "placement": "boost",
