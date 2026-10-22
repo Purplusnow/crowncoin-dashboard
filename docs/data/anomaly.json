@@ -1,10 +1,10 @@
 {
- "updated": "2026-10-22 19:28 KST",
+ "updated": "2026-10-23 03:06 KST",
  "level": "ok",
  "window_days": 7,
  "total": 0,
  "recent": 0,
- "recent_base": 36,
+ "recent_base": 42,
  "recent_rate": 0.0,
  "thresholds": {
   "warn_n": 5,
