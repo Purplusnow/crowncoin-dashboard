@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-23 08:16 KST",
+ "updated": "2026-10-23 10:05 KST",
  "stage_labels": [
   {
    "key": "new_game",
@@ -136,7 +136,7 @@
   {
    "d": "20261023",
    "users": 8,
-   "events": 557
+   "events": 589
   }
  ],
  "day": "20261023",
@@ -147,7 +147,7 @@
   "purchases": 0,
   "exceptions": 0,
   "first_at": "2026-10-23 00:13",
-  "last_at": "2026-10-23 08:00"
+  "last_at": "2026-10-23 10:04"
  },
  "acq": {
   "first_open": 4,
@@ -1154,11 +1154,11 @@
   ]
  },
  "ads": {
-  "total": 9,
+  "total": 11,
   "by_result": [
    {
     "result": "earned",
-    "n": 9
+    "n": 11
    },
    {
     "result": "dismissed",
@@ -1177,14 +1177,25 @@
   "supply_pct": 0.0,
   "by_country": [
    {
-    "country": "기타(요청 10회 미만)",
-    "total": 9,
-    "earned": 9,
+    "country": "Taiwan",
+    "total": 10,
+    "earned": 10,
     "dismissed": 0,
     "no_ad": 0,
     "failed": 0,
-    "users": 3,
-    "lumped": 2,
+    "users": 2,
+    "finish_pct": 100.0,
+    "supply_pct": 0.0
+   },
+   {
+    "country": "기타(요청 10회 미만)",
+    "total": 1,
+    "earned": 1,
+    "dismissed": 0,
+    "no_ad": 0,
+    "failed": 0,
+    "users": 1,
+    "lumped": 1,
     "finish_pct": 100.0,
     "supply_pct": 0.0
    }
@@ -1193,11 +1204,11 @@
   "by_placement": [
    {
     "placement": "offline",
-    "earned": 5,
+    "earned": 6,
     "dismissed": 0,
     "no_ad": 0,
     "failed": 0,
-    "total": 5
+    "total": 6
    },
    {
     "placement": "gem_ad",
@@ -1209,11 +1220,11 @@
    },
    {
     "placement": "boost",
-    "earned": 1,
+    "earned": 2,
     "dismissed": 0,
     "no_ad": 0,
     "failed": 0,
-    "total": 1
+    "total": 2
    }
   ]
  },
