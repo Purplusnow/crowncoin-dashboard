@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-23 23:04 KST",
+  "updated": "2026-10-23 23:41 KST",
   "window_days": 45,
   "diag_start": "2026-01-01",
   "last_table": "20261022",
@@ -766,7 +766,7 @@
     },
     {
       "stage": "은퇴",
-      "users": 16
+      "users": 17
     },
     {
       "stage": "첫환생",
@@ -1069,68 +1069,68 @@
         {
           "key": "dev_prototype",
           "label": "프로토",
-          "n": 29,
-          "pct": 53.7
+          "n": 30,
+          "pct": 55.6
         },
         {
           "key": "dev_alpha",
           "label": "알파",
-          "n": 28,
-          "pct": 51.9
+          "n": 29,
+          "pct": 53.7
         },
         {
           "key": "dev_beta",
           "label": "베타",
-          "n": 25,
-          "pct": 46.3
+          "n": 26,
+          "pct": 48.1
         },
         {
           "key": "dev_launch",
           "label": "출시",
-          "n": 25,
-          "pct": 46.3
+          "n": 26,
+          "pct": 48.1
         },
         {
           "key": "first_ops",
           "label": "첫운영",
-          "n": 25,
-          "pct": 46.3
+          "n": 26,
+          "pct": 48.1
         },
         {
           "key": "property_1",
           "label": "부동산1",
-          "n": 24,
-          "pct": 44.4
+          "n": 25,
+          "pct": 46.3
         },
         {
           "key": "property_2",
           "label": "부동산2",
-          "n": 18,
-          "pct": 33.3
+          "n": 19,
+          "pct": 35.2
         },
         {
           "key": "property_3",
           "label": "부동산3",
-          "n": 17,
-          "pct": 31.5
+          "n": 18,
+          "pct": 33.3
         },
         {
           "key": "property_4",
           "label": "부동산4",
-          "n": 16,
-          "pct": 29.6
+          "n": 17,
+          "pct": 31.5
         },
         {
           "key": "property_5",
           "label": "부동산5",
-          "n": 16,
-          "pct": 29.6
+          "n": 17,
+          "pct": 31.5
         },
         {
           "key": "game_sale",
           "label": "은퇴",
-          "n": 16,
-          "pct": 29.6
+          "n": 17,
+          "pct": 31.5
         },
         {
           "key": "first_donate",
@@ -1183,8 +1183,8 @@
         {
           "key": "first_manager",
           "label": "첫매니저",
-          "n": 10,
-          "pct": 18.5
+          "n": 11,
+          "pct": 20.4
         },
         {
           "key": "first_finance",
@@ -1226,68 +1226,68 @@
         {
           "key": "dev_prototype",
           "label": "프로토",
-          "n": 29,
-          "pct": 53.7
+          "n": 30,
+          "pct": 55.6
         },
         {
           "key": "dev_alpha",
           "label": "알파",
-          "n": 28,
-          "pct": 51.9
+          "n": 29,
+          "pct": 53.7
         },
         {
           "key": "dev_beta",
           "label": "베타",
-          "n": 25,
-          "pct": 46.3
+          "n": 26,
+          "pct": 48.1
         },
         {
           "key": "dev_launch",
           "label": "출시",
-          "n": 25,
-          "pct": 46.3
+          "n": 26,
+          "pct": 48.1
         },
         {
           "key": "first_ops",
           "label": "첫운영",
-          "n": 25,
-          "pct": 46.3
+          "n": 26,
+          "pct": 48.1
         },
         {
           "key": "property_1",
           "label": "부동산1",
-          "n": 24,
-          "pct": 44.4
+          "n": 25,
+          "pct": 46.3
         },
         {
           "key": "property_2",
           "label": "부동산2",
-          "n": 18,
-          "pct": 33.3
+          "n": 19,
+          "pct": 35.2
         },
         {
           "key": "property_3",
           "label": "부동산3",
-          "n": 17,
-          "pct": 31.5
+          "n": 18,
+          "pct": 33.3
         },
         {
           "key": "property_4",
           "label": "부동산4",
-          "n": 16,
-          "pct": 29.6
+          "n": 17,
+          "pct": 31.5
         },
         {
           "key": "property_5",
           "label": "부동산5",
-          "n": 16,
-          "pct": 29.6
+          "n": 17,
+          "pct": 31.5
         },
         {
           "key": "game_sale",
           "label": "은퇴",
-          "n": 16,
-          "pct": 29.6
+          "n": 17,
+          "pct": 31.5
         },
         {
           "key": "first_donate",
@@ -1340,8 +1340,8 @@
         {
           "key": "first_manager",
           "label": "첫매니저",
-          "n": 10,
-          "pct": 18.5
+          "n": 11,
+          "pct": 20.4
         },
         {
           "key": "first_finance",
