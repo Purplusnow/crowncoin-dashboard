@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-24 08:36 KST",
+ "updated": "2026-10-24 09:36 KST",
  "stage_labels": [
   {
    "key": "new_game",
@@ -135,19 +135,19 @@
  "tables": [
   {
    "d": "20261024",
-   "users": 11,
-   "events": 1004
+   "users": 12,
+   "events": 1071
   }
  ],
  "day": "20261024",
  "summary": {
-  "users": 11,
+  "users": 12,
   "new_users": 4,
   "first_touch_today": 4,
   "purchases": 0,
   "exceptions": 0,
   "first_at": "2026-10-24 00:32",
-  "last_at": "2026-10-24 08:22"
+  "last_at": "2026-10-24 09:21"
  },
  "acq": {
   "first_open": 4,
@@ -1134,7 +1134,7 @@
   "dist": [
    {
     "cert": "8c4f94bc5f5be330",
-    "users": 10,
+    "users": 11,
     "ok": null
    },
    {
@@ -1177,11 +1177,11 @@
   ]
  },
  "ads": {
-  "total": 27,
+  "total": 28,
   "by_result": [
    {
     "result": "earned",
-    "n": 23
+    "n": 24
    },
    {
     "result": "dismissed",
@@ -1197,18 +1197,18 @@
    }
   ],
   "finish_pct": 100.0,
-  "supply_pct": 14.8,
+  "supply_pct": 14.3,
   "by_country": [
    {
     "country": "Taiwan",
-    "total": 19,
-    "earned": 16,
+    "total": 20,
+    "earned": 17,
     "dismissed": 0,
     "no_ad": 3,
     "failed": 0,
     "users": 4,
     "finish_pct": 100.0,
-    "supply_pct": 15.8
+    "supply_pct": 15.0
    },
    {
     "country": "기타(요청 10회 미만)",
@@ -1227,11 +1227,11 @@
   "by_placement": [
    {
     "placement": "offline",
-    "earned": 12,
+    "earned": 13,
     "dismissed": 0,
     "no_ad": 3,
     "failed": 1,
-    "total": 16
+    "total": 17
    },
    {
     "placement": "boost",
