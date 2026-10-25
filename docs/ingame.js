@@ -384,7 +384,7 @@
     const tbl = el('table', 'vftable coh-table', h);
     const scroll = el('div', 'table-scroll'); scroll.appendChild(tbl);
     host.appendChild(scroll);
-    host.appendChild(el('p', 'chart-note', `설치일 코호트 × Day1~D${N} 복귀율 · "+"=복귀일 집계중이라 **하한**(올라가기만 함) · "*"=설치 집계중이라 분모가 늘면 내려갈 수도 · 신규 0인 날도 빈칸 없이 표시 · 최신 설치일이 위`));
+    host.appendChild(el('p', 'chart-note', `설치일 코호트 × Day1~D${N} 복귀율 · "+"=복귀일이 **오늘**이라 아직 올라가는 중(하한) · "*"=설치가 오늘이라 분모가 늘면 내려갈 수도 · 신규 0인 날도 빈칸 없이 표시 · 최신 설치일이 위`));
   }
 
   // ── 은퇴→환생 퍼널 + 원인 3분할 ───────────────────────────

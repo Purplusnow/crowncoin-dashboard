@@ -170,7 +170,15 @@ def main() -> None:
     """)
     ret_by = {int(x["off"]): int(x["ret"] or 0) for x in retq}
     insts = [(datetime.strptime(x["d0"], "%Y%m%d").date(), int(x["n"])) for x in inst_hist]
-    _uns = {datetime.strptime(d, "%Y%m%d").date() for d in UNSETTLED}
+    # ★'아직 움직이는 날' = **오늘** 하나뿐이다(측정 2026-10-25).
+    #   원래는 '확정 테이블이 없는 날' 전부를 하한으로 봤는데, 그러면 어제가 끝났는데도
+    #   GA4 가 일별 파일을 안 바꿨다는 이유로 '+' 가 붙는다. 읽는 사람에겐 쓸모없는 경고다.
+    #   git 히스토리로 실측: 코호트 10-22 의 D1 이 복귀일(10-23) intraday 시점에 63.6%,
+    #   확정 뒤에도 **63.6%** — 확정 처리가 더 얹은 값이 0 이었다. 10-23 코호트도
+    #   복귀일이 끝난 10-24 13:08 이후 46.2% 에서 멈춰 있다.
+    #   → 날이 끝나면 스트리밍 값이 이미 최종이다. 하한 표기는 **오늘**에만 붙인다.
+    _today = datetime.strptime(last_t, "%Y%m%d").date()
+    _uns = {_today}
 
     def _prov(nd: int, cohorts) -> bool:
         """이 오프셋의 복귀일이 '덜 찬 날'에 걸리나. 걸리면 값은 하한이다('+')."""
