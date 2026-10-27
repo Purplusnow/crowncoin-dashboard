@@ -1,11 +1,11 @@
 {
- "updated": "2026-10-27 09:10 KST",
- "level": "ok",
+ "updated": "2026-10-27 15:38 KST",
+ "level": "warn",
  "window_days": 7,
- "total": 0,
- "recent": 0,
- "recent_base": 500,
- "recent_rate": 0.0,
+ "total": 1,
+ "recent": 1,
+ "recent_base": 655,
+ "recent_rate": 0.153,
  "thresholds": {
   "warn_n": 5,
   "alert_n": 20,
@@ -24,9 +24,9 @@
    "key": "fake_purchase",
    "label": "결제 위조",
    "desc": "게임이 purchase_anomaly 를 쏜 유저입니다. 주문ID 형식이 깨졌거나 재사용됐는데 보상은 이미 지급된 건이 대부분입니다 — 탐지는 했지만 막지는 못한 것이라 유료 상품이 공짜로 나갑니다. 유일하게 돈이 걸린 신호입니다.",
-   "total": 0,
-   "recent": 0,
-   "granted": 0
+   "total": 1,
+   "recent": 1,
+   "granted": 6
   },
   {
    "key": "pct_burst",
@@ -45,17 +45,17 @@
   "dist": [
    {
     "cert": "8c4f94bc5f5be330",
-    "users": 78,
+    "users": 294,
     "ok": null
    },
    {
     "cert": "90008c15f5bc0e6d",
-    "users": 5,
+    "users": 27,
     "ok": null
    },
    {
     "cert": "(미기록)",
-    "users": 4,
+    "users": 20,
     "ok": null
    }
   ]
@@ -63,52 +63,87 @@
  "segments": [
   {
    "seg": "전체",
-   "users": 87,
-   "fake": 0,
-   "pct": 0.0,
-   "mult": null
+   "users": 341,
+   "fake": 1,
+   "pct": 0.29,
+   "mult": 1.0
   },
   {
    "seg": "추월 50%+",
    "users": 0,
    "fake": 0,
    "pct": 0,
-   "mult": null
+   "mult": 0.0
   },
   {
    "seg": "추월 90%+",
    "users": 0,
    "fake": 0,
    "pct": 0,
-   "mult": null
+   "mult": 0.0
   },
   {
    "seg": "추월 100%",
    "users": 0,
    "fake": 0,
    "pct": 0,
-   "mult": null
+   "mult": 0.0
   },
   {
    "seg": "2부 진입",
    "users": 0,
    "fake": 0,
    "pct": 0,
-   "mult": null
+   "mult": 0.0
   }
  ],
  "compare": {
   "normal": {
-   "users": 87,
+   "users": 340,
    "payers": 1,
-   "pay_pct": 1.15,
-   "ads": 4.8,
-   "days": 1.6,
-   "mins": 43.1
+   "pay_pct": 0.29,
+   "ads": 2.2,
+   "days": 1.2,
+   "mins": 27.5
+  },
+  "fake": {
+   "users": 1,
+   "payers": 0,
+   "pay_pct": 0.0,
+   "ads": 0.0,
+   "days": 1.0,
+   "mins": 4.6
   }
  },
- "reasons": [],
- "daily": [],
- "users": [],
- "scan_mb": 60.0
+ "reasons": [
+  {
+   "reason": "bad_orderid",
+   "events": 6,
+   "users": 1
+  }
+ ],
+ "daily": [
+  {
+   "date": "2026-10-26",
+   "n": 1,
+   "clock_drift": 0,
+   "pct_burst": 0,
+   "fake_purchase": 1
+  }
+ ],
+ "users": [
+  {
+   "tag": "bb503b",
+   "day": "2026-10-26",
+   "kinds": [
+    "fake_purchase"
+   ],
+   "drift_h": -0.0,
+   "burst": 0,
+   "max_pct": 0,
+   "fake": 6,
+   "fake_granted": 6
+  }
+ ],
+ "scan_mb": 71.0
 }
