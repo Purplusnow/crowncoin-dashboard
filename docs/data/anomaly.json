@@ -1,11 +1,11 @@
 {
- "updated": "2026-10-28 03:49 KST",
+ "updated": "2026-10-28 09:15 KST",
  "level": "warn",
  "window_days": 7,
  "total": 1,
  "recent": 1,
- "recent_base": 778,
- "recent_rate": 0.129,
+ "recent_base": 839,
+ "recent_rate": 0.119,
  "thresholds": {
   "warn_n": 5,
   "alert_n": 20,
