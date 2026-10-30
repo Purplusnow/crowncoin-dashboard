@@ -1,11 +1,11 @@
 {
- "updated": "2026-10-30 04:05 KST",
+ "updated": "2026-10-30 16:35 KST",
  "level": "warn",
  "window_days": 7,
  "total": 5,
  "recent": 5,
- "recent_base": 1159,
- "recent_rate": 0.431,
+ "recent_base": 1180,
+ "recent_rate": 0.424,
  "thresholds": {
   "warn_n": 5,
   "alert_n": 20,
@@ -38,24 +38,24 @@
  ],
  "apk_cert": {
   "good": "",
-  "events": 80,
+  "events": 100,
   "users": 4,
   "false_pos": 0,
   "unknown": 4,
   "dist": [
    {
     "cert": "8c4f94bc5f5be330",
-    "users": 936,
+    "users": 1095,
     "ok": null
    },
    {
     "cert": "90008c15f5bc0e6d",
-    "users": 64,
+    "users": 72,
     "ok": null
    },
    {
     "cert": "(미기록)",
-    "users": 31,
+    "users": 33,
     "ok": null
    },
    {
@@ -68,9 +68,9 @@
  "segments": [
   {
    "seg": "전체",
-   "users": 1034,
+   "users": 1203,
    "fake": 5,
-   "pct": 0.48,
+   "pct": 0.42,
    "mult": 1.0
   },
   {
@@ -104,26 +104,26 @@
  ],
  "compare": {
   "normal": {
-   "users": 1029,
+   "users": 1198,
    "payers": 3,
-   "pay_pct": 0.29,
-   "ads": 2.1,
-   "days": 1.4,
-   "mins": 36.5
+   "pay_pct": 0.25,
+   "ads": 2.3,
+   "days": 1.5,
+   "mins": 39.2
   },
   "fake": {
    "users": 5,
    "payers": 0,
    "pay_pct": 0.0,
    "ads": 1.2,
-   "days": 1.6,
-   "mins": 29.1
+   "days": 1.8,
+   "mins": 30.0
   }
  },
  "reasons": [
   {
    "reason": "bad_apk_cert",
-   "events": 80,
+   "events": 100,
    "users": 4
   },
   {
@@ -200,8 +200,8 @@
    ],
    "drift_h": -0.6,
    "burst": 1,
-   "max_pct": 6,
-   "fake": 34,
+   "max_pct": 9,
+   "fake": 54,
    "fake_granted": 0
   },
   {
@@ -217,5 +217,5 @@
    "fake_granted": 6
   }
  ],
- "scan_mb": 255.0
+ "scan_mb": 320.0
 }
