@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-01 07:53 KST",
+ "updated": "2026-11-01 08:42 KST",
  "stage_labels": [
   {
    "key": "new_game",
@@ -135,19 +135,19 @@
  "tables": [
   {
    "d": "20261101",
-   "users": 133,
-   "events": 3497
+   "users": 142,
+   "events": 3997
   }
  ],
  "day": "20261101",
  "summary": {
-  "users": 133,
+  "users": 142,
   "new_users": 8,
   "first_touch_today": 8,
   "purchases": 0,
   "exceptions": 0,
   "first_at": "2026-11-01 00:00",
-  "last_at": "2026-11-01 07:52"
+  "last_at": "2026-11-01 08:40"
  },
  "acq": {
   "first_open": 8,
@@ -334,14 +334,14 @@
   {
    "tag": "7898d7",
    "joined": "01:08",
-   "last_seen": "01:18",
-   "mins": 9.5,
-   "span": 9,
-   "sessions": 1,
-   "off": 0,
+   "last_seen": "08:35",
+   "mins": 9.9,
+   "span": 446,
+   "sessions": 2,
+   "off": 1,
    "off_boost": 0,
    "prog": 0.0,
-   "events": 33,
+   "events": 39,
    "ver": "1.0 (v33)",
    "country": "Japan",
    "reached": [
@@ -554,14 +554,14 @@
   {
    "tag": "3c4182",
    "joined": "10/31 16:12",
-   "last_seen": "16:37",
+   "last_seen": "08:26",
    "mins": 25.1,
-   "span": 25,
-   "sessions": 1,
+   "span": 973,
+   "sessions": 2,
    "off": 0,
    "off_boost": 0,
    "prog": 0.0,
-   "events": 54,
+   "events": 56,
    "ver": "1.0 (v33)",
    "country": "Brazil",
    "reached": [
@@ -1186,7 +1186,7 @@
     "property_2": 0,
     "game_sale": 0,
     "first_rebirth": 0,
-    "med_min": 9.5,
+    "med_min": 9.9,
     "intro_done_pct": 100.0,
     "property_2_pct": 0.0,
     "game_sale_pct": 0.0,
@@ -1227,7 +1227,7 @@
     "property_2": 3,
     "game_sale": 2,
     "first_rebirth": 0,
-    "med_min": 9.5,
+    "med_min": 9.9,
     "intro_done_pct": 100.0,
     "property_2_pct": 37.5,
     "game_sale_pct": 25.0,
@@ -1271,7 +1271,7 @@
   "dist": [
    {
     "cert": "8c4f94bc5f5be330",
-    "users": 117,
+    "users": 126,
     "ok": null
    },
    {
@@ -1314,15 +1314,15 @@
   ]
  },
  "ads": {
-  "total": 86,
+  "total": 103,
   "by_result": [
    {
     "result": "earned",
-    "n": 75
+    "n": 91
    },
    {
     "result": "dismissed",
-    "n": 2
+    "n": 3
    },
    {
     "result": "no_ad",
@@ -1333,9 +1333,20 @@
     "n": 0
    }
   ],
-  "finish_pct": 97.4,
-  "supply_pct": 10.5,
+  "finish_pct": 96.8,
+  "supply_pct": 8.7,
   "by_country": [
+   {
+    "country": "Brazil",
+    "total": 15,
+    "earned": 13,
+    "dismissed": 0,
+    "no_ad": 2,
+    "failed": 0,
+    "users": 5,
+    "finish_pct": 100.0,
+    "supply_pct": 13.3
+   },
    {
     "country": "Türkiye",
     "total": 13,
@@ -1348,15 +1359,15 @@
     "supply_pct": 53.8
    },
    {
-    "country": "Brazil",
-    "total": 12,
-    "earned": 10,
+    "country": "Thailand",
+    "total": 11,
+    "earned": 11,
     "dismissed": 0,
-    "no_ad": 2,
+    "no_ad": 0,
     "failed": 0,
-    "users": 4,
+    "users": 5,
     "finish_pct": 100.0,
-    "supply_pct": 16.7
+    "supply_pct": 0.0
    },
    {
     "country": "Japan",
@@ -1370,43 +1381,62 @@
     "supply_pct": 0.0
    },
    {
-    "country": "기타(요청 10회 미만)",
-    "total": 51,
-    "earned": 50,
-    "dismissed": 1,
+    "country": "Vietnam",
+    "total": 10,
+    "earned": 10,
+    "dismissed": 0,
     "no_ad": 0,
     "failed": 0,
-    "users": 34,
-    "lumped": 14,
-    "finish_pct": 98.0,
+    "users": 7,
+    "finish_pct": 100.0,
+    "supply_pct": 0.0
+   },
+   {
+    "country": "기타(요청 10회 미만)",
+    "total": 44,
+    "earned": 42,
+    "dismissed": 2,
+    "no_ad": 0,
+    "failed": 0,
+    "users": 27,
+    "lumped": 12,
+    "finish_pct": 95.5,
     "supply_pct": 0.0
    }
   ],
-  "viewers": 42,
+  "viewers": 47,
   "by_placement": [
    {
     "placement": "offline",
-    "earned": 53,
+    "earned": 61,
     "dismissed": 0,
     "no_ad": 6,
     "failed": 0,
-    "total": 59
+    "total": 67
    },
    {
     "placement": "boost",
-    "earned": 19,
+    "earned": 22,
     "dismissed": 2,
     "no_ad": 2,
     "failed": 0,
-    "total": 23
+    "total": 26
    },
    {
     "placement": "gem_ad",
-    "earned": 3,
-    "dismissed": 0,
+    "earned": 7,
+    "dismissed": 1,
     "no_ad": 1,
     "failed": 0,
-    "total": 4
+    "total": 9
+   },
+   {
+    "placement": "repair",
+    "earned": 1,
+    "dismissed": 0,
+    "no_ad": 0,
+    "failed": 0,
+    "total": 1
    }
   ]
  },
