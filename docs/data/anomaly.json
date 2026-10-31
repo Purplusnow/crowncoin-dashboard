@@ -1,11 +1,11 @@
 {
- "updated": "2026-10-31 16:22 KST",
+ "updated": "2026-11-01 02:51 KST",
  "level": "alert",
  "window_days": 7,
  "total": 6,
  "recent": 6,
- "recent_base": 1199,
- "recent_rate": 0.5,
+ "recent_base": 1194,
+ "recent_rate": 0.503,
  "thresholds": {
   "warn_n": 5,
   "alert_n": 20,
@@ -212,18 +212,6 @@
    "fake_granted": 0
   },
   {
-   "tag": "b62e13",
-   "day": "2026-10-26",
-   "kinds": [
-    "fake_purchase"
-   ],
-   "drift_h": -0.6,
-   "burst": 1,
-   "max_pct": 9,
-   "fake": 60,
-   "fake_granted": 0
-  },
-  {
    "tag": "bb503b",
    "day": "2026-10-26",
    "kinds": [
@@ -234,6 +222,18 @@
    "max_pct": 0,
    "fake": 6,
    "fake_granted": 6
+  },
+  {
+   "tag": "b62e13",
+   "day": "2026-10-26",
+   "kinds": [
+    "fake_purchase"
+   ],
+   "drift_h": -0.6,
+   "burst": 1,
+   "max_pct": 9,
+   "fake": 60,
+   "fake_granted": 0
   }
  ],
  "scan_mb": 356.0
