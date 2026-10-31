@@ -1,11 +1,11 @@
 {
- "updated": "2026-10-31 11:32 KST",
- "level": "warn",
+ "updated": "2026-10-31 16:22 KST",
+ "level": "alert",
  "window_days": 7,
- "total": 5,
- "recent": 5,
- "recent_base": 1190,
- "recent_rate": 0.42,
+ "total": 6,
+ "recent": 6,
+ "recent_base": 1199,
+ "recent_rate": 0.5,
  "thresholds": {
   "warn_n": 5,
   "alert_n": 20,
@@ -32,30 +32,30 @@
    "key": "pct_burst",
    "label": "추월% 폭주",
    "desc": "추월%가 같은 1초에 10칸 이상 건너뜁니다. 정상 플레이면 몇 분에 걸쳐 하나씩 오릅니다 — 세이브를 바꿔 끼워 진행도가 어긋난 흔적입니다.",
-   "total": 0,
-   "recent": 0
+   "total": 1,
+   "recent": 1
   }
  ],
  "apk_cert": {
   "good": "",
-  "events": 100,
+  "events": 110,
   "users": 4,
   "false_pos": 0,
   "unknown": 4,
   "dist": [
    {
     "cert": "8c4f94bc5f5be330",
-    "users": 1095,
+    "users": 1125,
     "ok": null
    },
    {
     "cert": "90008c15f5bc0e6d",
-    "users": 72,
+    "users": 76,
     "ok": null
    },
    {
     "cert": "(미기록)",
-    "users": 33,
+    "users": 32,
     "ok": null
    },
    {
@@ -68,9 +68,9 @@
  "segments": [
   {
    "seg": "전체",
-   "users": 1203,
+   "users": 1236,
    "fake": 5,
-   "pct": 0.42,
+   "pct": 0.4,
    "mult": 1.0
   },
   {
@@ -104,26 +104,26 @@
  ],
  "compare": {
   "normal": {
-   "users": 1198,
+   "users": 1231,
    "payers": 3,
-   "pay_pct": 0.25,
-   "ads": 2.3,
-   "days": 1.5,
-   "mins": 39.2
+   "pay_pct": 0.24,
+   "ads": 2.6,
+   "days": 1.7,
+   "mins": 42.9
   },
   "fake": {
    "users": 5,
    "payers": 0,
    "pay_pct": 0.0,
    "ads": 1.2,
-   "days": 1.8,
-   "mins": 30.0
+   "days": 2.2,
+   "mins": 33.9
   }
  },
  "reasons": [
   {
    "reason": "bad_apk_cert",
-   "events": 100,
+   "events": 110,
    "users": 4
   },
   {
@@ -133,6 +133,13 @@
   }
  ],
  "daily": [
+  {
+   "date": "2026-10-30",
+   "n": 1,
+   "clock_drift": 0,
+   "pct_burst": 1,
+   "fake_purchase": 0
+  },
   {
    "date": "2026-10-28",
    "n": 1,
@@ -157,6 +164,18 @@
  ],
  "users": [
   {
+   "tag": "30ad82",
+   "day": "2026-10-30",
+   "kinds": [
+    "pct_burst"
+   ],
+   "drift_h": -0.0,
+   "burst": 11,
+   "max_pct": 12,
+   "fake": 0,
+   "fake_granted": 0
+  },
+  {
    "tag": "24d1d0",
    "day": "2026-10-28",
    "kinds": [
@@ -166,6 +185,18 @@
    "burst": 0,
    "max_pct": 0,
    "fake": 1,
+   "fake_granted": 0
+  },
+  {
+   "tag": "2878b2",
+   "day": "2026-10-27",
+   "kinds": [
+    "fake_purchase"
+   ],
+   "drift_h": 0.0,
+   "burst": 0,
+   "max_pct": 0,
+   "fake": 8,
    "fake_granted": 0
   },
   {
@@ -181,15 +212,15 @@
    "fake_granted": 0
   },
   {
-   "tag": "2878b2",
-   "day": "2026-10-27",
+   "tag": "b62e13",
+   "day": "2026-10-26",
    "kinds": [
     "fake_purchase"
    ],
-   "drift_h": -0.0,
-   "burst": 0,
-   "max_pct": 0,
-   "fake": 4,
+   "drift_h": -0.6,
+   "burst": 1,
+   "max_pct": 9,
+   "fake": 60,
    "fake_granted": 0
   },
   {
@@ -203,19 +234,7 @@
    "max_pct": 0,
    "fake": 6,
    "fake_granted": 6
-  },
-  {
-   "tag": "b62e13",
-   "day": "2026-10-26",
-   "kinds": [
-    "fake_purchase"
-   ],
-   "drift_h": -0.6,
-   "burst": 1,
-   "max_pct": 9,
-   "fake": 54,
-   "fake_granted": 0
   }
  ],
- "scan_mb": 320.0
+ "scan_mb": 356.0
 }
