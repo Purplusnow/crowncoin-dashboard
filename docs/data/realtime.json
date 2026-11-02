@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-02 14:53 KST",
+ "updated": "2026-11-02 15:56 KST",
  "stage_labels": [
   {
    "key": "new_game",
@@ -135,13 +135,13 @@
  "tables": [
   {
    "d": "20261102",
-   "users": 157,
-   "events": 6891
+   "users": 159,
+   "events": 7287
   }
  ],
  "day": "20261102",
  "summary": {
-  "users": 157,
+  "users": 159,
   "new_users": 4,
   "first_touch_today": 4,
   "purchases": 0,
@@ -665,7 +665,7 @@
   "dist": [
    {
     "cert": "8c4f94bc5f5be330",
-    "users": 143,
+    "users": 145,
     "ok": null
    },
    {
@@ -713,37 +713,48 @@
   ]
  },
  "ads": {
-  "total": 128,
+  "total": 138,
   "by_result": [
    {
     "result": "earned",
-    "n": 115
+    "n": 123
    },
    {
     "result": "dismissed",
-    "n": 2
+    "n": 3
    },
    {
     "result": "no_ad",
-    "n": 11
+    "n": 12
    },
    {
     "result": "failed",
     "n": 0
    }
   ],
-  "finish_pct": 98.3,
-  "supply_pct": 8.6,
+  "finish_pct": 97.6,
+  "supply_pct": 8.7,
   "by_country": [
    {
     "country": "South Korea",
-    "total": 27,
-    "earned": 27,
+    "total": 28,
+    "earned": 28,
     "dismissed": 0,
     "no_ad": 0,
     "failed": 0,
     "users": 7,
     "finish_pct": 100.0,
+    "supply_pct": 0.0
+   },
+   {
+    "country": "Vietnam",
+    "total": 18,
+    "earned": 17,
+    "dismissed": 1,
+    "no_ad": 0,
+    "failed": 0,
+    "users": 8,
+    "finish_pct": 94.4,
     "supply_pct": 0.0
    },
    {
@@ -754,17 +765,6 @@
     "no_ad": 0,
     "failed": 0,
     "users": 3,
-    "finish_pct": 100.0,
-    "supply_pct": 0.0
-   },
-   {
-    "country": "Vietnam",
-    "total": 14,
-    "earned": 14,
-    "dismissed": 0,
-    "no_ad": 0,
-    "failed": 0,
-    "users": 6,
     "finish_pct": 100.0,
     "supply_pct": 0.0
    },
@@ -781,42 +781,42 @@
    },
    {
     "country": "기타(요청 10회 미만)",
-    "total": 56,
-    "earned": 45,
+    "total": 61,
+    "earned": 49,
     "dismissed": 1,
-    "no_ad": 10,
+    "no_ad": 11,
     "failed": 0,
-    "users": 28,
+    "users": 29,
     "lumped": 14,
-    "finish_pct": 97.8,
-    "supply_pct": 17.9
+    "finish_pct": 98.0,
+    "supply_pct": 18.0
    }
   ],
-  "viewers": 32,
+  "viewers": 33,
   "by_placement": [
    {
     "placement": "offline",
-    "earned": 59,
+    "earned": 63,
     "dismissed": 1,
     "no_ad": 1,
     "failed": 0,
-    "total": 61
+    "total": 65
    },
    {
     "placement": "boost",
-    "earned": 32,
+    "earned": 35,
     "dismissed": 1,
-    "no_ad": 6,
+    "no_ad": 7,
     "failed": 0,
-    "total": 39
+    "total": 43
    },
    {
     "placement": "gem_ad",
-    "earned": 24,
-    "dismissed": 0,
+    "earned": 25,
+    "dismissed": 1,
     "no_ad": 3,
     "failed": 0,
-    "total": 27
+    "total": 29
    },
    {
     "placement": "repair",
