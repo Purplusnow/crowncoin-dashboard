@@ -1,11 +1,11 @@
 {
- "updated": "2026-11-02 16:59 KST",
+ "updated": "2026-11-03 07:23 KST",
  "level": "alert",
  "window_days": 7,
  "total": 7,
- "recent": 7,
- "recent_base": 1195,
- "recent_rate": 0.586,
+ "recent": 5,
+ "recent_base": 939,
+ "recent_rate": 0.532,
  "thresholds": {
   "warn_n": 5,
   "alert_n": 20,
@@ -25,7 +25,7 @@
    "label": "결제 위조",
    "desc": "게임이 purchase_anomaly 를 쏜 유저입니다. 주문ID 형식이 깨졌거나 재사용됐는데 보상은 이미 지급된 건이 대부분입니다 — 탐지는 했지만 막지는 못한 것이라 유료 상품이 공짜로 나갑니다. 유일하게 돈이 걸린 신호입니다.",
    "total": 5,
-   "recent": 5,
+   "recent": 3,
    "granted": 6
   },
   {
@@ -207,6 +207,18 @@
    "fake_granted": 0
   },
   {
+   "tag": "2878b2",
+   "day": "2026-10-27",
+   "kinds": [
+    "fake_purchase"
+   ],
+   "drift_h": 0.0,
+   "burst": 0,
+   "max_pct": 0,
+   "fake": 8,
+   "fake_granted": 0
+  },
+  {
    "tag": "29fbaa",
    "day": "2026-10-27",
    "kinds": [
@@ -219,15 +231,15 @@
    "fake_granted": 0
   },
   {
-   "tag": "2878b2",
-   "day": "2026-10-27",
+   "tag": "b62e13",
+   "day": "2026-10-26",
    "kinds": [
     "fake_purchase"
    ],
-   "drift_h": 0.0,
-   "burst": 0,
-   "max_pct": 0,
-   "fake": 8,
+   "drift_h": -0.6,
+   "burst": 1,
+   "max_pct": 9,
+   "fake": 60,
    "fake_granted": 0
   },
   {
@@ -241,18 +253,6 @@
    "max_pct": 0,
    "fake": 6,
    "fake_granted": 6
-  },
-  {
-   "tag": "b62e13",
-   "day": "2026-10-26",
-   "kinds": [
-    "fake_purchase"
-   ],
-   "drift_h": -0.6,
-   "burst": 1,
-   "max_pct": 9,
-   "fake": 60,
-   "fake_granted": 0
   }
  ],
  "scan_mb": 412.0
