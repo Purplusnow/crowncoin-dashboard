@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-03 06:47 KST",
+ "updated": "2026-11-03 08:27 KST",
  "stage_labels": [
   {
    "key": "new_game",
@@ -135,19 +135,19 @@
  "tables": [
   {
    "d": "20261103",
-   "users": 90,
-   "events": 2284
+   "users": 107,
+   "events": 2907
   }
  ],
  "day": "20261103",
  "summary": {
-  "users": 90,
+  "users": 107,
   "new_users": 1,
   "first_touch_today": 1,
   "purchases": 0,
   "exceptions": 0,
   "first_at": "2026-11-03 00:00",
-  "last_at": "2026-11-03 06:46"
+  "last_at": "2026-11-03 08:26"
  },
  "acq": {
   "first_open": 1,
@@ -730,12 +730,12 @@
   "dist": [
    {
     "cert": "8c4f94bc5f5be330",
-    "users": 76,
+    "users": 92,
     "ok": null
    },
    {
     "cert": "90008c15f5bc0e6d",
-    "users": 13,
+    "users": 14,
     "ok": null
    },
    {
@@ -778,11 +778,11 @@
   ]
  },
  "ads": {
-  "total": 57,
+  "total": 72,
   "by_result": [
    {
     "result": "earned",
-    "n": 45
+    "n": 58
    },
    {
     "result": "dismissed",
@@ -790,65 +790,65 @@
    },
    {
     "result": "no_ad",
-    "n": 7
+    "n": 9
    },
    {
     "result": "failed",
     "n": 1
    }
   ],
-  "finish_pct": 91.8,
-  "supply_pct": 14.0,
+  "finish_pct": 93.5,
+  "supply_pct": 13.9,
   "by_country": [
    {
     "country": "Brazil",
-    "total": 10,
-    "earned": 8,
+    "total": 11,
+    "earned": 9,
     "dismissed": 0,
     "no_ad": 1,
     "failed": 1,
     "users": 3,
     "finish_pct": 100.0,
-    "supply_pct": 20.0
+    "supply_pct": 18.2
    },
    {
     "country": "기타(요청 10회 미만)",
-    "total": 47,
-    "earned": 37,
+    "total": 61,
+    "earned": 49,
     "dismissed": 4,
-    "no_ad": 6,
+    "no_ad": 8,
     "failed": 0,
-    "users": 30,
+    "users": 37,
     "lumped": 15,
-    "finish_pct": 90.2,
-    "supply_pct": 12.8
+    "finish_pct": 92.5,
+    "supply_pct": 13.1
    }
   ],
-  "viewers": 22,
+  "viewers": 28,
   "by_placement": [
    {
     "placement": "offline",
-    "earned": 24,
+    "earned": 33,
     "dismissed": 1,
-    "no_ad": 3,
+    "no_ad": 4,
     "failed": 0,
-    "total": 28
+    "total": 38
    },
    {
     "placement": "gem_ad",
-    "earned": 11,
+    "earned": 13,
     "dismissed": 1,
     "no_ad": 2,
     "failed": 1,
-    "total": 15
+    "total": 17
    },
    {
     "placement": "boost",
-    "earned": 10,
+    "earned": 12,
     "dismissed": 2,
-    "no_ad": 2,
+    "no_ad": 3,
     "failed": 0,
-    "total": 14
+    "total": 17
    }
   ]
  },
