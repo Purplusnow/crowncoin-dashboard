@@ -1,11 +1,11 @@
 {
- "updated": "2026-11-02 03:28 KST",
+ "updated": "2026-11-02 16:59 KST",
  "level": "alert",
  "window_days": 7,
  "total": 7,
  "recent": 7,
- "recent_base": 1191,
- "recent_rate": 0.588,
+ "recent_base": 1195,
+ "recent_rate": 0.586,
  "thresholds": {
   "warn_n": 5,
   "alert_n": 20,
@@ -45,17 +45,17 @@
   "dist": [
    {
     "cert": "8c4f94bc5f5be330",
-    "users": 1148,
+    "users": 1159,
     "ok": null
    },
    {
     "cert": "90008c15f5bc0e6d",
-    "users": 78,
+    "users": 82,
     "ok": null
    },
    {
     "cert": "(미기록)",
-    "users": 35,
+    "users": 36,
     "ok": null
    },
    {
@@ -68,9 +68,9 @@
  "segments": [
   {
    "seg": "전체",
-   "users": 1264,
+   "users": 1280,
    "fake": 5,
-   "pct": 0.4,
+   "pct": 0.39,
    "mult": 1.0
   },
   {
@@ -104,12 +104,12 @@
  ],
  "compare": {
   "normal": {
-   "users": 1259,
-   "payers": 3,
-   "pay_pct": 0.24,
-   "ads": 2.9,
-   "days": 1.9,
-   "mins": 45.9
+   "users": 1275,
+   "payers": 4,
+   "pay_pct": 0.31,
+   "ads": 3.1,
+   "days": 2.0,
+   "mins": 48.6
   },
   "fake": {
    "users": 5,
@@ -255,5 +255,5 @@
    "fake_granted": 0
   }
  ],
- "scan_mb": 388.0
+ "scan_mb": 412.0
 }
