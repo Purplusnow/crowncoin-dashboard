@@ -1,11 +1,11 @@
 {
- "updated": "2026-11-03 17:22 KST",
+ "updated": "2026-11-04 05:12 KST",
  "level": "alert",
  "window_days": 7,
  "total": 7,
- "recent": 5,
- "recent_base": 942,
- "recent_rate": 0.531,
+ "recent": 3,
+ "recent_base": 509,
+ "recent_rate": 0.589,
  "thresholds": {
   "warn_n": 5,
   "alert_n": 20,
@@ -25,7 +25,7 @@
    "label": "결제 위조",
    "desc": "게임이 purchase_anomaly 를 쏜 유저입니다. 주문ID 형식이 깨졌거나 재사용됐는데 보상은 이미 지급된 건이 대부분입니다 — 탐지는 했지만 막지는 못한 것이라 유료 상품이 공짜로 나갑니다. 유일하게 돈이 걸린 신호입니다.",
    "total": 5,
-   "recent": 3,
+   "recent": 1,
    "granted": 6
   },
   {
