@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-05 07:10 KST",
+ "updated": "2026-11-05 08:35 KST",
  "stage_labels": [
   {
    "key": "new_game",
@@ -135,19 +135,19 @@
  "tables": [
   {
    "d": "20261105",
-   "users": 81,
-   "events": 1829
+   "users": 88,
+   "events": 2181
   }
  ],
  "day": "20261105",
  "summary": {
-  "users": 81,
+  "users": 88,
   "new_users": 4,
   "first_touch_today": 4,
   "purchases": 0,
   "exceptions": 0,
   "first_at": "2026-11-05 00:00",
-  "last_at": "2026-11-05 07:07"
+  "last_at": "2026-11-05 08:31"
  },
  "acq": {
   "first_open": 4,
@@ -1046,12 +1046,12 @@
   "dist": [
    {
     "cert": "8c4f94bc5f5be330",
-    "users": 69,
+    "users": 74,
     "ok": null
    },
    {
     "cert": "90008c15f5bc0e6d",
-    "users": 11,
+    "users": 13,
     "ok": null
    },
    {
@@ -1094,11 +1094,11 @@
   ]
  },
  "ads": {
-  "total": 39,
+  "total": 47,
   "by_result": [
    {
     "result": "earned",
-    "n": 36
+    "n": 44
    },
    {
     "result": "dismissed",
@@ -1113,31 +1113,31 @@
     "n": 0
    }
   ],
-  "finish_pct": 97.3,
-  "supply_pct": 5.1,
+  "finish_pct": 97.8,
+  "supply_pct": 4.3,
   "by_country": [
    {
     "country": "기타(요청 10회 미만)",
-    "total": 39,
-    "earned": 36,
+    "total": 47,
+    "earned": 44,
     "dismissed": 1,
     "no_ad": 2,
     "failed": 0,
-    "users": 22,
+    "users": 25,
     "lumped": 15,
-    "finish_pct": 97.3,
-    "supply_pct": 5.1
+    "finish_pct": 97.8,
+    "supply_pct": 4.3
    }
   ],
-  "viewers": 19,
+  "viewers": 23,
   "by_placement": [
    {
     "placement": "offline",
-    "earned": 29,
+    "earned": 37,
     "dismissed": 0,
     "no_ad": 2,
     "failed": 0,
-    "total": 31
+    "total": 39
    },
    {
     "placement": "boost",
