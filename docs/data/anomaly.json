@@ -1,11 +1,11 @@
 {
- "updated": "2026-11-04 05:12 KST",
+ "updated": "2026-11-04 16:50 KST",
  "level": "alert",
  "window_days": 7,
  "total": 7,
  "recent": 3,
- "recent_base": 509,
- "recent_rate": 0.589,
+ "recent_base": 516,
+ "recent_rate": 0.581,
  "thresholds": {
   "warn_n": 5,
   "alert_n": 20,
@@ -45,12 +45,12 @@
   "dist": [
    {
     "cert": "8c4f94bc5f5be330",
-    "users": 1165,
+    "users": 1170,
     "ok": null
    },
    {
     "cert": "90008c15f5bc0e6d",
-    "users": 82,
+    "users": 83,
     "ok": null
    },
    {
@@ -68,7 +68,7 @@
  "segments": [
   {
    "seg": "전체",
-   "users": 1286,
+   "users": 1292,
    "fake": 5,
    "pct": 0.39,
    "mult": 1.0
@@ -104,12 +104,12 @@
  ],
  "compare": {
   "normal": {
-   "users": 1281,
+   "users": 1287,
    "payers": 4,
    "pay_pct": 0.31,
-   "ads": 3.3,
-   "days": 2.2,
-   "mins": 50.7
+   "ads": 3.5,
+   "days": 2.3,
+   "mins": 52.0
   },
   "fake": {
    "users": 5,
@@ -255,5 +255,5 @@
    "fake_granted": 6
   }
  ],
- "scan_mb": 432.0
+ "scan_mb": 448.0
 }
