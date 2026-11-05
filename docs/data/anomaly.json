@@ -1,11 +1,11 @@
 {
- "updated": "2026-11-05 05:29 KST",
+ "updated": "2026-11-05 17:16 KST",
  "level": "alert",
  "window_days": 7,
- "total": 7,
- "recent": 2,
- "recent_base": 267,
- "recent_rate": 0.749,
+ "total": 8,
+ "recent": 3,
+ "recent_base": 273,
+ "recent_rate": 1.099,
  "thresholds": {
   "warn_n": 5,
   "alert_n": 20,
@@ -24,8 +24,8 @@
    "key": "fake_purchase",
    "label": "결제 위조",
    "desc": "게임이 purchase_anomaly 를 쏜 유저입니다. 주문ID 형식이 깨졌거나 재사용됐는데 보상은 이미 지급된 건이 대부분입니다 — 탐지는 했지만 막지는 못한 것이라 유료 상품이 공짜로 나갑니다. 유일하게 돈이 걸린 신호입니다.",
-   "total": 5,
-   "recent": 0,
+   "total": 6,
+   "recent": 1,
    "granted": 6
   },
   {
@@ -38,19 +38,19 @@
  ],
  "apk_cert": {
   "good": "",
-  "events": 110,
-  "users": 4,
+  "events": 117,
+  "users": 5,
   "false_pos": 0,
-  "unknown": 4,
+  "unknown": 5,
   "dist": [
    {
     "cert": "8c4f94bc5f5be330",
-    "users": 1170,
+    "users": 1182,
     "ok": null
    },
    {
     "cert": "90008c15f5bc0e6d",
-    "users": 83,
+    "users": 86,
     "ok": null
    },
    {
@@ -60,7 +60,7 @@
    },
    {
     "cert": "a40da80a59d170ca",
-    "users": 3,
+    "users": 4,
     "ok": null
    }
   ]
@@ -68,9 +68,9 @@
  "segments": [
   {
    "seg": "전체",
-   "users": 1292,
-   "fake": 5,
-   "pct": 0.39,
+   "users": 1308,
+   "fake": 6,
+   "pct": 0.46,
    "mult": 1.0
   },
   {
@@ -104,27 +104,27 @@
  ],
  "compare": {
   "normal": {
-   "users": 1287,
+   "users": 1302,
    "payers": 4,
    "pay_pct": 0.31,
-   "ads": 3.5,
-   "days": 2.3,
-   "mins": 52.0
+   "ads": 3.7,
+   "days": 2.4,
+   "mins": 53.1
   },
   "fake": {
-   "users": 5,
+   "users": 6,
    "payers": 0,
    "pay_pct": 0.0,
-   "ads": 1.2,
-   "days": 2.2,
-   "mins": 33.9
+   "ads": 1.0,
+   "days": 2.0,
+   "mins": 28.5
   }
  },
  "reasons": [
   {
    "reason": "bad_apk_cert",
-   "events": 110,
-   "users": 4
+   "events": 117,
+   "users": 5
   },
   {
    "reason": "bad_orderid",
@@ -133,6 +133,13 @@
   }
  ],
  "daily": [
+  {
+   "date": "2026-11-04",
+   "n": 1,
+   "clock_drift": 0,
+   "pct_burst": 0,
+   "fake_purchase": 1
+  },
   {
    "date": "2026-10-31",
    "n": 1,
@@ -170,6 +177,18 @@
   }
  ],
  "users": [
+  {
+   "tag": "8ca4ac",
+   "day": "2026-11-04",
+   "kinds": [
+    "fake_purchase"
+   ],
+   "drift_h": 0.0,
+   "burst": 0,
+   "max_pct": 0,
+   "fake": 7,
+   "fake_granted": 0
+  },
   {
    "tag": "a77c1e",
    "day": "2026-10-31",
@@ -255,5 +274,5 @@
    "fake_granted": 6
   }
  ],
- "scan_mb": 448.0
+ "scan_mb": 465.0
 }
