@@ -1,11 +1,11 @@
 {
- "updated": "2026-11-06 05:45 KST",
+ "updated": "2026-11-06 17:19 KST",
  "level": "alert",
  "window_days": 7,
- "total": 8,
- "recent": 3,
- "recent_base": 113,
- "recent_rate": 2.655,
+ "total": 9,
+ "recent": 4,
+ "recent_base": 118,
+ "recent_rate": 3.39,
  "thresholds": {
   "warn_n": 5,
   "alert_n": 20,
@@ -32,8 +32,8 @@
    "key": "pct_burst",
    "label": "추월% 폭주",
    "desc": "추월%가 같은 1초에 10칸 이상 건너뜁니다. 정상 플레이면 몇 분에 걸쳐 하나씩 오릅니다 — 세이브를 바꿔 끼워 진행도가 어긋난 흔적입니다.",
-   "total": 2,
-   "recent": 2
+   "total": 3,
+   "recent": 3
   }
  ],
  "apk_cert": {
@@ -45,7 +45,7 @@
   "dist": [
    {
     "cert": "8c4f94bc5f5be330",
-    "users": 1182,
+    "users": 1193,
     "ok": null
    },
    {
@@ -55,7 +55,7 @@
    },
    {
     "cert": "(미기록)",
-    "users": 36,
+    "users": 39,
     "ok": null
    },
    {
@@ -68,16 +68,16 @@
  "segments": [
   {
    "seg": "전체",
-   "users": 1308,
+   "users": 1322,
    "fake": 6,
-   "pct": 0.46,
+   "pct": 0.45,
    "mult": 1.0
   },
   {
    "seg": "추월 50%+",
-   "users": 0,
+   "users": 1,
    "fake": 0,
-   "pct": 0,
+   "pct": 0.0,
    "mult": 0.0
   },
   {
@@ -104,12 +104,12 @@
  ],
  "compare": {
   "normal": {
-   "users": 1302,
+   "users": 1316,
    "payers": 4,
-   "pay_pct": 0.31,
-   "ads": 3.7,
-   "days": 2.4,
-   "mins": 53.1
+   "pay_pct": 0.3,
+   "ads": 3.8,
+   "days": 2.5,
+   "mins": 53.8
   },
   "fake": {
    "users": 6,
@@ -133,6 +133,13 @@
   }
  ],
  "daily": [
+  {
+   "date": "2026-11-05",
+   "n": 1,
+   "clock_drift": 0,
+   "pct_burst": 1,
+   "fake_purchase": 0
+  },
   {
    "date": "2026-11-04",
    "n": 1,
@@ -177,6 +184,18 @@
   }
  ],
  "users": [
+  {
+   "tag": "dcdb03",
+   "day": "2026-11-05",
+   "kinds": [
+    "pct_burst"
+   ],
+   "drift_h": 0.0,
+   "burst": 25,
+   "max_pct": 25,
+   "fake": 0,
+   "fake_granted": 0
+  },
   {
    "tag": "8ca4ac",
    "day": "2026-11-04",
@@ -274,5 +293,5 @@
    "fake_granted": 6
   }
  ],
- "scan_mb": 465.0
+ "scan_mb": 480.0
 }
