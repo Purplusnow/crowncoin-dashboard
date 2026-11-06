@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-06 06:56 KST",
+ "updated": "2026-11-06 09:33 KST",
  "stage_labels": [
   {
    "key": "new_game",
@@ -135,19 +135,19 @@
  "tables": [
   {
    "d": "20261106",
-   "users": 62,
-   "events": 1520
+   "users": 79,
+   "events": 2309
   }
  ],
  "day": "20261106",
  "summary": {
-  "users": 62,
+  "users": 79,
   "new_users": 2,
   "first_touch_today": 2,
   "purchases": 0,
   "exceptions": 0,
   "first_at": "2026-11-06 00:02",
-  "last_at": "2026-11-06 06:54"
+  "last_at": "2026-11-06 09:32"
  },
  "acq": {
   "first_open": 2,
@@ -158,14 +158,14 @@
   {
    "tag": "f50112",
    "joined": "04:56",
-   "last_seen": "06:49",
-   "mins": 32.1,
-   "span": 113,
-   "sessions": 2,
-   "off": 0,
-   "off_boost": 0,
+   "last_seen": "09:11",
+   "mins": 38.1,
+   "span": 255,
+   "sessions": 3,
+   "off": 1,
+   "off_boost": 1,
    "prog": 0.0,
-   "events": 182,
+   "events": 213,
    "ver": "1.0 (v33)",
    "country": "Brazil",
    "reached": [
@@ -194,7 +194,7 @@
     0,
     1,
     1,
-    0
+    1
    ],
    "far": 14,
    "far_label": "은퇴"
@@ -246,14 +246,14 @@
   {
    "tag": "dcdb03",
    "joined": "11/05 22:40",
-   "last_seen": "05:49",
-   "mins": 1.6,
-   "span": 428,
-   "sessions": 2,
-   "off": 2,
+   "last_seen": "08:04",
+   "mins": 1.9,
+   "span": 563,
+   "sessions": 3,
+   "off": 3,
    "off_boost": 0,
    "prog": 25.0,
-   "events": 93,
+   "events": 99,
    "ver": "1.0 (v33)",
    "country": "Taiwan",
    "reached": [
@@ -801,9 +801,9 @@
   {
    "key": "first_ad",
    "label": "첫광고",
-   "n": 3,
-   "rec": 3,
-   "pct": 30.0,
+   "n": 4,
+   "rec": 4,
+   "pct": 40.0,
    "kind": "side"
   }
  ],
@@ -852,7 +852,7 @@
     "property_2": 1,
     "game_sale": 1,
     "first_rebirth": 0,
-    "med_min": 32.1,
+    "med_min": 38.1,
     "intro_done_pct": 50.0,
     "property_2_pct": 50.0,
     "game_sale_pct": 50.0,
@@ -917,7 +917,7 @@
     "property_2": 1,
     "game_sale": 1,
     "first_rebirth": 0,
-    "med_min": 1.6,
+    "med_min": 1.9,
     "intro_done_pct": 100.0,
     "property_2_pct": 100.0,
     "game_sale_pct": 100.0,
@@ -989,12 +989,12 @@
   "dist": [
    {
     "cert": "8c4f94bc5f5be330",
-    "users": 51,
+    "users": 67,
     "ok": null
    },
    {
     "cert": "90008c15f5bc0e6d",
-    "users": 10,
+    "users": 11,
     "ok": null
    },
    {
@@ -1037,66 +1037,77 @@
   ]
  },
  "ads": {
-  "total": 37,
+  "total": 65,
   "by_result": [
    {
     "result": "earned",
-    "n": 34
+    "n": 57
    },
    {
     "result": "dismissed",
-    "n": 1
+    "n": 2
    },
    {
     "result": "no_ad",
-    "n": 2
+    "n": 6
    },
    {
     "result": "failed",
     "n": 0
    }
   ],
-  "finish_pct": 97.1,
-  "supply_pct": 5.4,
+  "finish_pct": 96.6,
+  "supply_pct": 9.2,
   "by_country": [
    {
-    "country": "기타(요청 10회 미만)",
-    "total": 37,
-    "earned": 34,
+    "country": "Taiwan",
+    "total": 21,
+    "earned": 20,
     "dismissed": 1,
-    "no_ad": 2,
+    "no_ad": 0,
     "failed": 0,
-    "users": 20,
-    "lumped": 12,
-    "finish_pct": 97.1,
-    "supply_pct": 5.4
+    "users": 7,
+    "finish_pct": 95.2,
+    "supply_pct": 0.0
+   },
+   {
+    "country": "기타(요청 10회 미만)",
+    "total": 44,
+    "earned": 37,
+    "dismissed": 1,
+    "no_ad": 6,
+    "failed": 0,
+    "users": 22,
+    "lumped": 14,
+    "finish_pct": 97.4,
+    "supply_pct": 13.6
    }
   ],
-  "viewers": 16,
+  "viewers": 24,
   "by_placement": [
    {
     "placement": "offline",
-    "earned": 21,
+    "earned": 35,
     "dismissed": 1,
-    "no_ad": 2,
+    "no_ad": 4,
     "failed": 0,
-    "total": 24
-   },
-   {
-    "placement": "boost",
-    "earned": 7,
-    "dismissed": 0,
-    "no_ad": 0,
-    "failed": 0,
-    "total": 7
+    "total": 40
    },
    {
     "placement": "gem_ad",
-    "earned": 6,
-    "dismissed": 0,
+    "earned": 13,
+    "dismissed": 1,
     "no_ad": 0,
     "failed": 0,
-    "total": 6
+    "total": 14
+   },
+   {
+    "placement": "boost",
+    "earned": 9,
+    "dismissed": 0,
+    "no_ad": 2,
+    "failed": 0,
+    "total": 11
    }
   ]
  },
