@@ -1,11 +1,11 @@
 {
- "updated": "2026-11-07 05:00 KST",
+ "updated": "2026-11-07 16:37 KST",
  "level": "alert",
  "window_days": 7,
  "total": 9,
  "recent": 3,
- "recent_base": 99,
- "recent_rate": 3.03,
+ "recent_base": 339,
+ "recent_rate": 0.885,
  "thresholds": {
   "warn_n": 5,
   "alert_n": 20,
@@ -45,17 +45,17 @@
   "dist": [
    {
     "cert": "8c4f94bc5f5be330",
-    "users": 1193,
+    "users": 1197,
     "ok": null
    },
    {
     "cert": "90008c15f5bc0e6d",
-    "users": 86,
+    "users": 87,
     "ok": null
    },
    {
     "cert": "(미기록)",
-    "users": 39,
+    "users": 42,
     "ok": null
    },
    {
@@ -68,23 +68,23 @@
  "segments": [
   {
    "seg": "전체",
-   "users": 1322,
+   "users": 1330,
    "fake": 6,
    "pct": 0.45,
    "mult": 1.0
   },
   {
    "seg": "추월 50%+",
-   "users": 1,
+   "users": 2,
    "fake": 0,
    "pct": 0.0,
    "mult": 0.0
   },
   {
    "seg": "추월 90%+",
-   "users": 0,
+   "users": 1,
    "fake": 0,
-   "pct": 0,
+   "pct": 0.0,
    "mult": 0.0
   },
   {
@@ -104,12 +104,12 @@
  ],
  "compare": {
   "normal": {
-   "users": 1316,
+   "users": 1324,
    "payers": 4,
    "pay_pct": 0.3,
-   "ads": 3.8,
-   "days": 2.5,
-   "mins": 53.8
+   "ads": 3.9,
+   "days": 2.6,
+   "mins": 54.8
   },
   "fake": {
    "users": 6,
@@ -190,9 +190,9 @@
    "kinds": [
     "pct_burst"
    ],
-   "drift_h": 0.0,
+   "drift_h": -0.0,
    "burst": 25,
-   "max_pct": 25,
+   "max_pct": 26,
    "fake": 0,
    "fake_granted": 0
   },
@@ -269,18 +269,6 @@
    "fake_granted": 0
   },
   {
-   "tag": "b62e13",
-   "day": "2026-10-26",
-   "kinds": [
-    "fake_purchase"
-   ],
-   "drift_h": -0.6,
-   "burst": 1,
-   "max_pct": 9,
-   "fake": 60,
-   "fake_granted": 0
-  },
-  {
    "tag": "bb503b",
    "day": "2026-10-26",
    "kinds": [
@@ -291,7 +279,19 @@
    "max_pct": 0,
    "fake": 6,
    "fake_granted": 6
+  },
+  {
+   "tag": "b62e13",
+   "day": "2026-10-26",
+   "kinds": [
+    "fake_purchase"
+   ],
+   "drift_h": -0.6,
+   "burst": 1,
+   "max_pct": 9,
+   "fake": 60,
+   "fake_granted": 0
   }
  ],
- "scan_mb": 480.0
+ "scan_mb": 492.0
 }
