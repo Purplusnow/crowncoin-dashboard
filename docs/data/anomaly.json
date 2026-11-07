@@ -1,11 +1,11 @@
 {
- "updated": "2026-11-07 16:37 KST",
- "level": "alert",
+ "updated": "2026-11-08 03:08 KST",
+ "level": "warn",
  "window_days": 7,
  "total": 9,
- "recent": 3,
- "recent_base": 339,
- "recent_rate": 0.885,
+ "recent": 2,
+ "recent_base": 743,
+ "recent_rate": 0.269,
  "thresholds": {
   "warn_n": 5,
   "alert_n": 20,
@@ -33,7 +33,7 @@
    "label": "추월% 폭주",
    "desc": "추월%가 같은 1초에 10칸 이상 건너뜁니다. 정상 플레이면 몇 분에 걸쳐 하나씩 오릅니다 — 세이브를 바꿔 끼워 진행도가 어긋난 흔적입니다.",
    "total": 3,
-   "recent": 2
+   "recent": 1
   }
  ],
  "apk_cert": {
