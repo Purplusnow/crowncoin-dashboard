@@ -1,11 +1,11 @@
 {
- "updated": "2026-11-08 16:46 KST",
+ "updated": "2026-11-09 03:25 KST",
  "level": "warn",
  "window_days": 7,
- "total": 9,
- "recent": 2,
- "recent_base": 1041,
- "recent_rate": 0.192,
+ "total": 10,
+ "recent": 3,
+ "recent_base": 1336,
+ "recent_rate": 0.225,
  "thresholds": {
   "warn_n": 5,
   "alert_n": 20,
@@ -17,15 +17,15 @@
    "key": "clock_drift",
    "label": "시계 앞당김",
    "desc": "기기가 주장한 경과 시간이 실제보다 1시간 넘게 깁니다. 방치보상이 '비운 시간'으로 계산되므로 그대로 돈이 됩니다.",
-   "total": 0,
-   "recent": 0
+   "total": 1,
+   "recent": 1
   },
   {
    "key": "fake_purchase",
    "label": "결제 위조",
    "desc": "게임이 purchase_anomaly 를 쏜 유저입니다. 주문ID 형식이 깨졌거나 재사용됐는데 보상은 이미 지급된 건이 대부분입니다 — 탐지는 했지만 막지는 못한 것이라 유료 상품이 공짜로 나갑니다. 유일하게 돈이 걸린 신호입니다.",
-   "total": 6,
-   "recent": 1,
+   "total": 7,
+   "recent": 2,
    "granted": 6
   },
   {
@@ -38,29 +38,29 @@
  ],
  "apk_cert": {
   "good": "",
-  "events": 117,
-  "users": 5,
+  "events": 124,
+  "users": 6,
   "false_pos": 0,
-  "unknown": 5,
+  "unknown": 6,
   "dist": [
    {
     "cert": "8c4f94bc5f5be330",
-    "users": 1197,
+    "users": 1662,
     "ok": null
    },
    {
     "cert": "90008c15f5bc0e6d",
-    "users": 87,
+    "users": 140,
     "ok": null
    },
    {
     "cert": "(미기록)",
-    "users": 42,
+    "users": 69,
     "ok": null
    },
    {
     "cert": "a40da80a59d170ca",
-    "users": 4,
+    "users": 5,
     "ok": null
    }
   ]
@@ -68,14 +68,14 @@
  "segments": [
   {
    "seg": "전체",
-   "users": 1330,
-   "fake": 6,
-   "pct": 0.45,
+   "users": 1876,
+   "fake": 7,
+   "pct": 0.37,
    "mult": 1.0
   },
   {
    "seg": "추월 50%+",
-   "users": 2,
+   "users": 4,
    "fake": 0,
    "pct": 0.0,
    "mult": 0.0
@@ -104,27 +104,27 @@
  ],
  "compare": {
   "normal": {
-   "users": 1324,
-   "payers": 4,
-   "pay_pct": 0.3,
-   "ads": 3.9,
-   "days": 2.6,
-   "mins": 54.8
+   "users": 1869,
+   "payers": 6,
+   "pay_pct": 0.32,
+   "ads": 3.1,
+   "days": 2.2,
+   "mins": 47.1
   },
   "fake": {
-   "users": 6,
+   "users": 7,
    "payers": 0,
    "pay_pct": 0.0,
-   "ads": 1.0,
-   "days": 2.0,
-   "mins": 28.5
+   "ads": 0.9,
+   "days": 1.9,
+   "mins": 24.5
   }
  },
  "reasons": [
   {
    "reason": "bad_apk_cert",
-   "events": 117,
-   "users": 5
+   "events": 124,
+   "users": 6
   },
   {
    "reason": "bad_orderid",
@@ -134,9 +134,16 @@
  ],
  "daily": [
   {
-   "date": "2026-11-05",
+   "date": "2026-11-07",
    "n": 1,
    "clock_drift": 0,
+   "pct_burst": 0,
+   "fake_purchase": 1
+  },
+  {
+   "date": "2026-11-05",
+   "n": 1,
+   "clock_drift": 1,
    "pct_burst": 1,
    "fake_purchase": 0
   },
@@ -185,14 +192,27 @@
  ],
  "users": [
   {
+   "tag": "42202c",
+   "day": "2026-11-07",
+   "kinds": [
+    "fake_purchase"
+   ],
+   "drift_h": 0.0,
+   "burst": 0,
+   "max_pct": 0,
+   "fake": 7,
+   "fake_granted": 0
+  },
+  {
    "tag": "dcdb03",
    "day": "2026-11-05",
    "kinds": [
+    "clock_drift",
     "pct_burst"
    ],
-   "drift_h": -0.0,
+   "drift_h": 248.6,
    "burst": 25,
-   "max_pct": 26,
+   "max_pct": 29,
    "fake": 0,
    "fake_granted": 0
   },
@@ -245,6 +265,18 @@
    "fake_granted": 0
   },
   {
+   "tag": "2878b2",
+   "day": "2026-10-27",
+   "kinds": [
+    "fake_purchase"
+   ],
+   "drift_h": 0.0,
+   "burst": 0,
+   "max_pct": 0,
+   "fake": 8,
+   "fake_granted": 0
+  },
+  {
    "tag": "29fbaa",
    "day": "2026-10-27",
    "kinds": [
@@ -257,15 +289,15 @@
    "fake_granted": 0
   },
   {
-   "tag": "2878b2",
-   "day": "2026-10-27",
+   "tag": "b62e13",
+   "day": "2026-10-26",
    "kinds": [
     "fake_purchase"
    ],
-   "drift_h": 0.0,
-   "burst": 0,
-   "max_pct": 0,
-   "fake": 8,
+   "drift_h": -0.6,
+   "burst": 1,
+   "max_pct": 9,
+   "fake": 60,
    "fake_granted": 0
   },
   {
@@ -279,19 +311,7 @@
    "max_pct": 0,
    "fake": 6,
    "fake_granted": 6
-  },
-  {
-   "tag": "b62e13",
-   "day": "2026-10-26",
-   "kinds": [
-    "fake_purchase"
-   ],
-   "drift_h": -0.6,
-   "burst": 1,
-   "max_pct": 9,
-   "fake": 60,
-   "fake_granted": 0
   }
  ],
- "scan_mb": 492.0
+ "scan_mb": 593.0
 }
