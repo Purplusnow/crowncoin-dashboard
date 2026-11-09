@@ -1,11 +1,11 @@
 {
- "updated": "2026-11-09 03:25 KST",
+ "updated": "2026-11-09 17:29 KST",
  "level": "warn",
  "window_days": 7,
- "total": 10,
- "recent": 3,
- "recent_base": 1336,
- "recent_rate": 0.225,
+ "total": 13,
+ "recent": 6,
+ "recent_base": 1493,
+ "recent_rate": 0.402,
  "thresholds": {
   "warn_n": 5,
   "alert_n": 20,
@@ -24,9 +24,9 @@
    "key": "fake_purchase",
    "label": "결제 위조",
    "desc": "게임이 purchase_anomaly 를 쏜 유저입니다. 주문ID 형식이 깨졌거나 재사용됐는데 보상은 이미 지급된 건이 대부분입니다 — 탐지는 했지만 막지는 못한 것이라 유료 상품이 공짜로 나갑니다. 유일하게 돈이 걸린 신호입니다.",
-   "total": 7,
-   "recent": 2,
-   "granted": 6
+   "total": 10,
+   "recent": 5,
+   "granted": 19
   },
   {
    "key": "pct_burst",
@@ -38,24 +38,24 @@
  ],
  "apk_cert": {
   "good": "",
-  "events": 124,
-  "users": 6,
+  "events": 149,
+  "users": 7,
   "false_pos": 0,
-  "unknown": 6,
+  "unknown": 7,
   "dist": [
    {
     "cert": "8c4f94bc5f5be330",
-    "users": 1662,
+    "users": 2269,
     "ok": null
    },
    {
     "cert": "90008c15f5bc0e6d",
-    "users": 140,
+    "users": 189,
     "ok": null
    },
    {
     "cert": "(미기록)",
-    "users": 69,
+    "users": 87,
     "ok": null
    },
    {
@@ -68,17 +68,17 @@
  "segments": [
   {
    "seg": "전체",
-   "users": 1876,
-   "fake": 7,
-   "pct": 0.37,
+   "users": 2550,
+   "fake": 10,
+   "pct": 0.39,
    "mult": 1.0
   },
   {
    "seg": "추월 50%+",
-   "users": 4,
-   "fake": 0,
-   "pct": 0.0,
-   "mult": 0.0
+   "users": 5,
+   "fake": 1,
+   "pct": 20.0,
+   "mult": 51.3
   },
   {
    "seg": "추월 90%+",
@@ -104,35 +104,47 @@
  ],
  "compare": {
   "normal": {
-   "users": 1869,
-   "payers": 6,
-   "pay_pct": 0.32,
-   "ads": 3.1,
-   "days": 2.2,
-   "mins": 47.1
+   "users": 2540,
+   "payers": 8,
+   "pay_pct": 0.31,
+   "ads": 2.7,
+   "days": 2.0,
+   "mins": 44.9
   },
   "fake": {
-   "users": 7,
+   "users": 10,
    "payers": 0,
    "pay_pct": 0.0,
-   "ads": 0.9,
-   "days": 1.9,
-   "mins": 24.5
+   "ads": 1.0,
+   "days": 1.6,
+   "mins": 42.3
   }
  },
  "reasons": [
   {
    "reason": "bad_apk_cert",
-   "events": 124,
-   "users": 6
+   "events": 149,
+   "users": 7
   },
   {
    "reason": "bad_orderid",
-   "events": 6,
+   "events": 18,
+   "users": 2
+  },
+  {
+   "reason": "no_price",
+   "events": 1,
    "users": 1
   }
  ],
  "daily": [
+  {
+   "date": "2026-11-08",
+   "n": 3,
+   "clock_drift": 0,
+   "pct_burst": 0,
+   "fake_purchase": 3
+  },
   {
    "date": "2026-11-07",
    "n": 1,
@@ -191,6 +203,42 @@
   }
  ],
  "users": [
+  {
+   "tag": "af7bdb",
+   "day": "2026-11-08",
+   "kinds": [
+    "fake_purchase"
+   ],
+   "drift_h": -0.0,
+   "burst": 1,
+   "max_pct": 3,
+   "fake": 25,
+   "fake_granted": 0
+  },
+  {
+   "tag": "bca4c5",
+   "day": "2026-11-08",
+   "kinds": [
+    "fake_purchase"
+   ],
+   "drift_h": 0.0,
+   "burst": 0,
+   "max_pct": 0,
+   "fake": 1,
+   "fake_granted": 1
+  },
+  {
+   "tag": "062bd2",
+   "day": "2026-11-08",
+   "kinds": [
+    "fake_purchase"
+   ],
+   "drift_h": -0.0,
+   "burst": 2,
+   "max_pct": 54,
+   "fake": 12,
+   "fake_granted": 12
+  },
   {
    "tag": "42202c",
    "day": "2026-11-07",
@@ -313,5 +361,5 @@
    "fake_granted": 6
   }
  ],
- "scan_mb": 593.0
+ "scan_mb": 769.0
 }
