@@ -1,11 +1,11 @@
 {
- "updated": "2026-11-12 17:42 KST",
+ "updated": "2026-11-13 05:59 KST",
  "level": "warn",
  "window_days": 7,
  "total": 15,
- "recent": 7,
- "recent_base": 2052,
- "recent_rate": 0.341,
+ "recent": 6,
+ "recent_base": 2055,
+ "recent_rate": 0.292,
  "thresholds": {
   "warn_n": 5,
   "alert_n": 20,
@@ -18,7 +18,7 @@
    "label": "시계 앞당김",
    "desc": "기기가 주장한 경과 시간이 실제보다 1시간 넘게 깁니다. 방치보상이 '비운 시간'으로 계산되므로 그대로 돈이 됩니다.",
    "total": 1,
-   "recent": 1
+   "recent": 0
   },
   {
    "key": "fake_purchase",
@@ -33,7 +33,7 @@
    "label": "추월% 폭주",
    "desc": "추월%가 같은 1초에 10칸 이상 건너뜁니다. 정상 플레이면 몇 분에 걸쳐 하나씩 오릅니다 — 세이브를 바꿔 끼워 진행도가 어긋난 흔적입니다.",
    "total": 3,
-   "recent": 1
+   "recent": 0
   }
  ],
  "apk_cert": {
@@ -344,18 +344,6 @@
    "fake_granted": 0
   },
   {
-   "tag": "2878b2",
-   "day": "2026-10-27",
-   "kinds": [
-    "fake_purchase"
-   ],
-   "drift_h": 0.0,
-   "burst": 0,
-   "max_pct": 0,
-   "fake": 8,
-   "fake_granted": 0
-  },
-  {
    "tag": "29fbaa",
    "day": "2026-10-27",
    "kinds": [
@@ -365,6 +353,18 @@
    "burst": 0,
    "max_pct": 0,
    "fake": 41,
+   "fake_granted": 0
+  },
+  {
+   "tag": "2878b2",
+   "day": "2026-10-27",
+   "kinds": [
+    "fake_purchase"
+   ],
+   "drift_h": 0.0,
+   "burst": 0,
+   "max_pct": 0,
+   "fake": 8,
    "fake_granted": 0
   },
   {
