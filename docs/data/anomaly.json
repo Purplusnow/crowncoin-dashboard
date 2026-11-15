@@ -1,11 +1,11 @@
 {
- "updated": "2026-11-15 03:47 KST",
+ "updated": "2026-11-15 17:14 KST",
  "level": "warn",
  "window_days": 7,
  "total": 15,
  "recent": 5,
- "recent_base": 1582,
- "recent_rate": 0.316,
+ "recent_base": 1596,
+ "recent_rate": 0.313,
  "thresholds": {
   "warn_n": 5,
   "alert_n": 20,
@@ -45,17 +45,17 @@
   "dist": [
    {
     "cert": "8c4f94bc5f5be330",
-    "users": 2945,
+    "users": 2999,
     "ok": null
    },
    {
     "cert": "90008c15f5bc0e6d",
-    "users": 259,
+    "users": 268,
     "ok": null
    },
    {
     "cert": "(미기록)",
-    "users": 96,
+    "users": 94,
     "ok": null
    },
    {
@@ -68,17 +68,17 @@
  "segments": [
   {
    "seg": "전체",
-   "users": 3308,
+   "users": 3369,
    "fake": 12,
    "pct": 0.36,
    "mult": 1.0
   },
   {
    "seg": "추월 50%+",
-   "users": 10,
+   "users": 14,
    "fake": 1,
-   "pct": 10.0,
-   "mult": 27.8
+   "pct": 7.14,
+   "mult": 19.8
   },
   {
    "seg": "추월 90%+",
@@ -104,20 +104,20 @@
  ],
  "compare": {
   "normal": {
-   "users": 3296,
-   "payers": 8,
-   "pay_pct": 0.24,
-   "ads": 3.2,
-   "days": 2.2,
-   "mins": 50.6
+   "users": 3357,
+   "payers": 9,
+   "pay_pct": 0.27,
+   "ads": 3.5,
+   "days": 2.3,
+   "mins": 52.6
   },
   "fake": {
    "users": 12,
    "payers": 1,
    "pay_pct": 8.33,
    "ads": 1.2,
-   "days": 2.1,
-   "mins": 53.1
+   "days": 2.3,
+   "mins": 54.5
   }
  },
  "reasons": [
@@ -254,7 +254,7 @@
    ],
    "drift_h": 0.0,
    "burst": 1,
-   "max_pct": 12,
+   "max_pct": 16,
    "fake": 29,
    "fake_granted": 1
   },
@@ -264,9 +264,9 @@
    "kinds": [
     "fake_purchase"
    ],
-   "drift_h": 0.0,
+   "drift_h": -0.0,
    "burst": 1,
-   "max_pct": 7,
+   "max_pct": 9,
    "fake": 1,
    "fake_granted": 1
   },
@@ -368,18 +368,6 @@
    "fake_granted": 0
   },
   {
-   "tag": "b62e13",
-   "day": "2026-10-26",
-   "kinds": [
-    "fake_purchase"
-   ],
-   "drift_h": -0.6,
-   "burst": 1,
-   "max_pct": 9,
-   "fake": 60,
-   "fake_granted": 0
-  },
-  {
    "tag": "bb503b",
    "day": "2026-10-26",
    "kinds": [
@@ -390,7 +378,19 @@
    "max_pct": 0,
    "fake": 6,
    "fake_granted": 6
+  },
+  {
+   "tag": "b62e13",
+   "day": "2026-10-26",
+   "kinds": [
+    "fake_purchase"
+   ],
+   "drift_h": -0.6,
+   "burst": 1,
+   "max_pct": 9,
+   "fake": 60,
+   "fake_granted": 0
   }
  ],
- "scan_mb": 1138.0
+ "scan_mb": 1212.0
 }
