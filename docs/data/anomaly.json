@@ -1,11 +1,11 @@
 {
- "updated": "2026-11-15 17:14 KST",
+ "updated": "2026-11-16 04:25 KST",
  "level": "warn",
  "window_days": 7,
  "total": 15,
- "recent": 5,
- "recent_base": 1596,
- "recent_rate": 0.313,
+ "recent": 2,
+ "recent_base": 937,
+ "recent_rate": 0.213,
  "thresholds": {
   "warn_n": 5,
   "alert_n": 20,
@@ -25,7 +25,7 @@
    "label": "결제 위조",
    "desc": "게임이 purchase_anomaly 를 쏜 유저입니다. 주문ID 형식이 깨졌거나 재사용됐는데 보상은 이미 지급된 건이 대부분입니다 — 탐지는 했지만 막지는 못한 것이라 유료 상품이 공짜로 나갑니다. 유일하게 돈이 걸린 신호입니다.",
    "total": 12,
-   "recent": 5,
+   "recent": 2,
    "granted": 40
   },
   {
@@ -45,17 +45,17 @@
   "dist": [
    {
     "cert": "8c4f94bc5f5be330",
-    "users": 2999,
+    "users": 3016,
     "ok": null
    },
    {
     "cert": "90008c15f5bc0e6d",
-    "users": 268,
+    "users": 271,
     "ok": null
    },
    {
     "cert": "(미기록)",
-    "users": 94,
+    "users": 97,
     "ok": null
    },
    {
@@ -68,56 +68,56 @@
  "segments": [
   {
    "seg": "전체",
-   "users": 3369,
+   "users": 3392,
    "fake": 12,
-   "pct": 0.36,
+   "pct": 0.35,
    "mult": 1.0
   },
   {
    "seg": "추월 50%+",
-   "users": 14,
+   "users": 15,
    "fake": 1,
-   "pct": 7.14,
-   "mult": 19.8
+   "pct": 6.67,
+   "mult": 19.1
   },
   {
    "seg": "추월 90%+",
    "users": 2,
    "fake": 1,
    "pct": 50.0,
-   "mult": 138.9
+   "mult": 142.9
   },
   {
    "seg": "추월 100%",
    "users": 1,
    "fake": 1,
    "pct": 100.0,
-   "mult": 277.8
+   "mult": 285.7
   },
   {
    "seg": "2부 진입",
    "users": 1,
    "fake": 1,
    "pct": 100.0,
-   "mult": 277.8
+   "mult": 285.7
   }
  ],
  "compare": {
   "normal": {
-   "users": 3357,
-   "payers": 9,
-   "pay_pct": 0.27,
-   "ads": 3.5,
-   "days": 2.3,
-   "mins": 52.6
+   "users": 3380,
+   "payers": 10,
+   "pay_pct": 0.3,
+   "ads": 3.7,
+   "days": 2.5,
+   "mins": 53.9
   },
   "fake": {
    "users": 12,
    "payers": 1,
    "pay_pct": 8.33,
    "ads": 1.2,
-   "days": 2.3,
-   "mins": 54.5
+   "days": 2.4,
+   "mins": 55.0
   }
  },
  "reasons": [
@@ -211,18 +211,6 @@
  ],
  "users": [
   {
-   "tag": "682f6e",
-   "day": "2026-11-10",
-   "kinds": [
-    "fake_purchase"
-   ],
-   "drift_h": -0.0,
-   "burst": 0,
-   "max_pct": 0,
-   "fake": 12,
-   "fake_granted": 0
-  },
-  {
    "tag": "01d34c",
    "day": "2026-11-10",
    "kinds": [
@@ -235,16 +223,16 @@
    "fake_granted": 8
   },
   {
-   "tag": "062bd2",
-   "day": "2026-11-08",
+   "tag": "682f6e",
+   "day": "2026-11-10",
    "kinds": [
     "fake_purchase"
    ],
    "drift_h": -0.0,
-   "burst": 2,
-   "max_pct": 100,
-   "fake": 24,
-   "fake_granted": 24
+   "burst": 0,
+   "max_pct": 0,
+   "fake": 12,
+   "fake_granted": 0
   },
   {
    "tag": "af7bdb",
@@ -254,7 +242,7 @@
    ],
    "drift_h": 0.0,
    "burst": 1,
-   "max_pct": 16,
+   "max_pct": 19,
    "fake": 29,
    "fake_granted": 1
   },
@@ -269,6 +257,18 @@
    "max_pct": 9,
    "fake": 1,
    "fake_granted": 1
+  },
+  {
+   "tag": "062bd2",
+   "day": "2026-11-08",
+   "kinds": [
+    "fake_purchase"
+   ],
+   "drift_h": -0.0,
+   "burst": 2,
+   "max_pct": 100,
+   "fake": 24,
+   "fake_granted": 24
   },
   {
    "tag": "42202c",
@@ -291,7 +291,7 @@
    ],
    "drift_h": 248.6,
    "burst": 25,
-   "max_pct": 29,
+   "max_pct": 32,
    "fake": 0,
    "fake_granted": 0
   },
@@ -368,18 +368,6 @@
    "fake_granted": 0
   },
   {
-   "tag": "bb503b",
-   "day": "2026-10-26",
-   "kinds": [
-    "fake_purchase"
-   ],
-   "drift_h": -0.0,
-   "burst": 0,
-   "max_pct": 0,
-   "fake": 6,
-   "fake_granted": 6
-  },
-  {
    "tag": "b62e13",
    "day": "2026-10-26",
    "kinds": [
@@ -390,7 +378,19 @@
    "max_pct": 9,
    "fake": 60,
    "fake_granted": 0
+  },
+  {
+   "tag": "bb503b",
+   "day": "2026-10-26",
+   "kinds": [
+    "fake_purchase"
+   ],
+   "drift_h": -0.0,
+   "burst": 0,
+   "max_pct": 0,
+   "fake": 6,
+   "fake_granted": 6
   }
  ],
- "scan_mb": 1212.0
+ "scan_mb": 1263.0
 }
