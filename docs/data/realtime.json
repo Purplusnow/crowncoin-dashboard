@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-17 12:43 KST",
+ "updated": "2026-11-17 13:35 KST",
  "stage_labels": [
   {
    "key": "new_game",
@@ -135,19 +135,19 @@
  "tables": [
   {
    "d": "20261117",
-   "users": 241,
-   "events": 9123
+   "users": 248,
+   "events": 9899
   }
  ],
  "day": "20261117",
  "summary": {
-  "users": 241,
+  "users": 248,
   "new_users": 6,
   "first_touch_today": 6,
   "purchases": 1,
   "exceptions": 0,
   "first_at": "2026-11-17 00:00",
-  "last_at": "2026-11-17 12:43"
+  "last_at": "2026-11-17 13:30"
  },
  "acq": {
   "first_open": 6,
@@ -1077,7 +1077,7 @@
   "dist": [
    {
     "cert": "8c4f94bc5f5be330",
-    "users": 202,
+    "users": 209,
     "ok": null
    },
    {
@@ -1125,43 +1125,43 @@
   ]
  },
  "ads": {
-  "total": 271,
+  "total": 301,
   "by_result": [
    {
     "result": "earned",
-    "n": 238
+    "n": 261
    },
    {
     "result": "dismissed",
-    "n": 1
+    "n": 2
    },
    {
     "result": "no_ad",
-    "n": 24
+    "n": 27
    },
    {
     "result": "failed",
     "n": 0
    }
   ],
-  "finish_pct": 99.6,
-  "supply_pct": 8.9,
+  "finish_pct": 99.2,
+  "supply_pct": 9.0,
   "by_country": [
    {
     "country": "Japan",
-    "total": 51,
-    "earned": 48,
+    "total": 63,
+    "earned": 54,
     "dismissed": 0,
-    "no_ad": 2,
+    "no_ad": 5,
     "failed": 0,
-    "users": 12,
+    "users": 13,
     "finish_pct": 100.0,
-    "supply_pct": 3.9
+    "supply_pct": 7.9
    },
    {
     "country": "South Korea",
-    "total": 40,
-    "earned": 40,
+    "total": 44,
+    "earned": 44,
     "dismissed": 0,
     "no_ad": 0,
     "failed": 0,
@@ -1171,14 +1171,14 @@
    },
    {
     "country": "Taiwan",
-    "total": 34,
-    "earned": 32,
+    "total": 42,
+    "earned": 40,
     "dismissed": 0,
     "no_ad": 1,
     "failed": 0,
-    "users": 9,
+    "users": 11,
     "finish_pct": 100.0,
-    "supply_pct": 2.9
+    "supply_pct": 2.4
    },
    {
     "country": "United States",
@@ -1192,6 +1192,17 @@
     "supply_pct": 48.1
    },
    {
+    "country": "Vietnam",
+    "total": 25,
+    "earned": 21,
+    "dismissed": 1,
+    "no_ad": 3,
+    "failed": 0,
+    "users": 9,
+    "finish_pct": 95.5,
+    "supply_pct": 12.0
+   },
+   {
     "country": "Brazil",
     "total": 23,
     "earned": 22,
@@ -1201,17 +1212,6 @@
     "users": 7,
     "finish_pct": 95.7,
     "supply_pct": 0.0
-   },
-   {
-    "country": "Vietnam",
-    "total": 23,
-    "earned": 20,
-    "dismissed": 0,
-    "no_ad": 3,
-    "failed": 0,
-    "users": 8,
-    "finish_pct": 100.0,
-    "supply_pct": 13.0
    },
    {
     "country": "Mexico",
@@ -1237,55 +1237,55 @@
    },
    {
     "country": "Colombia",
-    "total": 11,
-    "earned": 9,
+    "total": 12,
+    "earned": 10,
     "dismissed": 0,
     "no_ad": 1,
     "failed": 0,
     "users": 4,
     "finish_pct": 100.0,
-    "supply_pct": 9.1
+    "supply_pct": 8.3
    },
    {
     "country": "기타(요청 10회 미만)",
-    "total": 37,
-    "earned": 32,
+    "total": 40,
+    "earned": 35,
     "dismissed": 0,
     "no_ad": 4,
     "failed": 0,
-    "users": 17,
-    "lumped": 11,
+    "users": 19,
+    "lumped": 12,
     "finish_pct": 100.0,
-    "supply_pct": 10.8
+    "supply_pct": 10.0
    }
   ],
-  "viewers": 66,
+  "viewers": 69,
   "by_placement": [
    {
     "placement": "offline",
-    "earned": 136,
+    "earned": 147,
     "dismissed": 0,
-    "no_ad": 17,
+    "no_ad": 20,
     "failed": 0,
-    "total": 157,
-    "house": 4
+    "total": 174,
+    "house": 7
    },
    {
     "placement": "gem_ad",
-    "earned": 50,
+    "earned": 59,
     "dismissed": 0,
     "no_ad": 5,
     "failed": 0,
-    "total": 58,
+    "total": 67,
     "house": 3
    },
    {
     "placement": "boost",
-    "earned": 47,
-    "dismissed": 1,
+    "earned": 50,
+    "dismissed": 2,
     "no_ad": 2,
     "failed": 0,
-    "total": 51,
+    "total": 55,
     "house": 1
    },
    {
