@@ -1,11 +1,11 @@
 {
- "updated": "2026-11-17 07:57 KST",
+ "updated": "2026-11-17 18:36 KST",
  "level": "warn",
  "window_days": 7,
  "total": 15,
  "recent": 2,
- "recent_base": 603,
- "recent_rate": 0.332,
+ "recent_base": 608,
+ "recent_rate": 0.329,
  "thresholds": {
   "warn_n": 5,
   "alert_n": 20,
@@ -211,18 +211,6 @@
  ],
  "users": [
   {
-   "tag": "682f6e",
-   "day": "2026-11-10",
-   "kinds": [
-    "fake_purchase"
-   ],
-   "drift_h": -0.0,
-   "burst": 0,
-   "max_pct": 0,
-   "fake": 12,
-   "fake_granted": 0
-  },
-  {
    "tag": "01d34c",
    "day": "2026-11-10",
    "kinds": [
@@ -235,16 +223,16 @@
    "fake_granted": 8
   },
   {
-   "tag": "062bd2",
-   "day": "2026-11-08",
+   "tag": "682f6e",
+   "day": "2026-11-10",
    "kinds": [
     "fake_purchase"
    ],
    "drift_h": -0.0,
-   "burst": 2,
-   "max_pct": 100,
-   "fake": 24,
-   "fake_granted": 24
+   "burst": 0,
+   "max_pct": 0,
+   "fake": 12,
+   "fake_granted": 0
   },
   {
    "tag": "af7bdb",
@@ -269,6 +257,18 @@
    "max_pct": 12,
    "fake": 1,
    "fake_granted": 1
+  },
+  {
+   "tag": "062bd2",
+   "day": "2026-11-08",
+   "kinds": [
+    "fake_purchase"
+   ],
+   "drift_h": -0.0,
+   "burst": 2,
+   "max_pct": 100,
+   "fake": 24,
+   "fake_granted": 24
   },
   {
    "tag": "42202c",
