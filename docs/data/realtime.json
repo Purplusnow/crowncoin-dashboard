@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-18 07:58 KST",
+ "updated": "2026-11-18 12:55 KST",
  "stage_labels": [
   {
    "key": "new_game",
@@ -135,19 +135,19 @@
  "tables": [
   {
    "d": "20261118",
-   "users": 175,
-   "events": 4692
+   "users": 221,
+   "events": 8226
   }
  ],
  "day": "20261118",
  "summary": {
-  "users": 175,
+  "users": 221,
   "new_users": 2,
   "first_touch_today": 2,
   "purchases": 0,
   "exceptions": 0,
   "first_at": "2026-11-18 00:00",
-  "last_at": "2026-11-18 07:56"
+  "last_at": "2026-11-18 12:54"
  },
  "acq": {
   "first_open": 2,
@@ -290,14 +290,14 @@
   {
    "tag": "b9683a",
    "joined": "11/17 23:22",
-   "last_seen": "23:42",
-   "mins": 19.8,
-   "span": 20,
+   "last_seen": "23:30",
+   "mins": 7.6,
+   "span": 7,
    "sessions": 1,
    "off": 0,
    "off_boost": 0,
    "prog": 0.0,
-   "events": 108,
+   "events": 52,
    "ver": "1.0 (v35)",
    "country": "Vietnam",
    "reached": [
@@ -310,12 +310,6 @@
     1,
     1,
     1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
     0,
     0,
     0,
@@ -324,12 +318,18 @@
     0,
     0,
     0,
-    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
     0,
     1
    ],
-   "far": 14,
-   "far_label": "은퇴"
+   "far": 8,
+   "far_label": "첫운영"
   },
   {
    "tag": "13ac80",
@@ -374,360 +374,184 @@
    ],
    "far": 11,
    "far_label": "부동산3"
-  },
-  {
-   "tag": "1ebf81",
-   "joined": "11/17 12:21",
-   "last_seen": "12:22",
-   "mins": 0.0,
-   "span": 0,
-   "sessions": 1,
-   "off": 0,
-   "off_boost": 0,
-   "prog": 0.0,
-   "events": 5,
-   "ver": "1.0 (v35)",
-   "country": "United States",
-   "reached": [
-    1,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
-   ],
-   "far": 0,
-   "far_label": "새게임"
-  },
-  {
-   "tag": "f251c5",
-   "joined": "11/17 11:20",
-   "last_seen": "04:15",
-   "mins": 28.4,
-   "span": 1015,
-   "sessions": 6,
-   "off": 5,
-   "off_boost": 5,
-   "prog": 0.0,
-   "events": 141,
-   "ver": "1.0 (v35)",
-   "country": "United States",
-   "reached": [
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    1,
-    0,
-    1
-   ],
-   "far": 16,
-   "far_label": "신분2"
-  },
-  {
-   "tag": "2be6d6",
-   "joined": "11/17 09:42",
-   "last_seen": "07:07",
-   "mins": 17.7,
-   "span": 1284,
-   "sessions": 8,
-   "off": 10,
-   "off_boost": 0,
-   "prog": 2.1,
-   "events": 214,
-   "ver": "1.0 (v35)",
-   "country": "Brazil",
-   "reached": [
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    0,
-    1,
-    0,
-    0
-   ],
-   "far": 21,
-   "far_label": "신분7"
-  },
-  {
-   "tag": "21e737",
-   "joined": "11/17 08:55",
-   "last_seen": "19:36",
-   "mins": 38.2,
-   "span": 640,
-   "sessions": 3,
-   "off": 2,
-   "off_boost": 2,
-   "prog": 0.0,
-   "events": 132,
-   "ver": "1.0 (v35)",
-   "country": "United States",
-   "reached": [
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    1,
-    0,
-    1
-   ],
-   "far": 16,
-   "far_label": "신분2"
   }
  ],
- "stay60": 6,
+ "stay60": 3,
  "funnel": [
   {
    "key": "new_game",
    "label": "새게임",
-   "n": 8,
-   "rec": 8,
-   "pct": 88.9,
+   "n": 4,
+   "rec": 4,
+   "pct": 80.0,
    "kind": "spine"
   },
   {
    "key": "intro_done",
    "label": "인트로",
-   "n": 6,
-   "rec": 6,
-   "pct": 66.7,
+   "n": 3,
+   "rec": 3,
+   "pct": 60.0,
    "kind": "spine"
   },
   {
    "key": "dev_concept",
    "label": "기획",
-   "n": 6,
-   "rec": 6,
-   "pct": 66.7,
+   "n": 3,
+   "rec": 3,
+   "pct": 60.0,
    "kind": "spine"
   },
   {
    "key": "dev_design",
    "label": "디자인",
-   "n": 5,
-   "rec": 5,
-   "pct": 55.6,
+   "n": 2,
+   "rec": 2,
+   "pct": 40.0,
    "kind": "spine"
   },
   {
    "key": "dev_prototype",
    "label": "프로토",
-   "n": 5,
-   "rec": 5,
-   "pct": 55.6,
+   "n": 2,
+   "rec": 2,
+   "pct": 40.0,
    "kind": "spine"
   },
   {
    "key": "dev_alpha",
    "label": "알파",
-   "n": 5,
-   "rec": 5,
-   "pct": 55.6,
+   "n": 2,
+   "rec": 2,
+   "pct": 40.0,
    "kind": "spine"
   },
   {
    "key": "dev_beta",
    "label": "베타",
-   "n": 5,
-   "rec": 5,
-   "pct": 55.6,
+   "n": 2,
+   "rec": 2,
+   "pct": 40.0,
    "kind": "spine"
   },
   {
    "key": "dev_launch",
    "label": "출시",
-   "n": 5,
-   "rec": 5,
-   "pct": 55.6,
+   "n": 2,
+   "rec": 2,
+   "pct": 40.0,
    "kind": "spine"
   },
   {
    "key": "first_ops",
    "label": "첫운영",
-   "n": 5,
-   "rec": 5,
-   "pct": 55.6,
+   "n": 2,
+   "rec": 2,
+   "pct": 40.0,
    "kind": "spine"
   },
   {
    "key": "property_1",
    "label": "부동산1",
-   "n": 5,
-   "rec": 5,
-   "pct": 55.6,
+   "n": 1,
+   "rec": 1,
+   "pct": 20.0,
    "kind": "spine"
   },
   {
    "key": "property_2",
    "label": "부동산2",
-   "n": 5,
-   "rec": 5,
-   "pct": 55.6,
+   "n": 1,
+   "rec": 1,
+   "pct": 20.0,
    "kind": "spine"
   },
   {
    "key": "property_3",
    "label": "부동산3",
-   "n": 5,
-   "rec": 5,
-   "pct": 55.6,
+   "n": 1,
+   "rec": 1,
+   "pct": 20.0,
    "kind": "spine"
   },
   {
    "key": "property_4",
    "label": "부동산4",
-   "n": 4,
-   "rec": 4,
-   "pct": 44.4,
+   "n": 0,
+   "rec": 0,
+   "pct": 0.0,
    "kind": "spine"
   },
   {
    "key": "property_5",
    "label": "부동산5",
-   "n": 4,
-   "rec": 4,
-   "pct": 44.4,
+   "n": 0,
+   "rec": 0,
+   "pct": 0.0,
    "kind": "spine"
   },
   {
    "key": "game_sale",
    "label": "은퇴",
-   "n": 4,
-   "rec": 4,
-   "pct": 44.4,
+   "n": 0,
+   "rec": 0,
+   "pct": 0.0,
    "kind": "spine"
   },
   {
    "key": "first_donate",
    "label": "첫후원",
-   "n": 3,
-   "rec": 3,
-   "pct": 33.3,
+   "n": 0,
+   "rec": 0,
+   "pct": 0.0,
    "kind": "spine"
   },
   {
    "key": "class2",
    "label": "신분2",
-   "n": 3,
-   "rec": 3,
-   "pct": 33.3,
+   "n": 0,
+   "rec": 0,
+   "pct": 0.0,
    "kind": "spine"
   },
   {
    "key": "class3",
    "label": "신분3",
-   "n": 1,
-   "rec": 1,
-   "pct": 11.1,
+   "n": 0,
+   "rec": 0,
+   "pct": 0.0,
    "kind": "spine"
   },
   {
    "key": "class4",
    "label": "신분4",
-   "n": 1,
-   "rec": 1,
-   "pct": 11.1,
+   "n": 0,
+   "rec": 0,
+   "pct": 0.0,
    "kind": "spine"
   },
   {
    "key": "class5",
    "label": "신분5",
-   "n": 1,
-   "rec": 1,
-   "pct": 11.1,
+   "n": 0,
+   "rec": 0,
+   "pct": 0.0,
    "kind": "spine"
   },
   {
    "key": "class6",
    "label": "신분6",
-   "n": 1,
-   "rec": 1,
-   "pct": 11.1,
+   "n": 0,
+   "rec": 0,
+   "pct": 0.0,
    "kind": "spine"
   },
   {
    "key": "class7",
    "label": "신분7",
-   "n": 1,
-   "rec": 1,
-   "pct": 11.1,
+   "n": 0,
+   "rec": 0,
+   "pct": 0.0,
    "kind": "spine"
   },
   {
@@ -741,9 +565,9 @@
   {
    "key": "first_manager",
    "label": "첫매니저",
-   "n": 4,
-   "rec": 4,
-   "pct": 44.4,
+   "n": 0,
+   "rec": 0,
+   "pct": 0.0,
    "kind": "side"
   },
   {
@@ -757,13 +581,13 @@
   {
    "key": "first_ad",
    "label": "첫광고",
-   "n": 4,
-   "rec": 4,
-   "pct": 44.4,
+   "n": 2,
+   "rec": 2,
+   "pct": 40.0,
    "kind": "side"
   }
  ],
- "cohort_n": 9,
+ "cohort_n": 5,
  "excluded_nogeo": 0,
  "excluded_build": 0,
  "live_fallback": true,
@@ -776,7 +600,7 @@
   "rows": [
    {
     "ver": "1.0 (v35)",
-    "n": 9,
+    "n": 5,
     "live": true
    }
   ]
@@ -801,32 +625,6 @@
    }
   ],
   "rows": [
-   {
-    "country": "United States",
-    "n": 4,
-    "intro_done": 3,
-    "property_2": 3,
-    "game_sale": 2,
-    "first_rebirth": 0,
-    "med_min": 32.8,
-    "intro_done_pct": 75.0,
-    "property_2_pct": 75.0,
-    "game_sale_pct": 50.0,
-    "first_rebirth_pct": 0.0
-   },
-   {
-    "country": "Brazil",
-    "n": 1,
-    "intro_done": 1,
-    "property_2": 1,
-    "game_sale": 1,
-    "first_rebirth": 0,
-    "med_min": 17.7,
-    "intro_done_pct": 100.0,
-    "property_2_pct": 100.0,
-    "game_sale_pct": 100.0,
-    "first_rebirth_pct": 0.0
-   },
    {
     "country": "France",
     "n": 1,
@@ -867,57 +665,57 @@
     "first_rebirth_pct": 0.0
    },
    {
-    "country": "Vietnam",
+    "country": "United States",
     "n": 1,
     "intro_done": 1,
     "property_2": 1,
-    "game_sale": 1,
+    "game_sale": 0,
     "first_rebirth": 0,
-    "med_min": 19.8,
+    "med_min": 32.8,
     "intro_done_pct": 100.0,
     "property_2_pct": 100.0,
-    "game_sale_pct": 100.0,
+    "game_sale_pct": 0.0,
+    "first_rebirth_pct": 0.0
+   },
+   {
+    "country": "Vietnam",
+    "n": 1,
+    "intro_done": 1,
+    "property_2": 0,
+    "game_sale": 0,
+    "first_rebirth": 0,
+    "med_min": 7.6,
+    "intro_done_pct": 100.0,
+    "property_2_pct": 0.0,
+    "game_sale_pct": 0.0,
     "first_rebirth_pct": 0.0
    }
   ],
   "tiers": [
    {
     "country": "T1",
-    "n": 7,
-    "intro_done": 4,
-    "property_2": 3,
-    "game_sale": 2,
+    "n": 4,
+    "intro_done": 2,
+    "property_2": 1,
+    "game_sale": 0,
     "first_rebirth": 0,
     "med_min": 4.0,
-    "intro_done_pct": 57.1,
-    "property_2_pct": 42.9,
-    "game_sale_pct": 28.6,
-    "first_rebirth_pct": 0.0
-   },
-   {
-    "country": "T2",
-    "n": 1,
-    "intro_done": 1,
-    "property_2": 1,
-    "game_sale": 1,
-    "first_rebirth": 0,
-    "med_min": 17.7,
-    "intro_done_pct": 100.0,
-    "property_2_pct": 100.0,
-    "game_sale_pct": 100.0,
+    "intro_done_pct": 50.0,
+    "property_2_pct": 25.0,
+    "game_sale_pct": 0.0,
     "first_rebirth_pct": 0.0
    },
    {
     "country": "T3",
     "n": 1,
     "intro_done": 1,
-    "property_2": 1,
-    "game_sale": 1,
+    "property_2": 0,
+    "game_sale": 0,
     "first_rebirth": 0,
-    "med_min": 19.8,
+    "med_min": 7.6,
     "intro_done_pct": 100.0,
-    "property_2_pct": 100.0,
-    "game_sale_pct": 100.0,
+    "property_2_pct": 0.0,
+    "game_sale_pct": 0.0,
     "first_rebirth_pct": 0.0
    }
   ]
@@ -932,17 +730,17 @@
   "dist": [
    {
     "cert": "8c4f94bc5f5be330",
-    "users": 148,
+    "users": 188,
     "ok": null
    },
    {
     "cert": "90008c15f5bc0e6d",
-    "users": 26,
+    "users": 31,
     "ok": null
    },
    {
     "cert": "(미기록)",
-    "users": 1,
+    "users": 2,
     "ok": null
    }
   ],
@@ -980,11 +778,11 @@
   ]
  },
  "ads": {
-  "total": 120,
+  "total": 228,
   "by_result": [
    {
     "result": "earned",
-    "n": 110
+    "n": 207
    },
    {
     "result": "dismissed",
@@ -992,42 +790,42 @@
    },
    {
     "result": "no_ad",
-    "n": 8
+    "n": 18
    },
    {
     "result": "failed",
     "n": 0
    }
   ],
-  "finish_pct": 98.2,
-  "supply_pct": 6.7,
+  "finish_pct": 99.0,
+  "supply_pct": 7.9,
   "by_country": [
    {
     "country": "Japan",
-    "total": 23,
-    "earned": 23,
+    "total": 53,
+    "earned": 53,
     "dismissed": 0,
     "no_ad": 0,
     "failed": 0,
-    "users": 11,
+    "users": 13,
     "finish_pct": 100.0,
     "supply_pct": 0.0
    },
    {
     "country": "South Korea",
-    "total": 18,
-    "earned": 16,
+    "total": 32,
+    "earned": 30,
     "dismissed": 2,
     "no_ad": 0,
     "failed": 0,
-    "users": 7,
-    "finish_pct": 88.9,
+    "users": 9,
+    "finish_pct": 93.8,
     "supply_pct": 0.0
    },
    {
     "country": "Taiwan",
-    "total": 17,
-    "earned": 17,
+    "total": 25,
+    "earned": 25,
     "dismissed": 0,
     "no_ad": 0,
     "failed": 0,
@@ -1037,64 +835,76 @@
    },
    {
     "country": "Colombia",
-    "total": 11,
-    "earned": 5,
+    "total": 22,
+    "earned": 16,
     "dismissed": 0,
     "no_ad": 6,
     "failed": 0,
-    "users": 4,
+    "users": 6,
     "finish_pct": 100.0,
-    "supply_pct": 54.5
+    "supply_pct": 27.3
    },
    {
     "country": "Brazil",
-    "total": 10,
-    "earned": 9,
+    "total": 20,
+    "earned": 16,
     "dismissed": 0,
-    "no_ad": 1,
+    "no_ad": 4,
     "failed": 0,
-    "users": 5,
+    "users": 6,
     "finish_pct": 100.0,
-    "supply_pct": 10.0
+    "supply_pct": 20.0
+   },
+   {
+    "country": "Vietnam",
+    "total": 12,
+    "earned": 6,
+    "dismissed": 0,
+    "no_ad": 5,
+    "failed": 0,
+    "users": 3,
+    "finish_pct": 100.0,
+    "supply_pct": 41.7
    },
    {
     "country": "기타(요청 10회 미만)",
-    "total": 41,
-    "earned": 40,
+    "total": 64,
+    "earned": 61,
     "dismissed": 0,
-    "no_ad": 1,
+    "no_ad": 3,
     "failed": 0,
-    "users": 21,
+    "users": 28,
     "lumped": 14,
     "finish_pct": 100.0,
-    "supply_pct": 2.4
+    "supply_pct": 4.7
    }
   ],
-  "viewers": 50,
+  "viewers": 62,
   "by_placement": [
    {
     "placement": "offline",
-    "earned": 80,
+    "earned": 127,
     "dismissed": 1,
-    "no_ad": 2,
+    "no_ad": 12,
     "failed": 0,
-    "total": 83
+    "total": 141,
+    "house": 1
    },
    {
     "placement": "boost",
-    "earned": 22,
+    "earned": 41,
     "dismissed": 1,
     "no_ad": 6,
     "failed": 0,
-    "total": 29
+    "total": 48
    },
    {
     "placement": "gem_ad",
-    "earned": 6,
+    "earned": 37,
     "dismissed": 0,
     "no_ad": 0,
     "failed": 0,
-    "total": 6
+    "total": 37
    },
    {
     "placement": "repair",
