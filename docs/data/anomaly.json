@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-19 18:12 KST",
+ "updated": "2026-11-20 06:42 KST",
  "level": "ok",
  "window_days": 7,
  "total": 15,
  "recent": 0,
- "recent_base": 223,
+ "recent_base": 168,
  "recent_rate": 0.0,
  "thresholds": {
   "warn_n": 5,
@@ -235,6 +235,18 @@
    "fake_granted": 0
   },
   {
+   "tag": "af7bdb",
+   "day": "2026-11-08",
+   "kinds": [
+    "fake_purchase"
+   ],
+   "drift_h": -0.0,
+   "burst": 2,
+   "max_pct": 32,
+   "fake": 29,
+   "fake_granted": 1
+  },
+  {
    "tag": "bca4c5",
    "day": "2026-11-08",
    "kinds": [
@@ -257,18 +269,6 @@
    "max_pct": 100,
    "fake": 24,
    "fake_granted": 24
-  },
-  {
-   "tag": "af7bdb",
-   "day": "2026-11-08",
-   "kinds": [
-    "fake_purchase"
-   ],
-   "drift_h": -0.0,
-   "burst": 2,
-   "max_pct": 32,
-   "fake": 29,
-   "fake_granted": 1
   },
   {
    "tag": "42202c",
@@ -344,18 +344,6 @@
    "fake_granted": 0
   },
   {
-   "tag": "2878b2",
-   "day": "2026-10-27",
-   "kinds": [
-    "fake_purchase"
-   ],
-   "drift_h": 0.0,
-   "burst": 0,
-   "max_pct": 0,
-   "fake": 8,
-   "fake_granted": 0
-  },
-  {
    "tag": "29fbaa",
    "day": "2026-10-27",
    "kinds": [
@@ -365,6 +353,18 @@
    "burst": 0,
    "max_pct": 0,
    "fake": 41,
+   "fake_granted": 0
+  },
+  {
+   "tag": "2878b2",
+   "day": "2026-10-27",
+   "kinds": [
+    "fake_purchase"
+   ],
+   "drift_h": 0.0,
+   "burst": 0,
+   "max_pct": 0,
+   "fake": 8,
    "fake_granted": 0
   },
   {
