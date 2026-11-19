@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-19 06:30 KST",
+ "updated": "2026-11-19 18:12 KST",
  "level": "ok",
  "window_days": 7,
  "total": 15,
  "recent": 0,
- "recent_base": 220,
+ "recent_base": 223,
  "recent_rate": 0.0,
  "thresholds": {
   "warn_n": 5,
@@ -45,12 +45,12 @@
   "dist": [
    {
     "cert": "8c4f94bc5f5be330",
-    "users": 3137,
+    "users": 3141,
     "ok": null
    },
    {
     "cert": "90008c15f5bc0e6d",
-    "users": 282,
+    "users": 284,
     "ok": null
    },
    {
@@ -68,56 +68,56 @@
  "segments": [
   {
    "seg": "전체",
-   "users": 3524,
+   "users": 3530,
    "fake": 12,
    "pct": 0.34,
    "mult": 1.0
   },
   {
    "seg": "추월 50%+",
-   "users": 27,
+   "users": 28,
    "fake": 1,
-   "pct": 3.7,
-   "mult": 10.9
+   "pct": 3.57,
+   "mult": 10.5
   },
   {
    "seg": "추월 90%+",
-   "users": 5,
+   "users": 6,
    "fake": 1,
-   "pct": 20.0,
-   "mult": 58.8
+   "pct": 16.67,
+   "mult": 49.0
   },
   {
    "seg": "추월 100%",
-   "users": 3,
+   "users": 4,
    "fake": 1,
-   "pct": 33.33,
-   "mult": 98.0
+   "pct": 25.0,
+   "mult": 73.5
   },
   {
    "seg": "2부 진입",
-   "users": 3,
+   "users": 4,
    "fake": 1,
-   "pct": 33.33,
-   "mult": 98.0
+   "pct": 25.0,
+   "mult": 73.5
   }
  ],
  "compare": {
   "normal": {
-   "users": 3512,
+   "users": 3518,
    "payers": 12,
    "pay_pct": 0.34,
-   "ads": 4.4,
-   "days": 2.8,
-   "mins": 57.7
+   "ads": 4.5,
+   "days": 2.9,
+   "mins": 58.5
   },
   "fake": {
    "users": 12,
    "payers": 1,
    "pay_pct": 8.33,
    "ads": 1.3,
-   "days": 3.0,
-   "mins": 59.6
+   "days": 3.2,
+   "mins": 61.1
   }
  },
  "reasons": [
@@ -242,7 +242,7 @@
    ],
    "drift_h": -0.0,
    "burst": 1,
-   "max_pct": 16,
+   "max_pct": 19,
    "fake": 1,
    "fake_granted": 1
   },
@@ -264,9 +264,9 @@
    "kinds": [
     "fake_purchase"
    ],
-   "drift_h": 0.0,
-   "burst": 1,
-   "max_pct": 26,
+   "drift_h": -0.0,
+   "burst": 2,
+   "max_pct": 32,
    "fake": 29,
    "fake_granted": 1
   },
@@ -291,7 +291,7 @@
    ],
    "drift_h": 248.6,
    "burst": 25,
-   "max_pct": 38,
+   "max_pct": 41,
    "fake": 0,
    "fake_granted": 0
   },
@@ -344,18 +344,6 @@
    "fake_granted": 0
   },
   {
-   "tag": "29fbaa",
-   "day": "2026-10-27",
-   "kinds": [
-    "fake_purchase"
-   ],
-   "drift_h": -0.0,
-   "burst": 0,
-   "max_pct": 0,
-   "fake": 41,
-   "fake_granted": 0
-  },
-  {
    "tag": "2878b2",
    "day": "2026-10-27",
    "kinds": [
@@ -365,6 +353,18 @@
    "burst": 0,
    "max_pct": 0,
    "fake": 8,
+   "fake_granted": 0
+  },
+  {
+   "tag": "29fbaa",
+   "day": "2026-10-27",
+   "kinds": [
+    "fake_purchase"
+   ],
+   "drift_h": -0.0,
+   "burst": 0,
+   "max_pct": 0,
+   "fake": 41,
    "fake_granted": 0
   },
   {
@@ -392,5 +392,5 @@
    "fake_granted": 6
   }
  ],
- "scan_mb": 1439.0
+ "scan_mb": 1469.0
 }
