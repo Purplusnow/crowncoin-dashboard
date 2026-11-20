@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-20 10:28 KST",
+ "updated": "2026-11-20 12:03 KST",
  "stage_labels": [
   {
    "key": "new_game",
@@ -135,19 +135,19 @@
  "tables": [
   {
    "d": "20261120",
-   "users": 182,
-   "events": 5992
+   "users": 195,
+   "events": 7410
   }
  ],
  "day": "20261120",
  "summary": {
-  "users": 182,
+  "users": 195,
   "new_users": 2,
   "first_touch_today": 2,
   "purchases": 3,
   "exceptions": 0,
   "first_at": "2026-11-20 00:00",
-  "last_at": "2026-11-20 10:25"
+  "last_at": "2026-11-20 12:03"
  },
  "acq": {
   "first_open": 2,
@@ -246,14 +246,14 @@
   {
    "tag": "fcedc0",
    "joined": "11/19 22:22",
-   "last_seen": "09:30",
-   "mins": 443.5,
-   "span": 668,
+   "last_seen": "10:55",
+   "mins": 529.0,
+   "span": 753,
    "sessions": 2,
    "off": 2,
    "off_boost": 2,
    "prog": 6.0,
-   "events": 899,
+   "events": 901,
    "ver": "1.0 (v35)",
    "country": "Ukraine",
    "reached": [
@@ -930,7 +930,7 @@
     "property_2": 1,
     "game_sale": 1,
     "first_rebirth": 1,
-    "med_min": 443.5,
+    "med_min": 529.0,
     "intro_done_pct": 100.0,
     "property_2_pct": 100.0,
     "game_sale_pct": 100.0,
@@ -989,12 +989,12 @@
   "dist": [
    {
     "cert": "8c4f94bc5f5be330",
-    "users": 157,
+    "users": 168,
     "ok": null
    },
    {
     "cert": "90008c15f5bc0e6d",
-    "users": 25,
+    "users": 27,
     "ok": null
    }
   ],
@@ -1032,11 +1032,11 @@
   ]
  },
  "ads": {
-  "total": 200,
+  "total": 251,
   "by_result": [
    {
     "result": "earned",
-    "n": 136
+    "n": 171
    },
    {
     "result": "dismissed",
@@ -1044,42 +1044,42 @@
    },
    {
     "result": "no_ad",
-    "n": 31
+    "n": 39
    },
    {
     "result": "failed",
     "n": 0
    }
   ],
-  "finish_pct": 96.5,
+  "finish_pct": 97.2,
   "supply_pct": 15.5,
   "by_country": [
    {
     "country": "South Korea",
-    "total": 69,
-    "earned": 23,
+    "total": 85,
+    "earned": 33,
     "dismissed": 0,
-    "no_ad": 23,
+    "no_ad": 26,
     "failed": 0,
-    "users": 8,
+    "users": 10,
     "finish_pct": 100.0,
-    "supply_pct": 33.3
+    "supply_pct": 30.6
    },
    {
     "country": "Japan",
-    "total": 28,
-    "earned": 24,
+    "total": 36,
+    "earned": 32,
     "dismissed": 0,
     "no_ad": 2,
     "failed": 0,
     "users": 10,
     "finish_pct": 100.0,
-    "supply_pct": 7.1
+    "supply_pct": 5.6
    },
    {
     "country": "Taiwan",
-    "total": 21,
-    "earned": 21,
+    "total": 25,
+    "earned": 25,
     "dismissed": 0,
     "no_ad": 0,
     "failed": 0,
@@ -1089,14 +1089,25 @@
    },
    {
     "country": "United States",
-    "total": 13,
-    "earned": 13,
+    "total": 23,
+    "earned": 15,
     "dismissed": 0,
-    "no_ad": 0,
+    "no_ad": 4,
     "failed": 0,
-    "users": 6,
+    "users": 7,
     "finish_pct": 100.0,
-    "supply_pct": 0.0
+    "supply_pct": 17.4
+   },
+   {
+    "country": "Vietnam",
+    "total": 14,
+    "earned": 11,
+    "dismissed": 0,
+    "no_ad": 2,
+    "failed": 0,
+    "users": 4,
+    "finish_pct": 100.0,
+    "supply_pct": 14.3
    },
    {
     "country": "India",
@@ -1133,54 +1144,54 @@
    },
    {
     "country": "기타(요청 10회 미만)",
-    "total": 35,
+    "total": 34,
     "earned": 32,
     "dismissed": 0,
-    "no_ad": 2,
+    "no_ad": 1,
     "failed": 0,
-    "users": 22,
+    "users": 21,
     "lumped": 12,
     "finish_pct": 100.0,
-    "supply_pct": 5.7
+    "supply_pct": 2.9
    }
   ],
-  "viewers": 53,
+  "viewers": 57,
   "by_placement": [
    {
     "placement": "offline",
-    "earned": 78,
+    "earned": 94,
     "dismissed": 5,
-    "no_ad": 7,
+    "no_ad": 8,
     "failed": 0,
-    "total": 94,
-    "house": 4
+    "total": 112,
+    "house": 5
    },
    {
     "placement": "gem_ad",
-    "earned": 34,
+    "earned": 46,
     "dismissed": 0,
-    "no_ad": 3,
+    "no_ad": 7,
     "failed": 0,
-    "total": 40,
-    "house": 3
+    "total": 60,
+    "house": 7
    },
    {
     "placement": "boost",
-    "earned": 23,
+    "earned": 30,
     "dismissed": 0,
-    "no_ad": 5,
+    "no_ad": 6,
     "failed": 0,
-    "total": 33,
-    "house": 5
+    "total": 42,
+    "house": 6
    },
    {
     "placement": "repair",
     "earned": 1,
     "dismissed": 0,
-    "no_ad": 16,
+    "no_ad": 18,
     "failed": 0,
-    "total": 33,
-    "house": 16
+    "total": 37,
+    "house": 18
    }
   ]
  },
