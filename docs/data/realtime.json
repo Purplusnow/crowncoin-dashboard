@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-21 10:25 KST",
+ "updated": "2026-11-21 11:27 KST",
  "stage_labels": [
   {
    "key": "new_game",
@@ -135,19 +135,19 @@
  "tables": [
   {
    "d": "20261121",
-   "users": 179,
-   "events": 5791
+   "users": 192,
+   "events": 6654
   }
  ],
  "day": "20261121",
  "summary": {
-  "users": 179,
+  "users": 192,
   "new_users": 6,
   "first_touch_today": 6,
   "purchases": 0,
   "exceptions": 0,
   "first_at": "2026-11-21 00:00",
-  "last_at": "2026-11-21 10:24"
+  "last_at": "2026-11-21 11:26"
  },
  "acq": {
   "first_open": 6,
@@ -945,12 +945,12 @@
   "dist": [
    {
     "cert": "8c4f94bc5f5be330",
-    "users": 153,
+    "users": 165,
     "ok": null
    },
    {
     "cert": "90008c15f5bc0e6d",
-    "users": 26,
+    "users": 27,
     "ok": null
    }
   ],
@@ -988,11 +988,11 @@
   ]
  },
  "ads": {
-  "total": 159,
+  "total": 210,
   "by_result": [
    {
     "result": "earned",
-    "n": 142
+    "n": 174
    },
    {
     "result": "dismissed",
@@ -1000,100 +1000,123 @@
    },
    {
     "result": "no_ad",
-    "n": 13
+    "n": 23
    },
    {
     "result": "failed",
     "n": 0
    }
   ],
-  "finish_pct": 99.3,
-  "supply_pct": 8.2,
+  "finish_pct": 99.4,
+  "supply_pct": 11.0,
   "by_country": [
    {
+    "country": "South Korea",
+    "total": 43,
+    "earned": 33,
+    "dismissed": 0,
+    "no_ad": 5,
+    "failed": 0,
+    "users": 9,
+    "finish_pct": 100.0,
+    "supply_pct": 11.6
+   },
+   {
     "country": "Japan",
-    "total": 33,
-    "earned": 31,
+    "total": 36,
+    "earned": 34,
     "dismissed": 0,
     "no_ad": 1,
     "failed": 0,
-    "users": 12,
+    "users": 13,
     "finish_pct": 100.0,
-    "supply_pct": 3.0
+    "supply_pct": 2.8
    },
    {
     "country": "Taiwan",
-    "total": 27,
-    "earned": 21,
+    "total": 34,
+    "earned": 28,
     "dismissed": 0,
     "no_ad": 6,
     "failed": 0,
-    "users": 11,
+    "users": 12,
     "finish_pct": 100.0,
-    "supply_pct": 22.2
-   },
-   {
-    "country": "South Korea",
-    "total": 23,
-    "earned": 23,
-    "dismissed": 0,
-    "no_ad": 0,
-    "failed": 0,
-    "users": 7,
-    "finish_pct": 100.0,
-    "supply_pct": 0.0
+    "supply_pct": 17.6
    },
    {
     "country": "Vietnam",
-    "total": 14,
-    "earned": 11,
+    "total": 20,
+    "earned": 17,
     "dismissed": 0,
     "no_ad": 3,
     "failed": 0,
     "users": 6,
     "finish_pct": 100.0,
-    "supply_pct": 21.4
+    "supply_pct": 15.0
    },
    {
-    "country": "기타(요청 10회 미만)",
-    "total": 62,
-    "earned": 56,
-    "dismissed": 1,
-    "no_ad": 3,
+    "country": "United States",
+    "total": 17,
+    "earned": 7,
+    "dismissed": 0,
+    "no_ad": 5,
     "failed": 0,
-    "users": 28,
-    "lumped": 15,
-    "finish_pct": 98.2,
-    "supply_pct": 4.8
-   }
-  ],
-  "viewers": 55,
-  "by_placement": [
-   {
-    "placement": "offline",
-    "earned": 97,
-    "dismissed": 1,
-    "no_ad": 12,
-    "failed": 0,
-    "total": 112,
-    "house": 2
+    "users": 3,
+    "finish_pct": 100.0,
+    "supply_pct": 29.4
    },
    {
-    "placement": "boost",
-    "earned": 26,
+    "country": "Colombia",
+    "total": 11,
+    "earned": 10,
     "dismissed": 0,
     "no_ad": 1,
     "failed": 0,
-    "total": 28,
-    "house": 1
+    "users": 3,
+    "finish_pct": 100.0,
+    "supply_pct": 9.1
+   },
+   {
+    "country": "기타(요청 10회 미만)",
+    "total": 49,
+    "earned": 45,
+    "dismissed": 1,
+    "no_ad": 2,
+    "failed": 0,
+    "users": 24,
+    "lumped": 13,
+    "finish_pct": 97.8,
+    "supply_pct": 4.1
+   }
+  ],
+  "viewers": 58,
+  "by_placement": [
+   {
+    "placement": "offline",
+    "earned": 110,
+    "dismissed": 1,
+    "no_ad": 14,
+    "failed": 0,
+    "total": 128,
+    "house": 3
    },
    {
     "placement": "gem_ad",
-    "earned": 18,
+    "earned": 29,
     "dismissed": 0,
-    "no_ad": 0,
+    "no_ad": 6,
     "failed": 0,
-    "total": 18
+    "total": 41,
+    "house": 6
+   },
+   {
+    "placement": "boost",
+    "earned": 34,
+    "dismissed": 0,
+    "no_ad": 3,
+    "failed": 0,
+    "total": 40,
+    "house": 3
    },
    {
     "placement": "city_supply",
